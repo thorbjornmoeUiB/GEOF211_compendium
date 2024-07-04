@@ -5,9 +5,9 @@ format: jb-book
 root: intro
 chapters:
 - file: Prerequisites/Introduction.md
-sections:
-- file: Prerequisites/Complex_numbers.md
-- file: prerequisites/Fourier_transforms.md
+ sections:
+ - file: Prerequisites/Complex_numbers.md
+ - file: prerequisites/Fourier_transforms.md
 #- file: markdown
 #- file: notebooks
 #- file: markdown-notebooks
