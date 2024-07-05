@@ -5,7 +5,8 @@ Here, you can find useful identities regarding trigonometric functions, complex 
 
 ## Trigonometric identities
 
-Pythagorean indentity:
+#### Pythagorean indentity:
+
 $$
 \sin^2 x+\cos^2 x=1
 $$ (eq:Trig_pythagoras)

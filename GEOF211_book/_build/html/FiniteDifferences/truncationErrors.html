@@ -393,26 +393,26 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="truncation-error">
 <span id="finite-differences-truncation-error"></span><h1>Truncation Error<a class="headerlink" href="#truncation-error" title="Link to this heading">#</a></h1>
-<p>The accuracy of the algebraic approximation to <span class="math notranslate nohighlight">\(du/dt\)</span> <a class="reference internal" href="algebraicDerivative.html#equation-eq-discretederivative">(18)</a> can be determined with the help of the Taylor series expansion of <span class="math notranslate nohighlight">\(u(t)\)</span>:</p>
+<p>The accuracy of the algebraic approximation to <span class="math notranslate nohighlight">\(du/dt\)</span> <a class="reference internal" href="algebraicDerivative.html#equation-eq-discretederivative">(19)</a> can be determined with the help of the Taylor series expansion of <span class="math notranslate nohighlight">\(u(t)\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-taylorseries">
-<span class="eqno">(19)<a class="headerlink" href="#equation-eq-taylorseries" title="Link to this equation">#</a></span>\[
+<span class="eqno">(20)<a class="headerlink" href="#equation-eq-taylorseries" title="Link to this equation">#</a></span>\[
 u(t+\Delta t)=u(t)+\Delta t\frac{du}{dt} + \displaystyle\sum_{p=2}^{\infty} \frac{\Delta t^p}{p!}\frac{d^pu}{dt^p}
 \]</div>
 <p>Rearranging for <span class="math notranslate nohighlight">\(du/dt\)</span>, we obtain, using the discretized <span class="math notranslate nohighlight">\(t^n\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-fdexpansion">
-<span class="eqno">(20)<a class="headerlink" href="#equation-eq-fdexpansion" title="Link to this equation">#</a></span>\[
+<span class="eqno">(21)<a class="headerlink" href="#equation-eq-fdexpansion" title="Link to this equation">#</a></span>\[
 \frac{du}{dt} = \frac{u^{n+1}-u^n}{\Delta t} - \displaystyle\sum_{p=2}^{\infty} \frac{\Delta t^{p-1}}{p!}\frac{d^pu}{dt^p}.
 \]</div>
-<p>The difference between the exact derivative <a class="reference internal" href="algebraicDerivative.html#equation-eq-exactderivative">(16)</a> and our algebraic approximation <a class="reference internal" href="algebraicDerivative.html#equation-eq-discretederivative">(18)</a> is the second term of the right hand side of <a class="reference internal" href="#equation-eq-fdexpansion">(20)</a>. Expanding this term up to <span class="math notranslate nohighlight">\(p=3\)</span>, we see its general form:</p>
+<p>The difference between the exact derivative <a class="reference internal" href="algebraicDerivative.html#equation-eq-exactderivative">(17)</a> and our algebraic approximation <a class="reference internal" href="algebraicDerivative.html#equation-eq-discretederivative">(19)</a> is the second term of the right hand side of <a class="reference internal" href="#equation-eq-fdexpansion">(21)</a>. Expanding this term up to <span class="math notranslate nohighlight">\(p=3\)</span>, we see its general form:</p>
 <div class="math notranslate nohighlight" id="equation-eq-truncationerror">
-<span class="eqno">(21)<a class="headerlink" href="#equation-eq-truncationerror" title="Link to this equation">#</a></span>\[
+<span class="eqno">(22)<a class="headerlink" href="#equation-eq-truncationerror" title="Link to this equation">#</a></span>\[
 \frac{\Delta t}{2!}\frac{d^2u}{dt^2}+\frac{\Delta t^2}{3!}\frac{d^3u}{dt^3}+O(\Delta t^3),
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(O(\Delta t^3)\)</span> represents terms proportional to <span class="math notranslate nohighlight">\(\Delta t^3\)</span> and to higher powers of <span class="math notranslate nohighlight">\(\Delta t\)</span>.</p>
-<p>Expression <a class="reference internal" href="#equation-eq-truncationerror">(21)</a> is the <strong>truncation error</strong>, which is the error we incurr when we approximate the exact derivative <a class="reference internal" href="algebraicDerivative.html#equation-eq-exactderivative">(16)</a> with the algebraic expression <a class="reference internal" href="algebraicDerivative.html#equation-eq-discretederivative">(18)</a>.</p>
-<p>The algebraic approximation <a class="reference internal" href="algebraicDerivative.html#equation-eq-discretederivative">(18)</a> can thus be written as:</p>
+<p>Expression <a class="reference internal" href="#equation-eq-truncationerror">(22)</a> is the <strong>truncation error</strong>, which is the error we incurr when we approximate the exact derivative <a class="reference internal" href="algebraicDerivative.html#equation-eq-exactderivative">(17)</a> with the algebraic expression <a class="reference internal" href="algebraicDerivative.html#equation-eq-discretederivative">(19)</a>.</p>
+<p>The algebraic approximation <a class="reference internal" href="algebraicDerivative.html#equation-eq-discretederivative">(19)</a> can thus be written as:</p>
 <div class="math notranslate nohighlight" id="equation-eq-discretederiavtiveerror">
-<span class="eqno">(22)<a class="headerlink" href="#equation-eq-discretederiavtiveerror" title="Link to this equation">#</a></span>\[
+<span class="eqno">(23)<a class="headerlink" href="#equation-eq-discretederiavtiveerror" title="Link to this equation">#</a></span>\[
 \frac{du}{dt} = \frac{u^{n+1}-u^n}{\Delta t} + O(\Delta t),
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(O(\Delta t)\)</span> represents the truncation error of the approximation, whose first term, the <em>leading order</em> term is proportional to <span class="math notranslate nohighlight">\(\Delta t\)</span>. Since the leading order term is proportional to the first power of <span class="math notranslate nohighlight">\(\Delta t\)</span>, we say that this approximation is a <em>first order</em> approximation to the first derivative.</p>

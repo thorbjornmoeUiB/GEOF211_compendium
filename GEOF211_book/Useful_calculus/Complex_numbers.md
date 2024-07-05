@@ -44,13 +44,13 @@ z=x+iy
 $$ (eq:Complex_def)
 
 $$
-\abs{z}^2=x^2+y^2
+|z|^2=x^2+y^2
 $$ (eq:Complex_norm_squared)
 
 #### The triangle inequality
 If $z$ and $w$ are two complex numbers:
 $$
-\abs{z+w}<\abs{z}+\abs{w}
+|z+w|<|z+|w|
 $$ (eq:Complex_triangle_identity)
 
 

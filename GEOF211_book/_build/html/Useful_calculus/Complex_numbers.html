@@ -390,6 +390,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trigonometric-identities">Trigonometric identities</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pythagorean-indentity">Pythagorean indentity:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sine-and-cosine-additive-identities">Sine and cosine additive identities</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#double-angle-formulas">Double angle formulas</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#half-angle-formulas">Half angle formulas</a></li>
@@ -425,40 +426,43 @@ document.write(`
 <p>Here, you can find useful identities regarding trigonometric functions, complex numbers, and the Euler formula. These will be useful later when working on von Neumann stability analysis of finite difference schemes.</p>
 <section id="trigonometric-identities">
 <h2>Trigonometric identities<a class="headerlink" href="#trigonometric-identities" title="Link to this heading">#</a></h2>
-<p>Pythagorean indentity:
-$<span class="math notranslate nohighlight">\(
+<section id="pythagorean-indentity">
+<h3>Pythagorean indentity:<a class="headerlink" href="#pythagorean-indentity" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight" id="equation-eq-trig-pythagoras">
+<span class="eqno">(1)<a class="headerlink" href="#equation-eq-trig-pythagoras" title="Link to this equation">#</a></span>\[
 \sin^2 x+\cos^2 x=1
-\)</span>$ (eq:Trig_pythagoras)</p>
+\]</div>
+</section>
 <section id="sine-and-cosine-additive-identities">
 <h3>Sine and cosine additive identities<a class="headerlink" href="#sine-and-cosine-additive-identities" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight" id="equation-eq-trig-sine-add">
-<span class="eqno">(1)<a class="headerlink" href="#equation-eq-trig-sine-add" title="Link to this equation">#</a></span>\[
+<span class="eqno">(2)<a class="headerlink" href="#equation-eq-trig-sine-add" title="Link to this equation">#</a></span>\[
 \sin(x+y)=\sin x\cos y+\cos x\sin y
 \]</div>
 <div class="math notranslate nohighlight" id="equation-eq-trig-cos-add">
-<span class="eqno">(2)<a class="headerlink" href="#equation-eq-trig-cos-add" title="Link to this equation">#</a></span>\[
+<span class="eqno">(3)<a class="headerlink" href="#equation-eq-trig-cos-add" title="Link to this equation">#</a></span>\[
 \cos(x+y)=\cos x\cos y-\sin x\sin y
 \]</div>
 </section>
 <section id="double-angle-formulas">
 <h3>Double angle formulas<a class="headerlink" href="#double-angle-formulas" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight" id="equation-eq-trig-sine-double">
-<span class="eqno">(3)<a class="headerlink" href="#equation-eq-trig-sine-double" title="Link to this equation">#</a></span>\[
+<span class="eqno">(4)<a class="headerlink" href="#equation-eq-trig-sine-double" title="Link to this equation">#</a></span>\[
 \sin(2x)=2\sin x\cos x
 \]</div>
 <div class="math notranslate nohighlight" id="equation-eq-trig-cosine-double">
-<span class="eqno">(4)<a class="headerlink" href="#equation-eq-trig-cosine-double" title="Link to this equation">#</a></span>\[
+<span class="eqno">(5)<a class="headerlink" href="#equation-eq-trig-cosine-double" title="Link to this equation">#</a></span>\[
 \cos(2x)=\cos^2 x-\sin^2 x=2cos^2 x-1=1-2\sin^2x
 \]</div>
 </section>
 <section id="half-angle-formulas">
 <h3>Half angle formulas<a class="headerlink" href="#half-angle-formulas" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight" id="equation-eq-trig-sine-half">
-<span class="eqno">(5)<a class="headerlink" href="#equation-eq-trig-sine-half" title="Link to this equation">#</a></span>\[
+<span class="eqno">(6)<a class="headerlink" href="#equation-eq-trig-sine-half" title="Link to this equation">#</a></span>\[
 \sin(\frac{x}{2})=\pm \sqrt{\frac{1-\cos x}{2}}
 \]</div>
 <div class="math notranslate nohighlight" id="equation-eq-trig-cosine-half">
-<span class="eqno">(6)<a class="headerlink" href="#equation-eq-trig-cosine-half" title="Link to this equation">#</a></span>\[
+<span class="eqno">(7)<a class="headerlink" href="#equation-eq-trig-cosine-half" title="Link to this equation">#</a></span>\[
 \cos(\frac{x}{2})=\pm \sqrt{\frac{1+\cos x}{2}}
 \]</div>
 </section>
@@ -466,11 +470,11 @@ $<span class="math notranslate nohighlight">\(
 <section id="complex-numbers">
 <h2>Complex numbers<a class="headerlink" href="#complex-numbers" title="Link to this heading">#</a></h2>
 <div class="math notranslate nohighlight" id="equation-eq-complex-def">
-<span class="eqno">(7)<a class="headerlink" href="#equation-eq-complex-def" title="Link to this equation">#</a></span>\[
+<span class="eqno">(8)<a class="headerlink" href="#equation-eq-complex-def" title="Link to this equation">#</a></span>\[
 z=x+iy
 \]</div>
 <div class="math notranslate nohighlight" id="equation-eq-complex-norm-squared">
-<span class="eqno">(8)<a class="headerlink" href="#equation-eq-complex-norm-squared" title="Link to this equation">#</a></span>\[
+<span class="eqno">(9)<a class="headerlink" href="#equation-eq-complex-norm-squared" title="Link to this equation">#</a></span>\[
 \abs{z}^2=x^2+y^2
 \]</div>
 <section id="the-triangle-inequality">
@@ -486,49 +490,49 @@ $<span class="math notranslate nohighlight">\(
 <section id="eulers-identity">
 <h3>Eulers identity<a class="headerlink" href="#eulers-identity" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight" id="equation-eq-euler-identity">
-<span class="eqno">(9)<a class="headerlink" href="#equation-eq-euler-identity" title="Link to this equation">#</a></span>\[
+<span class="eqno">(10)<a class="headerlink" href="#equation-eq-euler-identity" title="Link to this equation">#</a></span>\[
 e^{i\pi}+1=0
 \]</div>
 </section>
 <section id="eulers-formula">
 <h3>Eulers formula<a class="headerlink" href="#eulers-formula" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight" id="equation-eq-euler">
-<span class="eqno">(10)<a class="headerlink" href="#equation-eq-euler" title="Link to this equation">#</a></span>\[
+<span class="eqno">(11)<a class="headerlink" href="#equation-eq-euler" title="Link to this equation">#</a></span>\[
 e^{ix}=\cos x+i\sin x
 \]</div>
 </section>
 <section id="cosine-exponential-form">
 <h3>Cosine exponential form<a class="headerlink" href="#cosine-exponential-form" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight" id="equation-eq-euler-cos">
-<span class="eqno">(11)<a class="headerlink" href="#equation-eq-euler-cos" title="Link to this equation">#</a></span>\[
+<span class="eqno">(12)<a class="headerlink" href="#equation-eq-euler-cos" title="Link to this equation">#</a></span>\[
 \frac{e^{ix}+e^{-ix}}{2}=\cos )
 \]</div>
 </section>
 <section id="sine-exponential-form">
 <h3>Sine exponential form<a class="headerlink" href="#sine-exponential-form" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight" id="equation-eq-euler-sin">
-<span class="eqno">(12)<a class="headerlink" href="#equation-eq-euler-sin" title="Link to this equation">#</a></span>\[
+<span class="eqno">(13)<a class="headerlink" href="#equation-eq-euler-sin" title="Link to this equation">#</a></span>\[
 \frac{e^{ix}-e^{-ix}}{2i}=\sin x
 \]</div>
 </section>
 <section id="tangent-exponential-form">
 <h3>Tangent exponential form<a class="headerlink" href="#tangent-exponential-form" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight" id="equation-eq-euler-tan">
-<span class="eqno">(13)<a class="headerlink" href="#equation-eq-euler-tan" title="Link to this equation">#</a></span>\[
+<span class="eqno">(14)<a class="headerlink" href="#equation-eq-euler-tan" title="Link to this equation">#</a></span>\[
 \frac{e^{ix}-e^{-1x}}{i(e^{ix}+e^{-1x})}=\tan x
 \]</div>
 </section>
 <section id="complex-exponential">
 <h3>Complex exponential<a class="headerlink" href="#complex-exponential" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight" id="equation-eq-euler-complex-exp">
-<span class="eqno">(14)<a class="headerlink" href="#equation-eq-euler-complex-exp" title="Link to this equation">#</a></span>\[
+<span class="eqno">(15)<a class="headerlink" href="#equation-eq-euler-complex-exp" title="Link to this equation">#</a></span>\[
 e^{x+iy}=e^x(\cos y+i\sin y)
 \]</div>
 </section>
 <section id="de-moivre-s-theorem">
 <h3>de Moivre’s theorem<a class="headerlink" href="#de-moivre-s-theorem" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight" id="equation-eq-euler-sine-add">
-<span class="eqno">(15)<a class="headerlink" href="#equation-eq-euler-sine-add" title="Link to this equation">#</a></span>\[
+<span class="eqno">(16)<a class="headerlink" href="#equation-eq-euler-sine-add" title="Link to this equation">#</a></span>\[
 (\cos x+i\sin x)^n=\cos nx+i\sin nx
 \]</div>
 </section>
@@ -600,6 +604,7 @@ e^{x+iy}=e^x(\cos y+i\sin y)
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trigonometric-identities">Trigonometric identities</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pythagorean-indentity">Pythagorean indentity:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sine-and-cosine-additive-identities">Sine and cosine additive identities</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#double-angle-formulas">Double angle formulas</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#half-angle-formulas">Half angle formulas</a></li>
