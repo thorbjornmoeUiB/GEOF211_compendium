@@ -62,6 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Useful_calculus/Fourier_transforms';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The finite difference method (FDM)" href="../FiniteDifferences/Introduction.html" />
+    <link rel="prev" title="Useful identities for dealing with trigonometry and complex numbers" href="Complex_numbers.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -124,8 +126,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -181,9 +181,10 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="Introduction.html">Useful calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">Useful calculus</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Complex_numbers.html">Useful identities for dealing with trigonometry and complex numbers</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Fourier transforms</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../FiniteDifferences/Introduction.html">The finite difference method (FDM)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -406,26 +407,32 @@ document.write(`
 <span id="useful-calculus-fourier-transforms"></span><h1>Fourier transforms<a class="headerlink" href="#fourier-transforms" title="Link to this heading">#</a></h1>
 <section id="superposition-of-waves">
 <h2>Superposition of waves<a class="headerlink" href="#superposition-of-waves" title="Link to this heading">#</a></h2>
-<p>When two or more waves meet, for example when two different boats pass each other, the waves will overlap in space, and the surface displacement (amplitude) will, at any point, be the sum of the surface displacement for the individual waves.</p>
+<p>When two or more waves meet, for example when two boats pass each other, their wake waves will overlap in space. The surface displacement (amplitude) will, at any point, be the sum of the surface displacement for the individual waves.</p>
+<p>When looking at the ocean surface, the surface elevation can be regarded as the sum of (superposition) of many waves of different frequencies and phases.</p>
 <p>Insert figure of individual waves and the superposition</p>
 </section>
 <section id="time-domain-versus-frequency-domain-the-fourier-series">
 <h2>Time domain versus frequency domain - The Fourier Series<a class="headerlink" href="#time-domain-versus-frequency-domain-the-fourier-series" title="Link to this heading">#</a></h2>
-<p>A data signal can be represented in either a time domain or a frequency domain. The time domain is typically what you are measuring and what you are used to seeing, e.g., how temperature changes with time, with many local minima and maxima (ADD FIG EXAMPLE). We can approximate this signal by a superposition of many different waves with different frequencies, amplitudes, and phases. The more frequencies we include in the superposition, the better the approximation is. The amplitude of each wave in the superposition, can be derived from the following equation:</p>
+<p>A data signal can be represented in either a time domain or a frequency domain.</p>
+<p>The time domain represents how the signal (for example air temperature, <span class="math notranslate nohighlight">\(T\)</span>) is changing with time, <span class="math notranslate nohighlight">\(t\)</span>. The time is running along the horizontal axis and the temperature is in the vertical axis. Mathematically, we would say that the temperature is a function of time, <span class="math notranslate nohighlight">\(T(t)\)</span>.</p>
+<p>To get a meaningful interpretation of the frequency domain, we must first approximate this signal by a superposition of many waves with different frequencies, amplitudes, and phases. The more frequencies we include in the superposition, the better the approximation is.</p>
+<p>The amplitude of each wave in the superposition, can be derived from the following equation:</p>
 <div class="math notranslate nohighlight" id="equation-eq-fourier-series-amplitude">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-fourier-series-amplitude" title="Link to this equation">#</a></span>\[
+<span class="eqno">(18)<a class="headerlink" href="#equation-eq-fourier-series-amplitude" title="Link to this equation">#</a></span>\[
 c_n=\frac{1}{T}\int_{-t/2}^{T/2}f(x)e^{-12\pi\frac{n}{T}x}dx
 \]</div>
 <p>The approximated signal is called the Fourier series, and is calculated from:</p>
 <div class="math notranslate nohighlight" id="equation-eq-fourier-series">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-fourier-series" title="Link to this equation">#</a></span>\[
-f(x)=\sum_{n=-\infty}^\infty c_n e^{i2\pi\frac{n}{T}x}, x\in[-T/2,T/2]
+<span class="eqno">(19)<a class="headerlink" href="#equation-eq-fourier-series" title="Link to this equation">#</a></span>\[
+f(t)=\sum_{n=-\infty}^\infty c_n e^{i2\pi\frac{n}{T}t}, t\in[-T/2,T/2]
 \]</div>
-<p>When we have created our approximated signal, we can calculate the amount of energy (wave amplitude) related to each frequency. The result is a function that dsiplays the energy as a function of frequency. This function is called the Fourier transform:</p>
+<p>When we have created our approximated signal, we can calculate the amount of energy (wave amplitude) related to each frequency. The result is a function that displays the energy as a function of frequency. This is how our signal looks in the frequency domain, and this function is called the Fourier transform:</p>
 <div class="math notranslate nohighlight" id="equation-eq-fourier-transform">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-fourier-transform" title="Link to this equation">#</a></span>\[
-\hat{f(\k)}=\int_{-\infty}^\infty f(x)e^{-i2\pi\k x}dx
+<span class="eqno">(20)<a class="headerlink" href="#equation-eq-fourier-transform" title="Link to this equation">#</a></span>\[
+\hat{f(\t)}=\int_{-\infty}^\infty f(t)e^{-i2\pi\k t}dt
 \]</div>
+<p>Here, the function <span class="math notranslate nohighlight">\(\hat{f(\k)}\)</span> represent energy as a function of wave number <span class="math notranslate nohighlight">\(k\)</span>, defined as <span class="math notranslate nohighlight">\(1/L\)</span>, where L is the wavelength.</p>
+<p>If the signal consisted of just one pure sine wave, the graph of <span class="math notranslate nohighlight">\(\hat{f(\k)}\)</span> would contain a single spike at the frequency of this sine wave.</p>
 </section>
 </section>
 
@@ -459,6 +466,24 @@ f(x)=\sum_{n=-\infty}^\infty c_n e^{i2\pi\frac{n}{T}x}, x\in[-T/2,T/2]
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="Complex_numbers.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Useful identities for dealing with trigonometry and complex numbers</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../FiniteDifferences/Introduction.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">The finite difference method (FDM)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
