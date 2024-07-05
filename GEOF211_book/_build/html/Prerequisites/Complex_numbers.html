@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Useful identities for dealing with complex numbers &#8212; My sample book</title>
+    <title>Useful identities for dealing with trigonometry and complex numbers &#8212; My sample book</title>
   
   
   
@@ -57,6 +57,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Prerequisites/Complex_numbers';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -181,7 +183,7 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">Prerequisites (useful to know)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Useful identities for dealing with complex numbers</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Useful identities for dealing with trigonometry and complex numbers</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../FiniteDifferences/Introduction.html">The finite difference method (FDM)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -364,7 +366,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -375,11 +379,39 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Useful identities for dealing with complex numbers</h1>
+    <h1>Useful identities for dealing with trigonometry and complex numbers</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trigonometric-identities">Trigonometric identities</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pythagorean-indentity">Pythagorean indentity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sine-and-cosine-additive-identities">Sine and cosine additive identities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#double-angle-formulas">Double angle formulas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#half-angle-formulas">Half angle formulas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-numbers">Complex numbers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-triangle-inequality">The triangle inequality</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-euler-formula-and-modifications">The Euler formula and modifications</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eulers-identity">Eulers identity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eulers-formula">Eulers formula</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cosine-exponential-form">Cosine exponential form</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sine-exponential-form">Sine exponential form</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tangent-exponential-form">Tangent exponential form</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-exponential">Complex exponential</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#de-moivre-s-theorem">de Moivre’s theorem</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -389,9 +421,122 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="useful-identities-for-dealing-with-complex-numbers">
-<span id="prerequisites-complex-numbers"></span><h1>Useful identities for dealing with complex numbers<a class="headerlink" href="#useful-identities-for-dealing-with-complex-numbers" title="Link to this heading">#</a></h1>
-<p>Some text and equations for useful manipulations of complex numbers</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="useful-identities-for-dealing-with-trigonometry-and-complex-numbers">
+<span id="prerequisites-complex-numbers"></span><h1>Useful identities for dealing with trigonometry and complex numbers<a class="headerlink" href="#useful-identities-for-dealing-with-trigonometry-and-complex-numbers" title="Link to this heading">#</a></h1>
+<p>Here, you can find useful identities regarding trigonometric functions, complex numbers, and the Euler formula. These will be useful later when working on von Neumann stability analysis of finite difference schemes.</p>
+<section id="trigonometric-identities">
+<h2>Trigonometric identities<a class="headerlink" href="#trigonometric-identities" title="Link to this heading">#</a></h2>
+<section id="pythagorean-indentity">
+<h3>Pythagorean indentity<a class="headerlink" href="#pythagorean-indentity" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight" id="equation-eq-trig-pythagoras">
+<span class="eqno">(1)<a class="headerlink" href="#equation-eq-trig-pythagoras" title="Link to this equation">#</a></span>\[
+\sin^2 x+\cos^2 x=1
+\]</div>
+</section>
+<section id="sine-and-cosine-additive-identities">
+<h3>Sine and cosine additive identities<a class="headerlink" href="#sine-and-cosine-additive-identities" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight" id="equation-eq-trig-sine-add">
+<span class="eqno">(2)<a class="headerlink" href="#equation-eq-trig-sine-add" title="Link to this equation">#</a></span>\[
+\sin(x+y)=\sin x\cos y+\cos x\sin y
+\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-trig-cos-add">
+<span class="eqno">(3)<a class="headerlink" href="#equation-eq-trig-cos-add" title="Link to this equation">#</a></span>\[
+\cos(x+y)=\cos x\cos y-\sin x\sin y
+\]</div>
+</section>
+<section id="double-angle-formulas">
+<h3>Double angle formulas<a class="headerlink" href="#double-angle-formulas" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight" id="equation-eq-trig-sine-double">
+<span class="eqno">(4)<a class="headerlink" href="#equation-eq-trig-sine-double" title="Link to this equation">#</a></span>\[
+\sin(2x)=2\sin x\cos x
+\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-trig-cosine-double">
+<span class="eqno">(5)<a class="headerlink" href="#equation-eq-trig-cosine-double" title="Link to this equation">#</a></span>\[
+\cos(2x)=\cos^2 x-\sin^2 x=2cos^2 x-1=1-2\sin^2x
+\]</div>
+</section>
+<section id="half-angle-formulas">
+<h3>Half angle formulas<a class="headerlink" href="#half-angle-formulas" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight" id="equation-eq-trig-sine-half">
+<span class="eqno">(6)<a class="headerlink" href="#equation-eq-trig-sine-half" title="Link to this equation">#</a></span>\[
+\sin(\frac{x}{2})=\pm \sqrt{\frac{1-\cos x}{2}}
+\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-trig-cosine-half">
+<span class="eqno">(7)<a class="headerlink" href="#equation-eq-trig-cosine-half" title="Link to this equation">#</a></span>\[
+\cos(\frac{x}{2})=\pm \sqrt{\frac{1+\cos x}{2}}
+\]</div>
+</section>
+</section>
+<section id="complex-numbers">
+<h2>Complex numbers<a class="headerlink" href="#complex-numbers" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight" id="equation-eq-complex-def">
+<span class="eqno">(8)<a class="headerlink" href="#equation-eq-complex-def" title="Link to this equation">#</a></span>\[
+z=x+iy
+\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-complex-norm-squared">
+<span class="eqno">(9)<a class="headerlink" href="#equation-eq-complex-norm-squared" title="Link to this equation">#</a></span>\[
+\abs(z)^2=x^2+y^2
+\]</div>
+<section id="the-triangle-inequality">
+<h3>The triangle inequality<a class="headerlink" href="#the-triangle-inequality" title="Link to this heading">#</a></h3>
+<p>If <span class="math notranslate nohighlight">\(z\)</span> and <span class="math notranslate nohighlight">\(w\)</span> are two complex numbers:
+$<span class="math notranslate nohighlight">\(
+\abs(z+w)&lt;\abs(z)+\abs(w)
+\)</span>$ (eq:Complex_triangle_identity)</p>
+</section>
+</section>
+<section id="the-euler-formula-and-modifications">
+<h2>The Euler formula and modifications<a class="headerlink" href="#the-euler-formula-and-modifications" title="Link to this heading">#</a></h2>
+<section id="eulers-identity">
+<h3>Eulers identity<a class="headerlink" href="#eulers-identity" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight" id="equation-eq-euler-identity">
+<span class="eqno">(10)<a class="headerlink" href="#equation-eq-euler-identity" title="Link to this equation">#</a></span>\[
+e^{i\pi}+1=0
+\]</div>
+</section>
+<section id="eulers-formula">
+<h3>Eulers formula<a class="headerlink" href="#eulers-formula" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight" id="equation-eq-euler">
+<span class="eqno">(11)<a class="headerlink" href="#equation-eq-euler" title="Link to this equation">#</a></span>\[
+e^{ix}=\cos x+i\sin x
+\]</div>
+</section>
+<section id="cosine-exponential-form">
+<h3>Cosine exponential form<a class="headerlink" href="#cosine-exponential-form" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight" id="equation-eq-euler-cos">
+<span class="eqno">(12)<a class="headerlink" href="#equation-eq-euler-cos" title="Link to this equation">#</a></span>\[
+\frac{e^{ix}+e^{-ix}}{2}=\cos )
+\]</div>
+</section>
+<section id="sine-exponential-form">
+<h3>Sine exponential form<a class="headerlink" href="#sine-exponential-form" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight" id="equation-eq-euler-sin">
+<span class="eqno">(13)<a class="headerlink" href="#equation-eq-euler-sin" title="Link to this equation">#</a></span>\[
+\frac{e^{ix}-e^{-ix}}{2i}=\sin x
+\]</div>
+</section>
+<section id="tangent-exponential-form">
+<h3>Tangent exponential form<a class="headerlink" href="#tangent-exponential-form" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight" id="equation-eq-euler-tan">
+<span class="eqno">(14)<a class="headerlink" href="#equation-eq-euler-tan" title="Link to this equation">#</a></span>\[
+\frac{e^{ix}-e^{-1x}}{i(e^{ix}+e^{-1x})}=\tan x
+\]</div>
+</section>
+<section id="complex-exponential">
+<h3>Complex exponential<a class="headerlink" href="#complex-exponential" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight" id="equation-eq-euler-complex-exp">
+<span class="eqno">(15)<a class="headerlink" href="#equation-eq-euler-complex-exp" title="Link to this equation">#</a></span>\[
+e^{x+iy}=e^x(\cos y+i\sin y)
+\]</div>
+</section>
+<section id="de-moivre-s-theorem">
+<h3>de Moivre’s theorem<a class="headerlink" href="#de-moivre-s-theorem" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight" id="equation-eq-euler-sine-add">
+<span class="eqno">(16)<a class="headerlink" href="#equation-eq-euler-sine-add" title="Link to this equation">#</a></span>\[
+(\cos x+i\sin x)^n=\cos nx+i\sin nx
+\]</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -448,6 +593,41 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trigonometric-identities">Trigonometric identities</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pythagorean-indentity">Pythagorean indentity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sine-and-cosine-additive-identities">Sine and cosine additive identities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#double-angle-formulas">Double angle formulas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#half-angle-formulas">Half angle formulas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-numbers">Complex numbers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-triangle-inequality">The triangle inequality</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-euler-formula-and-modifications">The Euler formula and modifications</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eulers-identity">Eulers identity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eulers-formula">Eulers formula</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cosine-exponential-form">Cosine exponential form</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sine-exponential-form">Sine exponential form</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tangent-exponential-form">Tangent exponential form</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-exponential">Complex exponential</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#de-moivre-s-theorem">de Moivre’s theorem</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

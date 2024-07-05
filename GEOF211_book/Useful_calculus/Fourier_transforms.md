@@ -1,4 +1,4 @@
-(Prerequisites:Fourier Transforms)=
+(Useful_calculus:Fourier Transforms)=
 # Fourier transforms
 
 ## Superposition of waves
