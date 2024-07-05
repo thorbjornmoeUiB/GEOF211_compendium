@@ -1,5 +1,5 @@
-(Prerequisites:intro)=
-# Prerequisites (useful to know)
+(Useful calculus:intro)=
+# Useful calculus
 
 Some general text on Introduction
 
