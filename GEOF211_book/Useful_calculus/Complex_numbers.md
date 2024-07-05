@@ -1,4 +1,4 @@
-(Useful_calculus:Complex-numbers)=
+(Useful_calculus:Complex_numbers)=
 # Useful identities for dealing with trigonometry and complex numbers
 
 Here, you can find useful identities regarding trigonometric functions, complex numbers, and the Euler formula. These will be useful later when working on von Neumann stability analysis of finite difference schemes. 

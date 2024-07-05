@@ -185,6 +185,7 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">Useful calculus</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Complex_numbers.html">Useful identities for dealing with trigonometry and complex numbers</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Fourier transforms</a></li>
+
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../FiniteDifferences/Introduction.html">The finite difference method (FDM)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -390,9 +391,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Fourier transforms</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#superposition-of-waves">Superposition of waves</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-domain-versus-frequency-domain-the-fourier-series">Time domain versus frequency domain - The Fourier Series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-space-domain-versus-frequency-domain-the-fourier-series">Time/space domain versus frequency domain - The Fourier Series</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gibbs-phenomenon">Gibbs phenomenon</a></li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -411,29 +417,33 @@ document.write(`
 <p>When looking at the ocean surface, the surface elevation can be regarded as the sum of (superposition) of many waves of different frequencies and phases.</p>
 <p>Insert figure of individual waves and the superposition</p>
 </section>
-<section id="time-domain-versus-frequency-domain-the-fourier-series">
-<h2>Time domain versus frequency domain - The Fourier Series<a class="headerlink" href="#time-domain-versus-frequency-domain-the-fourier-series" title="Link to this heading">#</a></h2>
-<p>A data signal can be represented in either a time domain or a frequency domain.</p>
-<p>The time domain represents how the signal (for example air temperature, <span class="math notranslate nohighlight">\(T\)</span>) is changing with time, <span class="math notranslate nohighlight">\(t\)</span>. The time is running along the horizontal axis and the temperature is in the vertical axis. Mathematically, we would say that the temperature is a function of time, <span class="math notranslate nohighlight">\(T(t)\)</span>.</p>
-<p>To get a meaningful interpretation of the frequency domain, we must first approximate this signal by a superposition of many waves with different frequencies, amplitudes, and phases. The more frequencies we include in the superposition, the better the approximation is.</p>
+<section id="time-space-domain-versus-frequency-domain-the-fourier-series">
+<h2>Time/space domain versus frequency domain - The Fourier Series<a class="headerlink" href="#time-space-domain-versus-frequency-domain-the-fourier-series" title="Link to this heading">#</a></h2>
+<p>A data signal can be represented in either a time/space domain or a frequency domain.</p>
+<p>The time domain represents how the signal (for example air temperature) is changing with time, <span class="math notranslate nohighlight">\(t\)</span>. The time is running along the horizontal axis and the temperature is in the vertical axis. Mathematically, we would say that the temperature is a function of time, <span class="math notranslate nohighlight">\(f(t)\)</span>. Similarly, the space domain represents how the signal (for example air temperature) is changing with space or distance, <span class="math notranslate nohighlight">\(x\)</span>. Then, the resulting function would be <span class="math notranslate nohighlight">\(f(x)\)</span>.</p>
+<p>To get a meaningful interpretation of the frequency domain, we must first approximate our signal by a superposition of many waves with different frequencies, amplitudes, and phases. The more frequencies we include in the superposition, the better the approximation is.</p>
 <p>The amplitude of each wave in the superposition, can be derived from the following equation:</p>
 <div class="math notranslate nohighlight" id="equation-eq-fourier-series-amplitude">
 <span class="eqno">(18)<a class="headerlink" href="#equation-eq-fourier-series-amplitude" title="Link to this equation">#</a></span>\[
-c_n=\frac{1}{T}\int_{-t/2}^{T/2}f(x)e^{-12\pi\frac{n}{T}x}dx
+c_n=\frac{1}{T}\int_{-t/2}^{T/2}f(t)e^{-1\frac{2\pi}{T}t}dt
 \]</div>
 <p>The approximated signal is called the Fourier series, and is calculated from:</p>
 <div class="math notranslate nohighlight" id="equation-eq-fourier-series">
 <span class="eqno">(19)<a class="headerlink" href="#equation-eq-fourier-series" title="Link to this equation">#</a></span>\[
-f(t)=\sum_{n=-\infty}^\infty c_n e^{i2\pi\frac{n}{T}t}, t\in[-T/2,T/2]
+f(x)=\sum_{n=-\infty}^\infty c_n e^{i 2\pi\frac{n}{T}t}, t\in[-T/2,T/2]
 \]</div>
-<p>When we have created our approximated signal, we can calculate the amount of energy (wave amplitude) related to each frequency. The result is a function that displays the energy as a function of frequency. This is how our signal looks in the frequency domain, and this function is called the Fourier transform:</p>
+<p>, where T represent a certain Time period of interest.</p>
+<p>When we have created our approximated signal, we can calculate the amount of energy (wave amplitude) related to each frequency. The result is a function that displays the energy as a function of frequency. If we let <span class="math notranslate nohighlight">\(t\leftarrow \infty\)</span> and include enough wave frequencies to allow <span class="math notranslate nohighlight">\(n/T \leftarrow \psi\)</span> we can now write a function of the amount of energy as in terms of each wave. This is how our signal looks in the frequency domain, and this function is called the Fourier transform:</p>
 <div class="math notranslate nohighlight" id="equation-eq-fourier-transform">
 <span class="eqno">(20)<a class="headerlink" href="#equation-eq-fourier-transform" title="Link to this equation">#</a></span>\[
-\hat{f(\t)}=\int_{-\infty}^\infty f(t)e^{-i2\pi\k t}dt
+\hat{f(\psi)}=\int_{-\infty}^\infty f(t)e^{-i2\pi\psi t}dt
 \]</div>
-<p>Here, the function <span class="math notranslate nohighlight">\(\hat{f(\k)}\)</span> represent energy as a function of wave number <span class="math notranslate nohighlight">\(k\)</span>, defined as <span class="math notranslate nohighlight">\(1/L\)</span>, where L is the wavelength.</p>
-<p>If the signal consisted of just one pure sine wave, the graph of <span class="math notranslate nohighlight">\(\hat{f(\k)}\)</span> would contain a single spike at the frequency of this sine wave.</p>
+<p>Here, the function <span class="math notranslate nohighlight">\(\hat{f(\psi)}\)</span> represent energy as a function of the frequency <span class="math notranslate nohighlight">\(\psi\)</span>. If the signal consisted of just one pure sine wave, the graph of <span class="math notranslate nohighlight">\(\hat{f(\psi)}\)</span> would contain a single spike at the frequency of this sine wave.</p>
 </section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="gibbs-phenomenon">
+<h1>Gibbs phenomenon<a class="headerlink" href="#gibbs-phenomenon" title="Link to this heading">#</a></h1>
+<p>In practice, we typically cannot include an infinite number of terms in the Fourier series to represent a signal. using a limited number of components works fine for continuous signals, but will produce errors (overshoots and undershoots) near discontinuities and areas wih strong gradients. This is called the Gibbs phenomenon.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -500,9 +510,14 @@ f(t)=\sum_{n=-\infty}^\infty c_n e^{i2\pi\frac{n}{T}t}, t\in[-T/2,T/2]
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Fourier transforms</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#superposition-of-waves">Superposition of waves</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-domain-versus-frequency-domain-the-fourier-series">Time domain versus frequency domain - The Fourier Series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-space-domain-versus-frequency-domain-the-fourier-series">Time/space domain versus frequency domain - The Fourier Series</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gibbs-phenomenon">Gibbs phenomenon</a></li>
+</ul>
+
   </nav></div>
 
 </div></div>
