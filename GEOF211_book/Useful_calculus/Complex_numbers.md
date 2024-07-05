@@ -5,7 +5,7 @@ Here, you can find useful identities regarding trigonometric functions, complex 
 
 ## Trigonometric identities
 
-#### Pythagorean indentity:
+##### Pythagorean indentity:
 
 $$
 \sin^2 x+\cos^2 x=1
@@ -49,8 +49,9 @@ $$ (eq:Complex_norm_squared)
 
 #### The triangle inequality
 If $z$ and $w$ are two complex numbers:
+
 $$
-|z+w|<|z+|w|
+|z+w|<|z|+|w|
 $$ (eq:Complex_triangle_identity)
 
 
@@ -68,7 +69,7 @@ $$ (eq:Euler)
 
 #### Cosine exponential form
 $$
-\frac{e^{ix}+e^{-ix}}{2}=\cos )
+\frac{e^{ix}+e^{-ix}}{2}=\cos x
 $$ (eq:Euler_cos)
 
 #### Sine exponential form
@@ -78,7 +79,7 @@ $$ (eq:Euler_sin)
 
 #### Tangent exponential form
 $$
-\frac{e^{ix}-e^{-1x}}{i(e^{ix}+e^{-1x})}=\tan x
+\frac{e^{ix}-e^{-ix}}{i(e^{ix}+e^{-1x})}=\tan x
 $$ (eq:Euler_tan)
 
 #### Complex exponential
