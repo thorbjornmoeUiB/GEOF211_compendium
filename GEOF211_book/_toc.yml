@@ -3,11 +3,18 @@
 
 format: jb-book
 root: intro
-chapters:
+chapters: 
 - file: Prerequisites/Introduction.md
- sections:
- - file: Prerequisites/Complex_numbers.md
- - file: prerequisites/Fourier_transforms.md
+  sections:
+  - file: Prerequisites/Complex_numbers.md
+#  - file: Prerequisites/Fourier_transforms.md
+- file: FiniteDifferences/Introduction.md
+  sections:
+  - file: FiniteDifferences/algebraicDerivative.md
+  - file: FiniteDifferences/truncationErrors.md
+  - file: FiniteDifferences/estimatesTruncationError.md
+  - file: FiniteDifferences/fdFormulasFirstDerivative.md
+  - file: FiniteDifferences/evaluatingTruncationError.md
 #- file: markdown
 #- file: notebooks
 #- file: markdown-notebooks

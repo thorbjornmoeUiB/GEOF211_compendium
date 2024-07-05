@@ -1,0 +1,663 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>The semi-lagrangian scheme &#8212; Numerical Modeling Lecture Notes</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The two dimensional advection equation" href="twoDimensionalAdvection.html" />
+    <link rel="prev" title="Total Variation Diminishing Schemes" href="TVD.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Numerical Modeling Lecture Notes</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to the Numerical Modeling Lecture Notes
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../FiniteDifferences/Introduction.html">
+   The finite difference method (FDM)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../FiniteDifferences/algebraicDerivative.html">
+     Algebraic approximation of the first derivative
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../FiniteDifferences/truncationErrors.html">
+     Truncation Error
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../FiniteDifferences/estimatesTruncationError.html">
+     Estimates of the truncation error
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../FiniteDifferences/fdFormulasFirstDerivative.html">
+     Finite difference formulas for the 1st derivative
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../FiniteDifferences/evaluatingTruncationError.html">
+     Evaluating the truncation error
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../LinearAdvectionEquation/Introduction.html">
+   The linear advection equation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../LinearAdvectionEquation/analyticSolution.html">
+     The exact equation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../LinearAdvectionEquation/differenceEquation.html">
+     The difference equation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../LinearAdvectionEquation/differenceSolution.html">
+     Solution of the difference equation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../LinearAdvectionEquation/Analysis.html">
+     Analysis of the solution of the difference equation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../NumericalStability/intro.html">
+   Stability of numerical schemes
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NumericalStability/consistencyConvergenceStability.html">
+     Consistency, convergence and stability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NumericalStability/vonNeumannStability.html">
+     Von Neumann Stability Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NumericalStability/matrixStability.html">
+     Matrix Stability Analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro.html">
+   Numerical schemes for the linear 1-d advection equation
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="schemeLeapfrog-code.html">
+     The Leapfrog Scheme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="schemeUpwind-code.html">
+     The Upwind Scheme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="schemeLaxWendroff-code.html">
+     The Lax-Wendroff Scheme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="schemeMacCormack.html">
+     The MacCormack Scheme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="schemeCrankNicholson-code.html">
+     The Crank-Nicholson Scheme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="schemeImplicit.html">
+     The Implicit Scheme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="TVD.html">
+     Total Variation Diminishing Schemes
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     The semi-lagrangian scheme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="twoDimensionalAdvection.html">
+     The two dimensional advection equation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../TheWaveEquation/Introduction.html">
+   Gravity Waves
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TheWaveEquation/linear1dGravityWaves.html">
+     Linear 1-d Gravity Waves
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TheWaveEquation/solutionRegularGrid.html">
+     Solution on a regular grid
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TheWaveEquation/solutionStaggeredGrid.html">
+     Solution on a staggered grid
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Bibliography/bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FNumericalSchemes/semiLagrangian.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/NumericalSchemes/semiLagrangian.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stability-of-semi-lagragian-schemes">
+   Stability of semi-lagragian schemes
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>The semi-lagrangian scheme</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stability-of-semi-lagragian-schemes">
+   Stability of semi-lagragian schemes
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="the-semi-lagrangian-scheme">
+<span id="scheme-semi-lagrangian"></span><h1>The semi-lagrangian scheme<a class="headerlink" href="#the-semi-lagrangian-scheme" title="Permalink to this headline">#</a></h1>
+<p>We have been using the linear advection equation in its Eulerian form <a class="reference internal" href="linearAdvectionEquation.html#equation-eqadvection">()</a>. An alternative form of this equation is</p>
+<div class="math notranslate nohighlight" id="equation-eq-advectionlagrangian">
+<span class="eqno">(59)<a class="headerlink" href="#equation-eq-advectionlagrangian" title="Permalink to this equation">#</a></span>\[
+\frac{dU}{dt}=0,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(U(t)=u(x(t),t)\)</span> is the quantity <span class="math notranslate nohighlight">\(u(x,t)\)</span> carried by a particle whose trajectory is <span class="math notranslate nohighlight">\(x(t)=x(0)+ct\)</span>. Equation <a class="reference internal" href="#equation-eq-advectionlagrangian">(59)</a> is called the <em>Lagrangian</em> form of <a class="reference internal" href="linearAdvectionEquation.html#equation-eqadvection">()</a> and it states that <span class="math notranslate nohighlight">\(u\)</span> is conserved along particle trajectories.</p>
+<p>Both forms are equivalent, as we can see if we expand <a class="reference internal" href="#equation-eq-advectionlagrangian">(59)</a>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-advectioneulerianlagrangian">
+<span class="eqno">(60)<a class="headerlink" href="#equation-eq-advectioneulerianlagrangian" title="Permalink to this equation">#</a></span>\[
+\frac{dU}{dt}=\frac{du(x(t),t)}{dt}=\frac{\partial u}{\partial t} + \frac{\partial u}{\partial x}\frac{\partial x}{\partial t}=\frac{\partial u}{\partial t} + c\frac{\partial u}{\partial x}=0.
+\]</div>
+<p>The conservation of <span class="math notranslate nohighlight">\(u\)</span> implies that, over a time interval <span class="math notranslate nohighlight">\([n\Delta t, (n+1)\Delta t]\)</span>,</p>
+<div class="math notranslate nohighlight" id="equation-eq-schemelagrangian">
+<span class="eqno">(61)<a class="headerlink" href="#equation-eq-schemelagrangian" title="Permalink to this equation">#</a></span>\[
+U^{n+1}=U^{n}.
+\]</div>
+<p>This means that if we know <span class="math notranslate nohighlight">\(U^0\)</span>, we know the all subsequent <span class="math notranslate nohighlight">\(U^n\)</span>, along the trajectories of fluid particles. However, this does not work in practice because we don’t know the particle trajectories.</p>
+<p>A more practical approach is to “reverse” the procedure.  <a class="reference internal" href="#fig-semilagrangia-grid"><span class="std std-numref">Fig. 8</span></a> shows a part of the t-x diagram between time steps <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(n+1\)</span> and grid positions <span class="math notranslate nohighlight">\(m-2\)</span> to <span class="math notranslate nohighlight">\(m+2\)</span>.</p>
+<figure class="align-default" id="fig-semilagrangia-grid">
+<a class="reference internal image-reference" href="../_images/numerical-schemes-semi-lagrangian-grid.png"><img alt="../_images/numerical-schemes-semi-lagrangian-grid.png" src="../_images/numerical-schemes-semi-lagrangian-grid.png" style="height: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">t-x diagram between time steps <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(n+1\)</span>. The particle at <span class="math notranslate nohighlight">\(x_{m+2}\)</span> at time <span class="math notranslate nohighlight">\(t^{n+1}\)</span> was at <span class="math notranslate nohighlight">\(x_{\ast}\)</span> at time <span class="math notranslate nohighlight">\(t^n\)</span>.</span><a class="headerlink" href="#fig-semilagrangia-grid" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The value of <span class="math notranslate nohighlight">\(u_{m+2}^{n+1}\)</span> is <span class="math notranslate nohighlight">\(U_{m+2}^{n+1}\)</span>, the value of <span class="math notranslate nohighlight">\(u\)</span> carried by the particle that occupies <span class="math notranslate nohighlight">\(x_{m+2}\)</span> at <span class="math notranslate nohighlight">\(t^{n+1}\)</span>. According to <a class="reference internal" href="#equation-eq-schemelagrangian">(61)</a>, this value is <span class="math notranslate nohighlight">\(U_{\ast}^{n}\)</span>, the value of <span class="math notranslate nohighlight">\(u\)</span> at <span class="math notranslate nohighlight">\(x_{\ast}\)</span> at <span class="math notranslate nohighlight">\(t^n\)</span>, which is the position that the particle occupied at <span class="math notranslate nohighlight">\(t^n\)</span>.</p>
+<p>During one time step, the particle moves a distance <span class="math notranslate nohighlight">\(s=c\Delta t\)</span>. Let <span class="math notranslate nohighlight">\(\sigma=c\Delta t/\Delta x=1.25\)</span> (<a class="reference internal" href="#fig-semilagrangia-grid"><span class="std std-numref">Fig. 8</span></a>), so that <span class="math notranslate nohighlight">\(s=\sigma\Delta x=1.25\Delta x\)</span>. In general, the particle’s departure point <span class="math notranslate nohighlight">\(x_{\ast}\)</span> does not coincide with the grid nodes, so we must interpolate <span class="math notranslate nohighlight">\(u\)</span> to find <span class="math notranslate nohighlight">\(u(x_{\ast},t^n)\)</span>.</p>
+<p>Let <span class="math notranslate nohighlight">\(p=[\sigma]\)</span> be the integer part of <span class="math notranslate nohighlight">\(\sigma\)</span> and <span class="math notranslate nohighlight">\(\alpha=\sigma-p\)</span>, the fractional part of <span class="math notranslate nohighlight">\(\sigma\)</span>. In this example, <span class="math notranslate nohighlight">\(p=1\)</span> and <span class="math notranslate nohighlight">\(\alpha=0.25\)</span>. The departure point falls between <span class="math notranslate nohighlight">\(m-p-1\)</span> and <span class="math notranslate nohighlight">\(m-p\)</span>, and we can use linear interpolation to obtain <span class="math notranslate nohighlight">\(U_{\ast}^n\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+U_{\ast}^n=\alpha u_{m-p-1}^n + (1-\alpha)u_{m-p}^n=u_{m+2}^{n+1}, 
+\]</div>
+<p>which is <span class="math notranslate nohighlight">\(u_{m+2}^{n+1}\)</span> because of <a class="reference internal" href="#equation-eq-schemelagrangian">(61)</a>.</p>
+<section id="stability-of-semi-lagragian-schemes">
+<h2>Stability of semi-lagragian schemes<a class="headerlink" href="#stability-of-semi-lagragian-schemes" title="Permalink to this headline">#</a></h2>
+<p>The semi-lagrangian scheme can be written as</p>
+<div class="math notranslate nohighlight" id="equation-eq-semilagrangian">
+<span class="eqno">(62)<a class="headerlink" href="#equation-eq-semilagrangian" title="Permalink to this equation">#</a></span>\[
+U_{m}^{n+1}=\alpha U_{m-p-1}^n + (1-\alpha)U_{m-p}^n. 
+\]</div>
+<p>Let us assume a solution like</p>
+<div class="math notranslate nohighlight">
+\[
+U_m^n=B^ne^{i\lambda m\Delta x}
+\]</div>
+<p>and replace it in <a class="reference internal" href="#equation-eq-semilagrangian">(62)</a>. After removing the common term <span class="math notranslate nohighlight">\(e^{i\lambda m\Delta x}\)</span>, we obtain</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\frac{B^{n+1}}{B^n} = \alpha e^{i\lambda (-p-1)\Delta x} + (1-\alpha)e^{i\lambda (-p)\Delta x} \\
+= e^{i\lambda (-p)\Delta x}[(1-\alpha)+\alpha e^{-i\lambda\Delta x}].
+\end{split}\]</div>
+<p>For the scheme to be stable we need that <span class="math notranslate nohighlight">\(|B^{n+1}/B^n|\leq 1\)</span>. This can be easily checked:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left|\frac{B^{n+1}}{B^n}\right|^2 &amp;= |e^{i\lambda (-p)\Delta x}|^2|(1-\alpha)+\alpha e^{-i\lambda\Delta x}|^2 \\
+&amp;=|(1-\alpha)+\alpha(\cos \lambda \Delta x-i\sin\lambda\Delta x)|^2 \\
+&amp;=1-2\alpha(1-\alpha)[1-\cos\lambda \Delta x].
+\end{split}\]</div>
+<p>For all <span class="math notranslate nohighlight">\(\theta\)</span>, <span class="math notranslate nohighlight">\(0\leq 1 - \cos\theta \leq 2\)</span>, so in the worst case scenario, we shall have</p>
+<div class="math notranslate nohighlight">
+\[
+\left|\frac{B^{n+1}}{B^n}\right|^2 = 1-4\alpha(1-\alpha)=(1-2\alpha)^2\leq 1, \quad 0&lt;\alpha&lt;1.
+\]</div>
+<p>For <span class="math notranslate nohighlight">\(1-\cos\lambda \Delta x=0\)</span>, we shall have <span class="math notranslate nohighlight">\(|B^{n+1}/B^n|^2=1\)</span>. In either case,</p>
+<div class="math notranslate nohighlight">
+\[
+\left|\frac{B^{n+1}}{B^n}\right|^2 \leq 1,
+\]</div>
+<p>so the semi-Lagrangian scheme is unconditionally stable.</p>
+<figure class="align-default" id="fig-stability-semi-lagrangian">
+<a class="reference internal image-reference" href="../_images/stability-semi-lagrangian.png"><img alt="../_images/stability-semi-lagrangian.png" src="../_images/stability-semi-lagrangian.png" style="height: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">t-x diagram of the Leapfrog and semi-Lagrangian schemes for the linear advection equation, with <span class="math notranslate nohighlight">\(\Delta t=4\)</span>, <span class="math notranslate nohighlight">\(\Delta x=3\)</span> and <span class="math notranslate nohighlight">\(c=2\)</span>.</span><a class="headerlink" href="#fig-stability-semi-lagrangian" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The unconditional stability of the semi-Lagragian scheme comes from the fact that the <em>physical</em> domain of dependence of the solution is always contained in the <em>numerical</em> domain of dependence of the scheme. Consider the situation in <a class="reference internal" href="#fig-stability-semi-lagrangian"><span class="std std-numref">Fig. 9</span></a>, that represents the t-x diagram of a model where the Leafrog scheme and the semi-Lagrangian are employed to solve the linear advection equation .</p>
+<p>At time step <span class="math notranslate nohighlight">\(n+1\)</span>, the Leapfrog scheme is unstable because <span class="math notranslate nohighlight">\(\sigma=c\Delta t/\Delta x&gt;1\)</span>. This is visible in the diagram because the characteristic line that goes through <span class="math notranslate nohighlight">\(x_m^{n+1}\)</span> does not fall within the numerical domain of dependence of the Leapfrog scheme. The characteristics lines are the physical domain of dependence since the solution of the linear advection equation propagates along them.</p>
+<p>For the semi-Lagrangian scheme the situation is different. As the particle moves along the characteristic line, the departure point <span class="math notranslate nohighlight">\(x_{\ast}^n\)</span> will always fall on the intersection of the characteristic line with the spatial grid <span class="math notranslate nohighlight">\(x_m\)</span> of the previous time step. Since all values of <span class="math notranslate nohighlight">\(u_m^n\)</span>, the physical domain of dependence will always be between two know values of the solution, which can then be interpolated to find <span class="math notranslate nohighlight">\(u_{\ast}^n\)</span>.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./NumericalSchemes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="TVD.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Total Variation Diminishing Schemes</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="twoDimensionalAdvection.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">The two dimensional advection equation</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Joao Bettencourt<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

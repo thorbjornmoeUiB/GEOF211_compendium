@@ -1,0 +1,48 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+#- file: Intro/Introduction.md
+#  sections:
+#   - file: Intro/whatIsNumericalModeling
+- file: FiniteDifferences/Introduction.md
+  sections:
+  - file: FiniteDifferences/algebraicDerivative.md
+  - file: FiniteDifferences/truncationErrors.md
+  - file: FiniteDifferences/estimatesTruncationError.md
+  - file: FiniteDifferences/fdFormulasFirstDerivative.md
+  - file: FiniteDifferences/evaluatingTruncationError.md
+- file: LinearAdvectionEquation/Introduction.md
+  sections:
+  - file: LinearAdvectionEquation/analyticSolution.md
+  - file: LinearAdvectionEquation/differenceEquation.md
+  - file: LinearAdvectionEquation/differenceSolution.md
+  - file: LinearAdvectionEquation/Analysis.md
+- file: NumericalStability/intro.md
+  sections: 
+   - file: NumericalStability/consistencyConvergenceStability.md
+   - file: NumericalStability/vonNeumannStability.md
+   - file: NumericalStability/matrixStability.md
+- file: NumericalSchemes/intro.md
+  sections:
+# - file: NumericalSchemes/linearAdvectionEquation.md
+  - file: NumericalSchemes/schemeLeapfrog-code.md
+  - file: NumericalSchemes/schemeUpwind-code.md
+  - file: NumericalSchemes/schemeLaxWendroff-code.md
+  - file: NumericalSchemes/schemeMacCormack.md
+  - file: NumericalSchemes/schemeCrankNicholson-code.md
+  - file: NumericalSchemes/schemeImplicit.md
+  - file: NumericalSchemes/TVD.md
+  - file: NumericalSchemes/semiLagrangian-code.md
+  - file: NumericalSchemes/twoDimensionalAdvection.md
+- file: TheWaveEquation/Introduction.md
+  sections:
+  - file: TheWaveEquation/linear1dGravityWaves.md
+  - file: TheWaveEquation/solutionRegularGrid.md
+  - file: TheWaveEquation/solutionStaggeredGrid.md
+#- file: InertiaGravityWaves/Introduction.md
+#  sections:
+#  - file: InertiaGravityWaves/inertiaGravityWavesEquation.md
+- file: Bibliography/bibliography.md

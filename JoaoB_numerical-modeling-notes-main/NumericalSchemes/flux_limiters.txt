@@ -1,0 +1,27 @@
+There are several flux limiter functions that are commonly used in numerical methods for solving hyperbolic 
+partial differential equations. These include:
+
+Minmod limiter: The minmod limiter is a simple and robust limiter that is widely used in finite volume and 
+finite difference schemes. The minmod limiter takes the minimum of the slopes to the left and right of the 
+cell, and then applies a sign function to ensure that the slope is positive for positive values of the solution 
+and negative for negative values.
+
+Superbee limiter: The superbee limiter is a more complex limiter that is designed to provide a higher order of 
+accuracy while still being TVD. The superbee limiter is defined by a piecewise linear function that interpolates 
+between the minmod and the maximum of the slopes to the left and right of the cell.
+
+Van Leer limiter: The Van Leer limiter is another TVD limiter that is commonly used in finite volume schemes. 
+The Van Leer limiter is defined by a hyperbolic tangent function that smoothly transitions between the minmod 
+and the maximum of the slopes to the left and right of the cell.
+
+MC limiter: The MC limiter is a more aggressive limiter that is designed to provide high accuracy in regions 
+of smooth solution while still being TVD. The MC limiter is defined by a quadratic function that interpolates 
+between the minmod and the maximum of the slopes to the left and right of the cell.
+
+Koren limiter: The Koren limiter is a TVD limiter that is designed to provide high accuracy in regions of smooth 
+solution while limiting oscillations near discontinuities. The Koren limiter is defined by a piecewise quadratic 
+function that interpolates between the minmod and the maximum of the slopes to the left and right of the cell.
+
+These are just a few examples of the many flux limiter functions that are used in numerical methods for solving 
+hyperbolic partial differential equations. The choice of flux limiter depends on the specific application and the 
+desired trade-off between accuracy and stability.

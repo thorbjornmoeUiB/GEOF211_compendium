@@ -1,0 +1,720 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Total Variation Diminishing Schemes &#8212; Numerical Modeling Lecture Notes</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Stability of numerical schemes" href="../NumericalStability/intro.html" />
+    <link rel="prev" title="Analysis of the solution of the difference equation" href="Analysis.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/UiBlogo_Eng_gray_left.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Numerical Modeling Lecture Notes</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to the Numerical Modeling Lecture Notes
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Intro/Introduction.html">
+   Introduction to numerical modelling
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Intro/whatIsNumericalModeling.html">
+     What is numerical modeling?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../FiniteDifferences/Introduction.html">
+   The finite difference method (FDM)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../FiniteDifferences/algebraicDerivative.html">
+     Algebraic approximation of the first derivative
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../FiniteDifferences/truncationErrors.html">
+     Truncation Error
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../FiniteDifferences/estimatesTruncationError.html">
+     Estimates of the truncation error
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../FiniteDifferences/fdFormulasFirstDerivative.html">
+     Finite difference formulas for the 1st derivative
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../FiniteDifferences/evaluatingTruncationError.html">
+     Evaluating the truncation error
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="Introduction.html">
+   The linear advection equation
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="differenceEquation.html">
+     Solution of the difference equation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Analysis.html">
+     Analysis of the solution of the difference equation
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Total Variation Diminishing Schemes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../NumericalStability/intro.html">
+   Stability of numerical schemes
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NumericalStability/vonNeumannStability.html">
+     Von Neumann Stability Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NumericalStability/matrixStability.html">
+     Matrix Stability Analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../NumericalSchemes/intro.html">
+   Numerical schemes for the linear 1-d advection equation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NumericalSchemes/schemeLeapfrog.html">
+     The Leapfrog Scheme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NumericalSchemes/schemeUpwind.html">
+     The Upwind Scheme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NumericalSchemes/schemeLaxWendroff.html">
+     The Lax-Wendroff Scheme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NumericalSchemes/schemeMacCormack.html">
+     The MacCormack Scheme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NumericalSchemes/schemeCrankNicholson.html">
+     The Crank-Nicholson Scheme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NumericalSchemes/schemeImplicit.html">
+     The Implicit Scheme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NumericalSchemes/twoDimensionalAdvection.html">
+     The two dimensional advection equation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../TheWaveEquation/Introduction.html">
+   The Wave Equation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TheWaveEquation/linear1dGravityWaves.html">
+     Linear 1-d Gravity Waves
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TheWaveEquation/solutionRegularGrid.html">
+     Solution of the wave equation on a regular grid
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FLinearAdvectionEquation/TVD.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/LinearAdvectionEquation/TVD.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tvd-total-variation-diminishing-schemes">
+   TVD (Total Variation Diminishing) Schemes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tvd-scheme-theory">
+   TVD Scheme Theory
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tvd-scheme-example">
+   TVD Scheme example
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Total Variation Diminishing Schemes</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tvd-total-variation-diminishing-schemes">
+   TVD (Total Variation Diminishing) Schemes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tvd-scheme-theory">
+   TVD Scheme Theory
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tvd-scheme-example">
+   TVD Scheme example
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="total-variation-diminishing-schemes">
+<h1>Total Variation Diminishing Schemes<a class="headerlink" href="#total-variation-diminishing-schemes" title="Permalink to this headline">#</a></h1>
+<section id="tvd-total-variation-diminishing-schemes">
+<h2>TVD (Total Variation Diminishing) Schemes<a class="headerlink" href="#tvd-total-variation-diminishing-schemes" title="Permalink to this headline">#</a></h2>
+<p>TVD (Total Variation Diminishing) schemes are a class of numerical methods used for solving partial differential equations (PDEs) when strong gradients, shocks or discontinuities are present in the solution. The ability to preserve strong gradients in the numerical solution is especially important in the context of frontal advection.</p>
+<p>Higher-order methods, such as the leapfrog scheme (LINK!), are capable of retaining strong gradients in the solution but are prone to spurious oscillations or under/overshoots in the solution that create new (unphysical) extrema. The upwind scheme (LINK!) does not create new extrema (is monotone), but it is only first-order accurate and diffusive, which causes strong gradients to be smeared out.</p>
+<p>Godunov’s theorem (REF) states that any linear monotone scheme can be at most first order accurate, so we cannot find a higher-order linear scheme that is also monotone. This implies that we must forego monotonicity if we want to preserve strong gradients in the numerical solution, when considering linear schemes. On the other hand, if we allow some degree of nonlinearity, we may have both monotonicity and the preservation of strong gradients.</p>
+<p>TVD schemes provide this, because they allow for monotonic nonlinear schemes, whenever there are artificial extrema being introduced in the numerical solution. Otherwise, the scheme remains higher order.</p>
+<p>Adaptive schemes such as these are based on the concept of total variation of the solution, which measures the amount of variation in the numerical solution over a given interval. The total variation should be conserved in order to prevent spurious oscillations or overshoots that can occur with higher order methods.</p>
+</section>
+<section id="tvd-scheme-theory">
+<h2>TVD Scheme Theory<a class="headerlink" href="#tvd-scheme-theory" title="Permalink to this headline">#</a></h2>
+<p>TVD schemes achieve conservation of total variation by using a limiter function to restrict the amount of numerical diffusion introduced by the scheme. The limiter function is designed to detect the presence of discontinuities or shocks in the solution and to reduce the amount of diffusion introduced in these regions. By reducing the amount of numerical diffusion, TVD schemes are able to preserve sharp gradients and discontinuities in the solution while maintaining stability.</p>
+<p>Let us consider a 1-d spatial grid <span class="math notranslate nohighlight">\(x_m=m\Delta x\)</span> and time steps <span class="math notranslate nohighlight">\(t^n=n\Delta t\)</span>. The total variation of the numerical solution <span class="math notranslate nohighlight">\(u_m\)</span> at time step <span class="math notranslate nohighlight">\(n\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[
+TV=\sum_{m}|u_{m+1}^n - u_m^n|
+\]</div>
+<p>A scheme is said to be TVD (total variation diminishing) if:</p>
+<div class="math notranslate nohighlight">
+\[
+TV^{n+1} \leq TV^n.
+\]</div>
+<p>Let’s assume a scheme that can be expressed as:</p>
+<div class="math notranslate nohighlight">
+\[
+u_m^{n+1}=u_m^n-a_{m-\frac{1}{2}}(u_{m}^n - u_{m-1}^n) + b_{m+\frac{1}{2}}(u_{m+1}^n - u_{m}^n)
+\]</div>
+<p>If we write REF at <span class="math notranslate nohighlight">\(m+1\)</span> and subtract, we obtain a marching expression for the variation at <span class="math notranslate nohighlight">\(m\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+|u_{m+1}^{n+1}-u_m^{n+1}| \leq |(1-a_{m+\frac{1}{2}}-b_{m+\frac{1}{2}})(u_{m+1}^n - u_{m}^n)| + |b_{m+\frac{3}{2}}(u_{m+2}^n - u_{m+1}^n)|+|a_{m-\frac{1}{2}}(u_{m}^n - u_{m-1}^n)|
+\]</div>
+<p>Taking the summation of REF!!, and assuming periodic boundaries to shift the indices in the second and third terms, we obtain</p>
+<div class="math notranslate nohighlight">
+\[
+\sum_{m}|u_{m+1}^{n+1}-u_m^{n+1}| \leq \sum_{m}|(1-a_{m+\frac{1}{2}}-b_{m+\frac{1}{2}})(u_{m+1}^n - u_{m}^n)| + \sum_{m}|b_{m+\frac{1}{2}}(u_{m+1}^n - u_{m}^n)|+\sum_{m}|a_{m+\frac{1}{2}}(u_{m+1}^n - u_{m}^n)|
+\]</div>
+<p>If <span class="math notranslate nohighlight">\(a_{m+\frac{1}{2}}\)</span> and <span class="math notranslate nohighlight">\(b_{m+\frac{1}{2}}\)</span> fullfill the following conditions</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(a_{m+\frac{1}{2}} \ge 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(b_{m+\frac{1}{2}} \ge 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(a_{m+\frac{1}{2}} + b_{m+\frac{1}{2}} \leq 1\)</span></p></li>
+</ol>
+<p>we can write REF!!! as</p>
+<div class="math notranslate nohighlight">
+\[
+\sum_{m}|u_{m+1}^{n+1}-u_m^{n+1}| \leq \sum_{m}(1-a_{m+\frac{1}{2}}-b_{m+\frac{1}{2}})|(u_{m+1}^n - u_{m}^n)| + \sum_{m}b_{m+\frac{1}{2}}|(u_{m+1}^n - u_{m}^n)|+\sum_{m}a_{m+\frac{1}{2}}|(u_{m+1}^n - u_{m}^n)|\leq\sum_{m}|(u_{m+1}^n - u_{m}^n)|
+\]</div>
+<p>which is the TVD condition (REF). Therefore, this scheme will be TVD if those three conditions are verified.</p>
+</section>
+<section id="tvd-scheme-example">
+<h2>TVD Scheme example<a class="headerlink" href="#tvd-scheme-example" title="Permalink to this headline">#</a></h2>
+<p>One example of a TVD scheme is the Total Variation Diminishing Upwind Scheme (TVDUS) applied to the linear advection equation.</p>
+<p>The TVDUS scheme can be expressed mathematically as:</p>
+<div class="math notranslate nohighlight">
+\[
+u_m^{n+1} = u_m^{n} - \frac{\Delta t}{\Delta x}(f_{m+\frac{1}{2}}-f_{m-\frac{1}{2}})
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(u_m^{n+1}\)</span> is the value of the solution at grid point <span class="math notranslate nohighlight">\(m\)</span> and time <span class="math notranslate nohighlight">\(n+1\)</span>, <span class="math notranslate nohighlight">\(u_m^n\)</span> is the value of the solution at grid point <span class="math notranslate nohighlight">\(m\)</span> and time <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(f_{m+\frac{1}{2}}\)</span> is the numerical flux at the interface between grid points <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(m+1\)</span>, and <span class="math notranslate nohighlight">\(f_{m-\frac{1}{2}}\)</span> is the numerical flux at the interface between grid points <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(m-1\)</span>. The fluxes <span class="math notranslate nohighlight">\(f_{m+\frac{1}{2}}\)</span> and <span class="math notranslate nohighlight">\(f_{m-\frac{1}{2}}\)</span> are modified by the weighting function <span class="math notranslate nohighlight">\(/phi\)</span>, e.g. for <span class="math notranslate nohighlight">\(f_{m-\frac{1}{2}}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+f_{m-\frac{1}{2}}=f_{m-\frac{1}{2}}^L+\phi_{m-\frac{1}{2}}(f_{m-\frac{1}{2}}^H-f_{m-\frac{1}{2}}^L).
+\]</div>
+<p>Here, <span class="math notranslate nohighlight">\(f_{m-\frac{1}{2}}^L\)</span> is the low order flux, given by:</p>
+<div class="math notranslate nohighlight">
+\[
+f_{m-\frac{1}{2}}^L = cu_{m-1}^{n}.
+\]</div>
+<p>This is a first-order upwind flux that is dissipative. The higher order scheme is defined as:</p>
+<div class="math notranslate nohighlight">
+\[
+f_{m-\frac{1}{2}}^H = cu_{m-1}^{n} + c\frac{1-\sigma}{2}(u_{m}^n - u_{m-1}^n),
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\sigma=c\Delta t/\Delta x\)</span> is the CFL number. When the solution is smooth, <span class="math notranslate nohighlight">\(\phi \approx 1\)</span> and when under/overshoots occur <span class="math notranslate nohighlight">\(\phi \to 0\)</span> to activate the low order flux and its dissipative character with the goal of suppressing the spurious oscillations. The weighting function <span class="math notranslate nohighlight">\(\phi\)</span> is called a <strong>flux limiter</strong> because it has the role of limiting the higher-order component of the flux to prevent unphysical oscillations.</p>
+<p>Assuming <span class="math notranslate nohighlight">\(\phi &gt; 0\)</span> and <span class="math notranslate nohighlight">\(\sigma \leq 1\)</span>, we can replace the flux formulas in the TVDUS scheme to obtain:</p>
+<div class="math notranslate nohighlight">
+\[
+u_m^{n+1} = u_m^{n} - \sigma\left[ 1-\phi_{m-\frac{1}{2}}\frac{1-\sigma}{2}+\phi_{m+\frac{1}{2}}\frac{1-\sigma}{2}\frac{u_{m+1}^n - u_{m}^n}{u_{m}^n - u_{m-1}^n} \right](u_{m}^n - u_{m-1}^n),
+\]</div>
+<p>which is of the form <span class="math notranslate nohighlight">\(u_m^{n+1}=u_m^n-a_{m-\frac{1}{2}}(u_{m}^n - u_{m-1}^n)\)</span>, with</p>
+<div class="math notranslate nohighlight">
+\[
+a_{m-\frac{1}{2}}=\sigma\left[ 1-\phi_{m-\frac{1}{2}}\frac{1-\sigma}{2}+\phi_{m+\frac{1}{2}}\frac{1-\sigma}{2}\frac{u_{m+1}^n - u_{m}^n}{u_{m}^n - u_{m-1}^n} \right].
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\(b_{m+\frac{1}{2}}=0\)</span>, the TVD condition becomes <span class="math notranslate nohighlight">\(0 \leq a_{m-\frac{1}{2}} \leq 1\)</span>.</p>
+<p>Let</p>
+<div class="math notranslate nohighlight">
+\[
+r_{m+\frac{1}{2}}=\frac{u_{m}^n - u_{m-1}^n}{u_{m+1}^n - u_{m}^n}.
+\]</div>
+<p>If <span class="math notranslate nohighlight">\(u\)</span> varies linearly, <span class="math notranslate nohighlight">\(r_{m+\frac{1}{2}}=1\)</span>. If there is a local extremum, <span class="math notranslate nohighlight">\(r_{m+\frac{1}{2}}&lt;0\)</span>. If the latter occurs, we require <span class="math notranslate nohighlight">\(\phi_{m+\frac{1}{2}}=0\)</span> too avoid the local extrema.</p>
+<p>Returning to the TVD condition, we must have:</p>
+<div class="math notranslate nohighlight">
+\[
+0 \leq \sigma + \frac{\sigma(1-\sigma)}{2}\left[ \frac{\phi_{m+\frac{1}{2}}}{r_{m+\frac{1}{2}}}-\phi_{m-\frac{1}{2}}\right]\leq 1.
+\]</div>
+<p>If <span class="math notranslate nohighlight">\(\phi_{m+\frac{1}{2}}=0\)</span>, we must have</p>
+<div class="math notranslate nohighlight">
+\[
+\phi_{m-\frac{1}{2}} \leq frac{2}{1-\sigma}.
+\]</div>
+<p>For <span class="math notranslate nohighlight">\(\phi_{m-\frac{1}{2}}=0\)</span>, we must have</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\phi_{m+\frac{1}{2}}}{r_{m+\frac{1}{2}}} \leq \frac{2}{\sigma}.
+\]</div>
+<p>Since these two conditions must be valid for all <span class="math notranslate nohighlight">\(m\)</span>, we may drop the index and write</p>
+<div class="math notranslate nohighlight">
+\[
+\phi \leq frac{2}{1-\sigma} \quad \mathrm{and} \quad \frac{\phi}{r} \leq \frac{2}{\sigma}.
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\(0 \leq \sigma \leq 1\)</span>, in the worst case scenario we shall have</p>
+<div class="math notranslate nohighlight">
+\[
+\phi \leq 2 \quad \mathrm{and} \quad \frac{\phi}{r} \leq 2.
+\]</div>
+<p>Furthermore, when <span class="math notranslate nohighlight">\(r\approx 1\)</span> the solution is smooth and we should have <span class="math notranslate nohighlight">\(\phi=1\)</span>. In order for the scheme to be TVD, we must select a function <span class="math notranslate nohighlight">\(\phi(r)\)</span> that verifies these conditions. Some flux limiter functions are:</p>
+<ol class="simple">
+<li><p>Van Leer: <span class="math notranslate nohighlight">\(\phi=\frac{r+|r|}{1+|r|}\)</span>.</p></li>
+<li><p>minmod: <span class="math notranslate nohighlight">\(\phi=\mathrm{max}(0,\mathrm{min}(1,r))\)</span>.</p></li>
+<li><p>Superbee: <span class="math notranslate nohighlight">\(\phi=\mathrm{max}(0,\mathrm{min}(1,2r),\mathrm{min}(2,r))\)</span>.</p></li>
+<li><p>MC: <span class="math notranslate nohighlight">\(\phi=\mathrm{max}(0,\mathrm{min}(2r,(1+r)/2,2))\)</span>.</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./LinearAdvectionEquation"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Analysis.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Analysis of the solution of the difference equation</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../NumericalStability/intro.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Stability of numerical schemes</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Joao Bettencourt<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
