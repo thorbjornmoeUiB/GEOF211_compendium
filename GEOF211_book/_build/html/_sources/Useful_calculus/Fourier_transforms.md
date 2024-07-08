@@ -29,9 +29,9 @@ import matplotlib.pyplot as plt
 t = np.linspace(0, 8 * np.pi, 1000) #eight cycles
 
 #define frequencies, phases, and amplitudes of three sine waves
-frequencies=[1,2,4]
-phases=np.pi*[1,1/2,1/4]
-amlitudes=[1,2, 4]
+frequencies=[1.,2.,4.]
+phases=np.pi*[1.,1./2,1./4]
+amlitudes=[1.,2.,4.]
 
 # compute the wave signals
 wave1 = amplitude[0] * np.sin(2 * np.pi * frequencies[0] * t + phases[0])
