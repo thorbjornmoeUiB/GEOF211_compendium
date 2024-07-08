@@ -167,7 +167,7 @@ t = np.arange(0,5,0.001)
 
 square_wave = 1 - 2 * (t.astype(int) % 2)
 
-N = 20 #number of frequencies to include
+N = 10 #number of frequencies to include
 fsq = np.zeros_like(t) #fsw short for frequencies
 
 for i in range(N): #loop through the 20 first sine waves
@@ -176,13 +176,12 @@ for i in range(N): #loop through the 20 first sine waves
 fsq *= 4 / np.pi
 
 fig, ax = plt.subplots()
-ax.plot(t, square_wave,'k', lw=2)
-ax.plot(t, fsq, 'r',lw=1)
-#ax.set_ylim(-1.2,1.2)
+ax.plot(t, square_wave,'k', lw=2,label='true signal')
+ax.plot(t, fsq, 'r',lw=1, label='Fourier series, n=10')
+ax.set_ylim(-1.25,1.25)
+ax.xlabel(Time, t)
+ax.ylabel(y(t))
 
-
-#ax.grid(b=True, c='k', lw=1, ls='--', which='major')
-#ax.grid(b=True, c='0.4', lw=0.5, ls=':', which='minor')
 
 plt.show()
 
