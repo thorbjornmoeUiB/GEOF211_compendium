@@ -39,7 +39,7 @@ wave2 = amplitudes[1] * np.sin(2 * np.pi * frequencies[1] * t + phases[1])
 wave3 = amplitudes[2] * np.sin(2 * np.pi * frequencies[2] * t + phases[2])
 
 # Add the sine waves together
-superposition_wave = sine_wave1 + sine_wave2 + sine_wave3
+superposition_wave = wave1 + wave2 + wave3
 
 #plot the wave signals
 fig, ax = plt.subplots(2, 1, figsize=(7, 6), sharex=True)

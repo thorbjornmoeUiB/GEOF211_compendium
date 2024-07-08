@@ -26,7 +26,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Create time values
-t = np.linspace(0, 2 * np.pi, 1000) #eight cycles
+t = np.arange(0, 2 * np.pi) #eight cycles, with 1 second resolution
 
 #define frequencies, phases, and amplitudes of three sine waves
 frequencies=1./np.array([2*np.pi,np.pi,2./np.pi])
@@ -38,8 +38,11 @@ wave1 = amplitudes[0] * np.sin(2 * np.pi * frequencies[0] * t + phases[0])
 wave2 = amplitudes[1] * np.sin(2 * np.pi * frequencies[1] * t + phases[1])
 wave3 = amplitudes[2] * np.sin(2 * np.pi * frequencies[2] * t + phases[2])
 
+# Add the sine waves together
+superposition_wave = sine_wave1 + sine_wave2 + sine_wave3
+
 #plot the wave signals
-fig, ax = plt.subplots(2, 1, figsize=(8, 6), sharex=True)
+fig, ax = plt.subplots(2, 1, figsize=(7, 6), sharex=True)
 ax[0].set_xlim(( 0, 2*np.pi))
 ax[0].set_ylim((-4, 4))
 
@@ -47,10 +50,10 @@ line1, = ax[0].plot(t, wave1,'-', lw = 1, label='wave 1')
 line2, = ax[0].plot(t, wave2,'--', lw = 1, label='wave 2')
 line3, = ax[0].plot(t, wave3,':', lw = 1, label='wave 3')
 
-ax[1].plot(t, wave1,'-',color='lightgrey', lw = 1, label='wave 1')
-ax[1].plot(t, wave2,'--',color='lightgrey', lw = 1, label='wave 2')
-ax[1].plot(t, wave3,':',color='lightgrey',lw = 1, label='wave 3')
-line4, = ax[1].plot(t, wave1+wave2+wave3,'k', lw = 3, label='Superposition')
+ax[1].plot(t, wave1,'-',color='darkgrey', lw = 1, label='wave 1')
+ax[1].plot(t, wave2,'--',color='darkgrey', lw = 1, label='wave 2')
+ax[1].plot(t, wave3,':',color='darkgrey',lw = 1, label='wave 3')
+line4, = ax[1].plot(t, superposition_wave,'k', lw = 3, label='Superposition')
 
 ax[0].set_ylabel('Amplitude')
 ax[0].set_title("Initial Condition")
@@ -90,6 +93,27 @@ $$
 $$ (eq:Fourier_transform)
 
 Here, the function $\hat{f}(\xi)$ represent energy as a function of the frequency $\xi$. If the signal consisted of just one pure sine wave, the graph of $\hat{f}(\xi)$ would contain a single spike at the frequency of this sine wave.
+
+```{code-cell} ipython3
+:tags: ["hide-input"]
+
+from scipy.fft import fft
+
+# Compute the Fourier transform
+superposition_wave_fft = fft(superposition_wave)
+
+# Frequency values for the Fourier transform
+sampling_rate = 1 / (t[1] - t[0]) #1 sample per second
+frequencies = np.fft.fftfreq(len(t), d=1/sampling_rate)
+
+# Plot the Fourier transform
+plt.figure(figsize=(8, 6))
+plt.plot(frequencies, np.abs(superposition_wave_fft),'k',lw=2. label="Fourier Transform")
+plt.xlabel("Frequency (Hz)")
+plt.ylabel("Amplitude")
+plt.title("Fourier Transform of superposition wave")
+
+```
 
 # Gibbs phenomenon
 In practice, we typically cannot include an infinite number of terms in the Fourier series to represent a signal. using a limited number of components works fine for continuous signals, but will produce errors (overshoots and undershoots) near discontinuities and areas wih strong gradients. This is called the Gibbs phenomenon.
