@@ -100,13 +100,12 @@ Here, the function $\hat{f}(\xi)$ represent energy as a function of the frequenc
 from scipy.fft import fft, rfft
 from scipy.fft import fftfreq, rfftfreq
 
+# Calculate N
+N = len(t)
+
 # Compute the Fourier transform
 superposition_wave_fft = fft(superposition_wave)
 superposition_wave_real_fft=2*np.abs(rfft(superposition_wave))/N
-
-# Calculate N/2 to normalize the FFT output
-N = len(t)
-normalize = N/2
 
 # Frequency values for the Fourier transform
 sampling_rate = 1 / (t[1] - t[0]) 

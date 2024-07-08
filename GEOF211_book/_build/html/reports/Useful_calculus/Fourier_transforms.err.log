@@ -18,7 +18,8 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-from scipy.fft import fft
+from scipy.fft import fft, rfft
+from scipy.fft import fftfreq, rfftfreq
 
 # Compute the Fourier transform
 superposition_wave_fft = fft(superposition_wave)
@@ -50,12 +51,12 @@ plt.title("Fourier Transform of superposition wave")
 
 [1;31m---------------------------------------------------------------------------[0m
 [1;31mNameError[0m                                 Traceback (most recent call last)
-Cell [1;32mIn[2], line 5[0m
-[0;32m      3[0m [38;5;66;03m# Compute the Fourier transform[39;00m
-[0;32m      4[0m superposition_wave_fft [38;5;241m=[39m fft(superposition_wave)
-[1;32m----> 5[0m superposition_wave_real_fft[38;5;241m=[39m[38;5;241m2[39m[38;5;241m*[39mnp[38;5;241m.[39mabs([43mrfft[49m(superposition_wave))[38;5;241m/[39mN
-[0;32m      7[0m [38;5;66;03m# Calculate N/2 to normalize the FFT output[39;00m
-[0;32m      8[0m N [38;5;241m=[39m [38;5;28mlen[39m(t)
+Cell [1;32mIn[2], line 6[0m
+[0;32m      4[0m [38;5;66;03m# Compute the Fourier transform[39;00m
+[0;32m      5[0m superposition_wave_fft [38;5;241m=[39m fft(superposition_wave)
+[1;32m----> 6[0m superposition_wave_real_fft[38;5;241m=[39m[38;5;241m2[39m[38;5;241m*[39mnp[38;5;241m.[39mabs(rfft(superposition_wave))[38;5;241m/[39m[43mN[49m
+[0;32m      8[0m [38;5;66;03m# Calculate N/2 to normalize the FFT output[39;00m
+[0;32m      9[0m N [38;5;241m=[39m [38;5;28mlen[39m(t)
 
-[1;31mNameError[0m: name 'rfft' is not defined
+[1;31mNameError[0m: name 'N' is not defined
 
