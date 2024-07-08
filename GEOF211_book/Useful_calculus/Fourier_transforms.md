@@ -26,7 +26,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Create time values
-t = np.linspace(0, 8 * np.pi, 1000) #eight cycles
+t = np.linspace(0, 2 * np.pi, 1000) #eight cycles
 
 #define frequencies, phases, and amplitudes of three sine waves
 frequencies=np.array([1.,2.,4.])
@@ -39,8 +39,8 @@ wave2 = amplitudes[1] * np.sin(2 * np.pi * frequencies[1] * t + phases[1])
 wave3 = amplitudes[2] * np.sin(2 * np.pi * frequencies[2] * t + phases[2])
 
 #plot the wave signals
-fig, ax = plt.subplots(4, 1, figsize=(8, 6), sharex=True)
-ax[0].set_xlim(( 0, 8*np.pi))
+fig, ax = plt.subplots(2, 1, figsize=(8, 6), sharex=True)
+ax[0].set_xlim(( 0, 2*np.pi))
 ax[0].set_ylim((-4, 4))
 
 line1, = ax[0].plot(t, wave1, lw = 2, label='wave 1')
@@ -53,6 +53,7 @@ ax[0].set_ylabel('f')
 ax[0].set_title("Initial Condition")
 ax[0].legend()
 ax[1].legend()
+ax[1].set_ylabel('f')
 ax[1].set_xlabel('t')
 
 ```
