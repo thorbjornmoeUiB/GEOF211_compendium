@@ -41,16 +41,21 @@ plt.title('Spectrum')
 plt.xlabel('Frequency[Hz]')
 plt.ylabel('Amplitude')
 
-plt.xlim([0.pi,3*np.pi])
+plt.xlim([0,3*np.pi])
 plt.xlabel("Frequency (Hz)")
 plt.ylabel("Amplitude")
 plt.title("Fourier Transform of superposition wave")
 ------------------
 
 
-[1;36m  Cell [1;32mIn[2], line 24[1;36m[0m
-[1;33m    plt.xlim([0.pi,3*np.pi])[0m
-[1;37m               ^[0m
-[1;31mSyntaxError[0m[1;31m:[0m invalid decimal literal
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mNameError[0m                                 Traceback (most recent call last)
+Cell [1;32mIn[2], line 5[0m
+[0;32m      3[0m [38;5;66;03m# Compute the Fourier transform[39;00m
+[0;32m      4[0m superposition_wave_fft [38;5;241m=[39m fft(superposition_wave)
+[1;32m----> 5[0m superposition_wave_real_fft[38;5;241m=[39m[38;5;241m2[39m[38;5;241m*[39mnp[38;5;241m.[39mabs([43mrfft[49m(superposition_wave))[38;5;241m/[39mN
+[0;32m      7[0m [38;5;66;03m# Calculate N/2 to normalize the FFT output[39;00m
+[0;32m      8[0m N [38;5;241m=[39m [38;5;28mlen[39m(t)
 
+[1;31mNameError[0m: name 'rfft' is not defined
 

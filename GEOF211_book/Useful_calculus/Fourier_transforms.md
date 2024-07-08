@@ -97,7 +97,8 @@ Here, the function $\hat{f}(\xi)$ represent energy as a function of the frequenc
 ```{code-cell} ipython3
 :tags: ["hide-input"]
 
-from scipy.fft import fft
+from scipy.fft import fft, rfft
+from scipy.fft import fftfreq, rfftfreq
 
 # Compute the Fourier transform
 superposition_wave_fft = fft(superposition_wave)
