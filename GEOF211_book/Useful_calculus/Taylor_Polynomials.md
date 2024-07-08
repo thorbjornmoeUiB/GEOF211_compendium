@@ -28,5 +28,5 @@ $$
 sin(x)& = sin(0)+cos(0)(x-0)-\frac{sin(0)(x-0)^2}{2!}-\frac{cos(0)(x-0)^3}{3!}+...&=\sum_{n=0}^{\infty}\frac{sin^{(n)}(0)}{n!}(x-0)^n\\
 & =x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+...=\sum_{n=0}^{\infty}(-1)^n\frac{x^{2n+1}}{(2n+1)!}
 \end{align}
-$$ (eq:Taylor_sine)
+$$ (eq:McLaurin_sine)
 

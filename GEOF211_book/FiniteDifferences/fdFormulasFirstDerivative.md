@@ -49,6 +49,7 @@ where the $a_j$'s are coefficients to be determined.
 
 We start by expanding $u^{j}, \quad j=n-2,\dotsc,n+2$ as Taylor series of $u^n$, up to the fifth order term:
 
+$$
 \begin{align}
 u^{n-2} &= u^n - 2\Delta t\frac{du}{dt}+4\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}-8\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+16\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}-32\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6)\\
 
@@ -60,9 +61,11 @@ u^{n+1} &= u^n + \Delta t\frac{du}{dt}+\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}+\fr
 
 u^{n+2} &= u^n + 2\Delta t\frac{du}{dt}+4\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}+8\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+16\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}+32\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6).
 \end{align}
+$$
 
 We now multiply the Taylor series expansions with the corresponding coefficient and group the terms per order of the derivative:
 
+$$
 \begin{align}
 \left.\frac{du}{dt}\right|_{t^n} = &(a_{-2}+a_{-1}+a_{0}+a_{1}+a_{2})u^{n} + \\ 
    &(-2a_{-2}-a_{-1}+a_{1}+2a_{2})\Delta t\frac{du}{dt} + \\
@@ -71,21 +74,26 @@ We now multiply the Taylor series expansions with the corresponding coefficient 
    &(16a_{-2}+a_{-1}+a_{1}+16a_{2})\frac{\Delta t^4}{24}\frac{d^4u}{dt^4} + \\
    &(-32a_{-2}-a_{-1}+a_{1}+32a_{2})\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6).
 \end{align}
+$$
 
 In order for $\frac{du}{dt}\mid_{t^n}$ to converge to $du/dt$ when $\Delta t \to 0$, we must have:
 
+$$
 \begin{align}
 \mathrm{c1:}& \quad a_{-2}+a_{-1}+a_{0}+a_{1}+a_{2} = 0 \\
 \mathrm{c2:}& \quad (-2a_{-2}-a_{-1}+a_{1}+2a_{2})\Delta t = 1,
 \end{align}
+$$
 
 which provides two necessary conditions, there remaining three parameters to choose in order to have the highest accuracy. This implies cancelling the next three truncation errors:
 
+$$
 \begin{align}
 \mathrm{c3:}& \quad 4a_{-2}+a_{-1}+a_{1}+4a_{2} = 0 \\
 \mathrm{c4:}& \quad -8a_{-2}-a_{-1}+a_{1}+8a_{2} = 0 \\
 \mathrm{c5:}& \quad 16a_{-2}+a_{-1}+a_{1}+16a_{2} = 0.
 \end{align}
+$$
 
 Conditions c1 to c5 provide five equations for five unknowns whose solution is:
 

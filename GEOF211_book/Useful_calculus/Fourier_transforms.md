@@ -44,7 +44,7 @@ superposition_wave = wave1 + wave2 + wave3
 #plot the wave signals
 fig, ax = plt.subplots(2, 1, figsize=(7, 6), sharex=True)
 ax[0].set_xlim(( 0, 2*np.pi))
-ax[0].set_ylim((-4, 4))
+ax[0].set_ylim((-7.5, 7.5))
 
 line1, = ax[0].plot(t, wave1,'-', lw = 1, label='wave 1')
 line2, = ax[0].plot(t, wave2,'--', lw = 1, label='wave 2')
@@ -61,6 +61,7 @@ ax[0].legend(loc="upper right", bbox_to_anchor=(1.1, 1))
 ax[1].legend(loc="upper right", bbox_to_anchor=(1.1, 1))
 ax[1].set_ylabel('Amplitude')
 ax[1].set_xlabel('time, t [s]')
+ax[1].set_ylim((-7.5, 7.5))
 
 ```
 
@@ -119,7 +120,7 @@ $$ (eq:Fourier_transform_continuous)
 For discrete data series (in time or space), the Fourier transform is:
 
 $$
-Y(f)=\Delta t \sum_{-\infty}^\infty y_n e^{-12\pi ft}
+Y(f)=\Delta t \sum_{-\infty}^\infty y_n e^{-i2\pi ft}
 $$ (eq:Fourier_transform)
 
 Here, the function $Y(f)$ represent energy as a function of the frequency $f$. If the signal consisted of just one pure sine wave, the graph of $Y(f)$ would contain a single spike at the frequency of this sine wave.
@@ -147,7 +148,7 @@ plt.title('Spectrum')
 plt.xlabel('Frequency[Hz]')
 plt.ylabel('Amplitude')
 
-#plt.xlim([0,3*np.pi])
+#plt.xlim([0,5])
 plt.xlabel("Frequency (Hz)")
 plt.ylabel("Amplitude")
 plt.title("Fourier Transform of superposition wave")
@@ -165,13 +166,14 @@ import matplotlib.pyplot as plt
 
 t = np.arange(0,5,0.001)
 
+# t.astype(int) % 2 will alternate between the value 1 and zero
 square_wave = 1 - 2 * (t.astype(int) % 2)
 
 N = 10 #number of frequencies to include
 superpos = np.zeros_like(t) #short for superposition
 
 for i in range(N): #loop through the 20 first sine waves
-    n = 2*i + 1
+    n = 2*i + 1 #only odd numbers 
     superpos += np.sin(n * np.pi *t) / n #adds the sine wave for n into the superposition so far
 superpos *= 4 / np.pi
 

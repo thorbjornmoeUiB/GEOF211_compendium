@@ -168,20 +168,20 @@ t = np.arange(0,5,0.001)
 square_wave = 1 - 2 * (t.astype(int) % 2)
 
 N = 10 #number of frequencies to include
-fsq = np.zeros_like(t) #fsw short for frequencies
+superpos = np.zeros_like(t) #short for superposition
 
 for i in range(N): #loop through the 20 first sine waves
     n = 2*i + 1
-    fsq += np.sin(n * np.pi *t) / n #adds the sine wave for n into the sum
-fsq *= 4 / np.pi
+    superpos += np.sin(n * np.pi *t) / n #adds the sine wave for n into the superposition so far
+superpos *= 4 / np.pi
 
 fig, ax = plt.subplots()
 ax.plot(t, square_wave,'k', lw=2,label='true signal')
-ax.plot(t, fsq, 'r',lw=1, label='Fourier series, n=10')
+ax.plot(t, superpos, 'r',lw=1, label='Fourier series, n=10')
 ax.legend(loc="center right", bbox_to_anchor=(1.1, 1))
 ax.set_ylim(-1.25,1.25)
-ax.xlabel("Time, t")
-ax.ylabel(y(t))
+plt.xlabel("Time, t")
+plt.ylabel("y(t)")
 
 
 plt.show()

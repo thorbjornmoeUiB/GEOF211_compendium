@@ -6,5 +6,7 @@ In this course you learn to use numerical methods to solve simple problems in fl
 
 You will learn to use methods to solve initial value problems and solve diagnostic boundary value problems.
 
+The compendium is a collection of notes by Kjersti Daae, João Bettencourt, and Thorbjørn Østenby Moe
+
 ```{tableofcontents}
 ```
