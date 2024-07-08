@@ -100,7 +100,7 @@ Here, the function $\hat{f}(\xi)$ represent energy as a function of the frequenc
 from scipy.fft import fft
 
 # Compute the Fourier transform
-combined_wave_fft = fft(superposition_wave)
+superposition_wave_fft = fft(superposition_wave)
 
 # Frequency values for the Fourier transform
 sampling_rate = 1 / (t[1] - t[0]) #1 sample per second
@@ -108,10 +108,10 @@ frequencies = np.fft.fftfreq(len(t), d=1/sampling_rate)
 
 # Plot the Fourier transform
 plt.figure(figsize=(8, 6))
-plt.plot(frequencies, np.abs(combined_wave_fft),'k',lw=2. label="Fourier Transform")
+plt.plot(frequencies, np.abs(superposition_wave_fft),'k',lw=2. label="Fourier Transform")
 plt.xlabel("Frequency (Hz)")
 plt.ylabel("Amplitude")
-plt.title("Fourier Transform of Combined Sine Waves")
+plt.title("Fourier Transform of superposition wave")
 
 ```
 
