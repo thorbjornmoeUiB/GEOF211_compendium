@@ -25,35 +25,34 @@ t = np.arange(0,5,0.001)
 
 square_wave = 1 - 2 * (t.astype(int) % 2)
 
-N = 20 #number of frequencies to include
-fsq = np.zeros_like(x) #fsw short for frequencies
+N = 10 #number of frequencies to include
+fsq = np.zeros_like(t) #fsw short for frequencies
 
 for i in range(N): #loop through the 20 first sine waves
     n = 2*i + 1
-    fsq += np.sin(n * np.pi *x) / n #adds the sine wave for n into the sum
-fsq *= 5 / np.pi
+    fsq += np.sin(n * np.pi *t) / n #adds the sine wave for n into the sum
+fsq *= 4 / np.pi
 
 fig, ax = plt.subplots()
-ax.plot(x, square_wave,'k', lw=2)
-ax.plot(x, fsq, 'r')
-#ax.set_ylim(-1.2,1.2)
+ax.plot(t, square_wave,'k', lw=2,label='true signal')
+ax.plot(t, fsq, 'r',lw=1, label='Fourier series, n=10')
+ax.set_ylim(-1.25,1.25)
+ax.xlabel(Time, t)
+ax.ylabel(y(t))
 
-
-#ax.grid(b=True, c='k', lw=1, ls='--', which='major')
-#ax.grid(b=True, c='0.4', lw=0.5, ls=':', which='minor')
 
 plt.show()
 ------------------
 
 
 [1;31m---------------------------------------------------------------------------[0m
-[1;31mNameError[0m                                 Traceback (most recent call last)
-Cell [1;32mIn[3], line 9[0m
-[0;32m      6[0m square_wave [38;5;241m=[39m [38;5;241m1[39m [38;5;241m-[39m [38;5;241m2[39m [38;5;241m*[39m (t[38;5;241m.[39mastype([38;5;28mint[39m) [38;5;241m%[39m [38;5;241m2[39m)
-[0;32m      8[0m N [38;5;241m=[39m [38;5;241m20[39m [38;5;66;03m#number of frequencies to include[39;00m
-[1;32m----> 9[0m fsq [38;5;241m=[39m np[38;5;241m.[39mzeros_like([43mx[49m) [38;5;66;03m#fsw short for frequencies[39;00m
-[0;32m     11[0m [38;5;28;01mfor[39;00m i [38;5;129;01min[39;00m [38;5;28mrange[39m(N): [38;5;66;03m#loop through the 20 first sine waves[39;00m
-[0;32m     12[0m     n [38;5;241m=[39m [38;5;241m2[39m[38;5;241m*[39mi [38;5;241m+[39m [38;5;241m1[39m
+[1;31mAttributeError[0m                            Traceback (most recent call last)
+Cell [1;32mIn[3], line 20[0m
+[0;32m     18[0m ax[38;5;241m.[39mplot(t, fsq, [38;5;124m'[39m[38;5;124mr[39m[38;5;124m'[39m,lw[38;5;241m=[39m[38;5;241m1[39m, label[38;5;241m=[39m[38;5;124m'[39m[38;5;124mFourier series, n=10[39m[38;5;124m'[39m)
+[0;32m     19[0m ax[38;5;241m.[39mset_ylim([38;5;241m-[39m[38;5;241m1.25[39m,[38;5;241m1.25[39m)
+[1;32m---> 20[0m [43max[49m[38;5;241;43m.[39;49m[43mxlabel[49m(Time, t)
+[0;32m     21[0m ax[38;5;241m.[39mylabel(y(t))
+[0;32m     24[0m plt[38;5;241m.[39mshow()
 
-[1;31mNameError[0m: name 'x' is not defined
+[1;31mAttributeError[0m: 'Axes' object has no attribute 'xlabel'
 
