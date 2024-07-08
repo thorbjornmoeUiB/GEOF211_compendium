@@ -68,53 +68,80 @@ ax[1].set_xlabel('time, t [s]')
 
 A data signal can be represented in either a time/space domain or a frequency domain. 
 
-The time domain represents how the signal (for example air temperature) is changing with time, $t$. The time is running along the horizontal axis and the temperature is in the vertical axis. Mathematically, we would say that the temperature is a function of time, $f(t)$. Similarly, the space domain represents how the signal (for example air temperature) is changing with space or distance, $x$. Then, the resulting function would be $f(x)$. 
+The time domain represents how the signal (for example air temperature) is changing with time, $t$. The time is running along the horizontal axis and the temperature is in the vertical axis. Mathematically, we would say that the temperature is a function of time, $y(t)$. Similarly, the space domain represents how the signal (for example air temperature) is changing with space or distance, $x$. Then, the resulting function would be $y(x)$. 
 
-To get a meaningful interpretation of the frequency domain, we must first approximate our signal by a superposition of many waves with different frequencies, amplitudes, and phases. The more frequencies we include in the superposition, the better the approximation is.
-
-The amplitude of each wave in the superposition, can be derived from the following equation:
+To get a meaningful interpretation of the frequency domain, we must first approximate our signal by the sum of the mean value of our signal, $\bar{y(t)}$, and a superposition of many waves with different frequencies, amplitudes, and phases, $T$. The more frequencies, $\omega_n$ with unit [radians per time], we include in the superposition, the better the approximation is. The approximation is typoically valid within a certain time period, $T$. The frequencies are related to the time period, through $\omega_n=2\pi/T$.
 
 $$
-c_n=\frac{1}{T}\int_{-t/2}^{T/2}f(t)e^{-i\frac{2\pi}{T}t}dt
-$$ (eq:Fourier_series_amplitude)
-
-The approximated signal is called the Fourier series, and is calculated from:
-
-$$
-f(x)=\sum_{n=-\infty}^\infty c_n e^{i 2\pi\frac{n}{T}t}, t\in[-T/2,T/2]
+y(t)=\bar{y(t)}+\sum_n[A_ncos(\omega_n t)+B_nsin(\omega_n t)]
 $$ (eq:Fourier_series)
 
-, where T represent a certain Time period of interest.
+The number of frequencies we can reolve in a time series, depend on the time interval and the sampling frequency. To resolve a wave signal, we need at least 2 datapoints per wavelength. The highest resolveable frequency, will therefore be $f_N=(N/2)/N\Delta t=1/2\Delta t$. This is called the Nyquist frequency.
 
-When we have created our approximated signal, we can calculate the amount of energy (wave amplitude) related to each frequency. The result is a function that displays the energy as a function of frequency. If we let $t\rightarrow \infty$ and include enough wave frequencies to allow $n/T \rightarrow \xi$ we can now write a function of the amount of energy as in terms of each wave. This is how our signal looks in the frequency domain, and this function is called the Fourier transform:
+Another way of representing the function $y(t)$ as a Fourier series, is to note that $\bar{y(t)}$ can be written as $A_n/2$:
 
 $$
-\hat{f}(\xi)=\int_{-\infty}^\infty f(t)e^{-i2\pi\xi t}dt
+y(t)=\frac{A_0}{2}+\sum_n[A_ncos(\omega_n t)+B_nsin(\omega_n t)]
+$$ (eq:Fourier_series)
+
+The amplitude of each wave in the superposition, can be derived from the following equations:
+
+$$
+A_n=\frac{2}{T}\int_{0}^{T}f(t)cos(\omega_n t)dt, n=0,1,2,...\\
+B_n=\frac{2}{T}\int_{0}^{T}f(t)sin(\omega_n t)dt, n=1,2,...
+$$ (eq:Fourier_series_amplitude)
+
+We can also construct the Fourier series using complex notation for currents, e.g., by stating that $U(t)=u(t)+iv(t)$, when $u(t)$ and $v(t)$ are velocities in east and north direction, respectively:
+
+$$
+U(t)=\sum_{n=0}^\infty c_n e^{i 2\pi\frac{n}{T}t}
+$$ (eq:Fourier_series_complex_euler)
+, where
+$$
+c_n=\frac{1}{T}\int_{0}^{T}U(t)e^{-i\frac{2\pi}{T}t}dt
+$$ (eq:Fourier_series_amplitude)
+
+## The Fourier transform pair
+
+When we have created our approximated signal, we can calculate the amount of energy (wave amplitude) related to each frequency. The result is a function that displays the energy as a function of frequency. If we let $t\rightarrow \infty$ and include enough wave frequencies to allow $n/T \rightarrow \xi$ we can now write a function of the amount of energy as in terms of each wave. This is how our signal looks in the frequency domain, and this function is called the Fourier transform. There are two versions, one continuous and one discrete:
+
+For a continuous functions, $y(t)$ the Fourier transform pair is  defined:
+
+$$
+\begin{align}
+Y(f)&=\int_{-\infty}^\infty y(t)e^{-i2\pi ft}dt\\
+y(t)&=\int_{-\infty}^\infty Y(f)e^{i2\pi ft}df\\
+&=\frac{1}{2\pi}\int_{-\infty}^\infty Y(f)e^{i\omega t}d\omega
+\end{align}
+$$ (eq:Fourier_transform_continuous)
+,where $\omega=2\pi f$. The functions are inverse set of functions.
+
+For discrete data series (in time or space), the Fourier transform is:
+
+$$
+Y(f)=\Delta t \sum_{-\infty}^\infty y_n e^{-12\pi ft}
 $$ (eq:Fourier_transform)
 
-Here, the function $\hat{f}(\xi)$ represent energy as a function of the frequency $\xi$. If the signal consisted of just one pure sine wave, the graph of $\hat{f}(\xi)$ would contain a single spike at the frequency of this sine wave.
+Here, the function $Y(f)$ represent energy as a function of the frequency $f$. If the signal consisted of just one pure sine wave, the graph of $Y(f)$ would contain a single spike at the frequency of this sine wave.
 
 ```{code-cell} ipython3
 :tags: ["hide-input"]
 
-from scipy.fft import fft, rfft
-from scipy.fft import fftfreq, rfftfreq
+#import fft package using only real numbers into the transform
+from scipy.fft import rfft, rfftfreq
 
 # Calculate N
 N = len(t)
+sampling_rate = 1 / (t[1] - t[0])
 
 # Compute the Fourier transform
-superposition_wave_fft = fft(superposition_wave)
-superposition_wave_real_fft=2*np.abs(rfft(superposition_wave))/N
+superposition_wave_rfft = rfft(superposition_wave)
 
-# Frequency values for the Fourier transform
-sampling_rate = 1 / (t[1] - t[0]) 
-frequencies=fftfreq(N, d=1/sampling_rate) #real frequencies
-#frequencies = np.fft.fftfreq(len(t), d=1/sampling_rate)
+frequencies = rfftfreq(N, sampling_rate)
 
 # Plot the Fourier transform
 plt.figure(figsize=(8, 6))
-plt.plot(frequencies, superposition_wave_real_fft,'k',lw=2, label="Fourier Transform")
+plt.plot(frequencies, superposition_wave_rfft,'k',lw=2, label="Fourier Transform")
 
 plt.title('Spectrum')
 plt.xlabel('Frequency[Hz]')
