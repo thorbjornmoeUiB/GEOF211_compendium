@@ -14,8 +14,8 @@ $$
 f(a)+\frac{f'(0)}{1!}x+\frac{f''(0)}{2!}x^2+\frac{f'''(0)}{3!}x^3+...=\sum_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}x^n
 $$ (eq:McLaurin_series)
 
-## Examples of Taylor and Mclaurin series
-Taylor series for $sine(x)$:
+## Examples of Taylor and McLaurin series
+Taylor series for $sin(x)$:
 
 $$
 sin(x)= sin(a)+cos(a)(x-a)-\frac{sin(a)(x-a)^2}{2!}-\frac{cos(a)(x-a)^3}{3!}+...=\sum_{n=0}^{\infty}\frac{sin^{(n)}(a)}{n!}(x-a)^n
@@ -24,8 +24,9 @@ $$ (eq:Taylor_sine)
 McLaurin series for $sin(x)$:
 
 $$
-\begin{gather*}
-sin(x)= sin(0)+cos(0)(x-0)-\frac{sin(0)(x-0)^2}{2!}-\frac{cos(0)(x-0)^3}{3!}+...=\sum_{n=0}^{\infty}\frac{sin^{(n)}(0)}{n!}(x-0)^n
-sin(x)= x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+...=\sum_{n=0}^{\infty}(-1)^n\frac{x^{2n+1}}{(2n+1)!}
-\end{gather*}
+\begin{align}
+sin(x)& = sin(0)+cos(0)(x-0)-\frac{sin(0)(x-0)^2}{2!}-\frac{cos(0)(x-0)^3}{3!}+...&=\sum_{n=0}^{\infty}\frac{sin^{(n)}(0)}{n!}(x-0)^n\\
+& =x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+...=\sum_{n=0}^{\infty}(-1)^n\frac{x^{2n+1}}{(2n+1)!}
+\end{align}
 $$ (eq:Taylor_sine)
+

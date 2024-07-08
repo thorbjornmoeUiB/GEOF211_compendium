@@ -395,7 +395,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Taylor series</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mclaurin-series">McLaurin series</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-taylor-and-mclaurin-series">Examples of Taylor and Mclaurin series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-taylor-and-mclaurin-series">Examples of Taylor and McLaurin series</a></li>
 </ul>
 </li>
 </ul>
@@ -426,20 +426,20 @@ f(a)+\frac{f'(a)}{1!}(x-a)+\frac{f''(a)}{2!}(x-a)^2+\frac{f'''(a)}{3!}(x-a)^3+..
 f(a)+\frac{f'(0)}{1!}x+\frac{f''(0)}{2!}x^2+\frac{f'''(0)}{3!}x^3+...=\sum_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}x^n
 \]</div>
 <section id="examples-of-taylor-and-mclaurin-series">
-<h2>Examples of Taylor and Mclaurin series<a class="headerlink" href="#examples-of-taylor-and-mclaurin-series" title="Link to this heading">#</a></h2>
-<p>Taylor series for <span class="math notranslate nohighlight">\(sine(x)\)</span>:</p>
+<h2>Examples of Taylor and McLaurin series<a class="headerlink" href="#examples-of-taylor-and-mclaurin-series" title="Link to this heading">#</a></h2>
+<p>Taylor series for <span class="math notranslate nohighlight">\(sin(x)\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-taylor-sine">
 <span class="eqno">(4)<a class="headerlink" href="#equation-eq-taylor-sine" title="Link to this equation">#</a></span>\[
 sin(x)= sin(a)+cos(a)(x-a)-\frac{sin(a)(x-a)^2}{2!}-\frac{cos(a)(x-a)^3}{3!}+...=\sum_{n=0}^{\infty}\frac{sin^{(n)}(a)}{n!}(x-a)^n
 \]</div>
 <p>McLaurin series for <span class="math notranslate nohighlight">\(sin(x)\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-taylor-sine">
-<span class="eqno">(4)<a class="headerlink" href="#equation-eq-taylor-sine" title="Link to this equation">#</a></span>\[
-\begin{gather*}
-sin(x)= sin(0)+cos(0)(x-0)-\frac{sin(0)(x-0)^2}{2!}-\frac{cos(0)(x-0)^3}{3!}+...=\sum_{n=0}^{\infty}\frac{sin^{(n)}(0)}{n!}(x-0)^n
-sin(x)= x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+...=\sum_{n=0}^{\infty}(-1)^n\frac{x^{2n+1}}{(2n+1)!}
-\end{gather*}
-\]</div>
+<span class="eqno">(4)<a class="headerlink" href="#equation-eq-taylor-sine" title="Link to this equation">#</a></span>\[\begin{split}
+\begin{align}
+sin(x)&amp; = sin(0)+cos(0)(x-0)-\frac{sin(0)(x-0)^2}{2!}-\frac{cos(0)(x-0)^3}{3!}+...&amp;=\sum_{n=0}^{\infty}\frac{sin^{(n)}(0)}{n!}(x-0)^n\\
+&amp; =x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+...=\sum_{n=0}^{\infty}(-1)^n\frac{x^{2n+1}}{(2n+1)!}
+\end{align}
+\end{split}\]</div>
 </section>
 </section>
 
@@ -509,7 +509,7 @@ sin(x)= x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+...=\sum_{n=0}^{\infty}(-
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Taylor series</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mclaurin-series">McLaurin series</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-taylor-and-mclaurin-series">Examples of Taylor and Mclaurin series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-taylor-and-mclaurin-series">Examples of Taylor and McLaurin series</a></li>
 </ul>
 </li>
 </ul>
