@@ -178,8 +178,9 @@ fsq *= 4 / np.pi
 fig, ax = plt.subplots()
 ax.plot(t, square_wave,'k', lw=2,label='true signal')
 ax.plot(t, fsq, 'r',lw=1, label='Fourier series, n=10')
+ax.legend(loc="upper right", bbox_to_anchor=(1.1, 1))
 ax.set_ylim(-1.25,1.25)
-ax.xlabel(Time, t)
+ax.xlabel("Time, t")
 ax.ylabel(y(t))
 
 
