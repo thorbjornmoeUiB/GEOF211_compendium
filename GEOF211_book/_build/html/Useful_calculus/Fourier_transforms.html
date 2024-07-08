@@ -432,7 +432,7 @@ document.write(`
 <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span> <span class="c1">#eight cycles</span>
 
 <span class="c1">#define frequencies, phases, and amplitudes of three sine waves</span>
-<span class="n">frequencies</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span><span class="mf">2.</span><span class="p">,</span><span class="mf">4.</span><span class="p">])</span>
+<span class="n">frequencies</span><span class="o">=</span><span class="mf">1.</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">.</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="mf">2.</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">])</span>
 <span class="n">phases</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span><span class="mf">1.</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mf">1.</span><span class="o">/</span><span class="mi">4</span><span class="p">])</span>
 <span class="n">amplitudes</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span><span class="mf">2.</span><span class="p">,</span><span class="mf">4.</span><span class="p">])</span>
 
@@ -463,10 +463,12 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;t&#39;)
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
+    <span class="n">frequencies</span><span class="o">=</span><span class="mf">1.</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">.</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="mf">2.</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">])</span>
+                                     <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
 </pre></div>
 </div>
-<img alt="../_images/ce3d646f76036e7e566edef211d9287bb0b8dbee943ec2d241f57ff4ea69cff0.png" src="../_images/ce3d646f76036e7e566edef211d9287bb0b8dbee943ec2d241f57ff4ea69cff0.png" />
 </div>
 </div>
 </section>
