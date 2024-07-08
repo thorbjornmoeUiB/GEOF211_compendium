@@ -183,6 +183,8 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">Useful calculus</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Taylor_Polynomials.html">Taylor series</a></li>
+
 <li class="toctree-l2"><a class="reference internal" href="Complex_numbers.html">Useful identities for dealing with trigonometry and complex numbers</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Fourier transforms</a></li>
 
@@ -424,18 +426,18 @@ document.write(`
 <p>To get a meaningful interpretation of the frequency domain, we must first approximate our signal by a superposition of many waves with different frequencies, amplitudes, and phases. The more frequencies we include in the superposition, the better the approximation is.</p>
 <p>The amplitude of each wave in the superposition, can be derived from the following equation:</p>
 <div class="math notranslate nohighlight" id="equation-eq-fourier-series-amplitude">
-<span class="eqno">(18)<a class="headerlink" href="#equation-eq-fourier-series-amplitude" title="Link to this equation">#</a></span>\[
+<span class="eqno">(22)<a class="headerlink" href="#equation-eq-fourier-series-amplitude" title="Link to this equation">#</a></span>\[
 c_n=\frac{1}{T}\int_{-t/2}^{T/2}f(t)e^{-1\frac{2\pi}{T}t}dt
 \]</div>
 <p>The approximated signal is called the Fourier series, and is calculated from:</p>
 <div class="math notranslate nohighlight" id="equation-eq-fourier-series">
-<span class="eqno">(19)<a class="headerlink" href="#equation-eq-fourier-series" title="Link to this equation">#</a></span>\[
+<span class="eqno">(23)<a class="headerlink" href="#equation-eq-fourier-series" title="Link to this equation">#</a></span>\[
 f(x)=\sum_{n=-\infty}^\infty c_n e^{i 2\pi\frac{n}{T}t}, t\in[-T/2,T/2]
 \]</div>
 <p>, where T represent a certain Time period of interest.</p>
 <p>When we have created our approximated signal, we can calculate the amount of energy (wave amplitude) related to each frequency. The result is a function that displays the energy as a function of frequency. If we let <span class="math notranslate nohighlight">\(t\leftarrow \infty\)</span> and include enough wave frequencies to allow <span class="math notranslate nohighlight">\(n/T \leftarrow \psi\)</span> we can now write a function of the amount of energy as in terms of each wave. This is how our signal looks in the frequency domain, and this function is called the Fourier transform:</p>
 <div class="math notranslate nohighlight" id="equation-eq-fourier-transform">
-<span class="eqno">(20)<a class="headerlink" href="#equation-eq-fourier-transform" title="Link to this equation">#</a></span>\[
+<span class="eqno">(24)<a class="headerlink" href="#equation-eq-fourier-transform" title="Link to this equation">#</a></span>\[
 \hat{f(\psi)}=\int_{-\infty}^\infty f(t)e^{-i2\pi\psi t}dt
 \]</div>
 <p>Here, the function <span class="math notranslate nohighlight">\(\hat{f(\psi)}\)</span> represent energy as a function of the frequency <span class="math notranslate nohighlight">\(\psi\)</span>. If the signal consisted of just one pure sine wave, the graph of <span class="math notranslate nohighlight">\(\hat{f(\psi)}\)</span> would contain a single spike at the frequency of this sine wave.</p>

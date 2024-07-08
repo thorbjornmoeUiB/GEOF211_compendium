@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Algebraic approximation of the first derivative &#8212; My sample book</title>
+    <title>Taylor series &#8212; My sample book</title>
   
   
   
@@ -59,11 +59,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'FiniteDifferences/algebraicDerivative';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Useful_calculus/Taylor_Polynomials';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Truncation Error" href="truncationErrors.html" />
-    <link rel="prev" title="The finite difference method (FDM)" href="Introduction.html" />
+    <link rel="next" title="Useful identities for dealing with trigonometry and complex numbers" href="Complex_numbers.html" />
+    <link rel="prev" title="Useful calculus" href="Introduction.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -182,20 +182,20 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Useful_calculus/Introduction.html">Useful calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Taylor_Polynomials.html">Taylor series</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">Useful calculus</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Taylor series</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Complex_numbers.html">Useful identities for dealing with trigonometry and complex numbers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Fourier_transforms.html">Fourier transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Complex_numbers.html">Useful identities for dealing with trigonometry and complex numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fourier_transforms.html">Fourier transforms</a></li>
 
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">The finite difference method (FDM)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Algebraic approximation of the first derivative</a></li>
-<li class="toctree-l2"><a class="reference internal" href="truncationErrors.html">Truncation Error</a></li>
-<li class="toctree-l2"><a class="reference internal" href="estimatesTruncationError.html">Estimates of the truncation error</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fdFormulasFirstDerivative.html">Finite difference formulas for the 1st derivative</a></li>
-<li class="toctree-l2"><a class="reference internal" href="evaluatingTruncationError.html">Evaluating the truncation error</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../FiniteDifferences/Introduction.html">The finite difference method (FDM)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/algebraicDerivative.html">Algebraic approximation of the first derivative</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/truncationErrors.html">Truncation Error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/estimatesTruncationError.html">Estimates of the truncation error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/fdFormulasFirstDerivative.html">Finite difference formulas for the 1st derivative</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/evaluatingTruncationError.html">Evaluating the truncation error</a></li>
 </ul>
 </details></li>
 </ul>
@@ -269,7 +269,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FFiniteDifferences/algebraicDerivative.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FUseful_calculus/Taylor_Polynomials.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -299,7 +299,7 @@
       
       
       
-      <li><a href="../_sources/FiniteDifferences/algebraicDerivative.md" target="_blank"
+      <li><a href="../_sources/Useful_calculus/Taylor_Polynomials.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -370,7 +370,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -381,11 +383,24 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Algebraic approximation of the first derivative</h1>
+    <h1>Taylor series</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Taylor series</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mclaurin-series">McLaurin series</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-taylor-and-mclaurin-series">Examples of Taylor and Mclaurin series</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -395,25 +410,37 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="algebraic-approximation-of-the-first-derivative">
-<span id="finite-differences-algebraic-derivative"></span><h1>Algebraic approximation of the first derivative<a class="headerlink" href="#algebraic-approximation-of-the-first-derivative" title="Link to this heading">#</a></h1>
-<p>Let us consider a function <span class="math notranslate nohighlight">\(u(t)\)</span> that depends continously on <span class="math notranslate nohighlight">\(t\)</span>. The derivative of <span class="math notranslate nohighlight">\(u(t)\)</span> is:</p>
-<div class="math notranslate nohighlight" id="equation-eq-exactderivative">
-<span class="eqno">(25)<a class="headerlink" href="#equation-eq-exactderivative" title="Link to this equation">#</a></span>\[
-\frac{du}{dt} = \lim_{\Delta t \to 0} \frac{u(t+\Delta t)-u(t)}{\Delta t}.
+  <section class="tex2jax_ignore mathjax_ignore" id="taylor-series">
+<span id="useful-calculus-taylor-polynomials"></span><h1>Taylor series<a class="headerlink" href="#taylor-series" title="Link to this heading">#</a></h1>
+<p>Taylor polynomials or Taylor series are approximations of a function near a point <span class="math notranslate nohighlight">\(a\)</span>. This holds if  <span class="math notranslate nohighlight">\(f\)</span> is a function whose <span class="math notranslate nohighlight">\(n+1^{th}\)</span> derivative exists on an interval containing the point <span class="math notranslate nohighlight">\(a\)</span>. The approximation is better the more terms you include and the closer you are to the point <span class="math notranslate nohighlight">\(a\)</span>.</p>
+<div class="math notranslate nohighlight" id="equation-eq-taylor-series">
+<span class="eqno">(1)<a class="headerlink" href="#equation-eq-taylor-series" title="Link to this equation">#</a></span>\[
+f(a)+\frac{f'(a)}{1!}(x-a)+\frac{f''(a)}{2!}(x-a)^2+\frac{f'''(a)}{3!}(x-a)^3+...=\sum_{n=0}^{\infty}\frac{f^{(n)}(a)}{n!}(x-a)^n
 \]</div>
-<p>We can obtain an algebraic approximation to <span class="math notranslate nohighlight">\(du/dt\)</span> simply by relaxing the requirement that <span class="math notranslate nohighlight">\(\Delta t \to 0\)</span>, retaining a finite <span class="math notranslate nohighlight">\(\Delta t\)</span>:</p>
-<div class="math notranslate nohighlight" id="equation-eq-approxderivative">
-<span class="eqno">(26)<a class="headerlink" href="#equation-eq-approxderivative" title="Link to this equation">#</a></span>\[
-\frac{du}{dt} \approx \frac{u(t+\Delta t)-u(t)}{\Delta t}.
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="mclaurin-series">
+<h1>McLaurin series<a class="headerlink" href="#mclaurin-series" title="Link to this heading">#</a></h1>
+<p>The McLaurin series are special cases of the Tayolor series, where the series are calculated for a region close to origo, setting <span class="math notranslate nohighlight">\(a=0\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-mclaurin-series">
+<span class="eqno">(2)<a class="headerlink" href="#equation-eq-mclaurin-series" title="Link to this equation">#</a></span>\[
+f(a)+\frac{f'(0)}{1!}x+\frac{f''(0)}{2!}x^2+\frac{f'''(0)}{3!}x^3+...=\sum_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}x^n
 \]</div>
-<p>If instead of a continuous <span class="math notranslate nohighlight">\(t\)</span>, we use discrete values <span class="math notranslate nohighlight">\(t^n=n\Delta t\)</span>, we can write the algebraic approximation <a class="reference internal" href="#equation-eq-approxderivative">(26)</a> as:</p>
-<div class="math notranslate nohighlight" id="equation-eq-discretederivative">
-<span class="eqno">(27)<a class="headerlink" href="#equation-eq-discretederivative" title="Link to this equation">#</a></span>\[
-\frac{du}{dt} \approx \frac{u^{n+1}-u^n}{\Delta t},
+<section id="examples-of-taylor-and-mclaurin-series">
+<h2>Examples of Taylor and Mclaurin series<a class="headerlink" href="#examples-of-taylor-and-mclaurin-series" title="Link to this heading">#</a></h2>
+<p>Taylor series for <span class="math notranslate nohighlight">\(sine(x)\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-taylor-sine">
+<span class="eqno">(4)<a class="headerlink" href="#equation-eq-taylor-sine" title="Link to this equation">#</a></span>\[
+sin(x)= sin(a)+cos(a)(x-a)-\frac{sin(a)(x-a)^2}{2!}-\frac{cos(a)(x-a)^3}{3!}+...=\sum_{n=0}^{\infty}\frac{sin^{(n)}(a)}{n!}(x-a)^n
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(u^{n+1}=u(t^{n+1})=u(t^n+\Delta t)\)</span> and <span class="math notranslate nohighlight">\(u^{n}=u(t^n)\)</span>.</p>
-<p>When dropping the requirement <span class="math notranslate nohighlight">\(\Delta t \to 0\)</span> to obtain the algebraic approximation, we are introducing errors in the calculation of <span class="math notranslate nohighlight">\(du/dt\)</span>. We must now find out how large can these errors be.</p>
+<p>McLaurin series for <span class="math notranslate nohighlight">\(sin(x)\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-taylor-sine">
+<span class="eqno">(4)<a class="headerlink" href="#equation-eq-taylor-sine" title="Link to this equation">#</a></span>\[
+\begin{gather*}
+sin(x)= sin(0)+cos(0)(x-0)-\frac{sin(0)(x-0)^2}{2!}-\frac{cos(0)(x-0)^3}{3!}+...=\sum_{n=0}^{\infty}\frac{sin^{(n)}(0)}{n!}(x-0)^n
+sin(x)= x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+...=\sum_{n=0}^{\infty}(-1)^n\frac{x^{2n+1}}{(2n+1)!}
+\end{gather*}
+\]</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -429,7 +456,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./FiniteDifferences"
+            path: "./Useful_calculus"
         },
         predefinedOutput: true
     }
@@ -452,15 +479,15 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">The finite difference method (FDM)</p>
+        <p class="prev-next-title">Useful calculus</p>
       </div>
     </a>
     <a class="right-next"
-       href="truncationErrors.html"
+       href="Complex_numbers.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Truncation Error</p>
+        <p class="prev-next-title">Useful identities for dealing with trigonometry and complex numbers</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -470,6 +497,26 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Taylor series</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mclaurin-series">McLaurin series</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-taylor-and-mclaurin-series">Examples of Taylor and Mclaurin series</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>
