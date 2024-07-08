@@ -147,7 +147,7 @@ plt.title('Spectrum')
 plt.xlabel('Frequency[Hz]')
 plt.ylabel('Amplitude')
 
-plt.xlim([0,3*np.pi])
+#plt.xlim([0,3*np.pi])
 plt.xlabel("Frequency (Hz)")
 plt.ylabel("Amplitude")
 plt.title("Fourier Transform of superposition wave")

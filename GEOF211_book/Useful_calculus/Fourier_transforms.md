@@ -137,7 +137,7 @@ sampling_rate = 1 / (t[1] - t[0])
 # Compute the Fourier transform
 superposition_wave_rfft = rfft(superposition_wave)
 
-frequencies = rfftfreq(N, sampling_rate)
+frequencies = rfftfreq(N, 1/sampling_rate)
 
 # Plot the Fourier transform
 plt.figure(figsize=(8, 6))
