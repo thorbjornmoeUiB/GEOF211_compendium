@@ -101,15 +101,26 @@ from scipy.fft import fft
 
 # Compute the Fourier transform
 superposition_wave_fft = fft(superposition_wave)
+superposition_wave_real_fft=2*np.abs(rfft(superposition_wave))/N
+
+# Calculate N/2 to normalize the FFT output
+N = len(t)
+normalize = N/2
 
 # Frequency values for the Fourier transform
-sampling_rate = 1 / (t[1] - t[0]) #1 sample per second
-frequencies = np.fft.fftfreq(len(t), d=1/sampling_rate)
+sampling_rate = 1 / (t[1] - t[0]) 
+frequencies=fftfreq(N, d=1/sampling_rate) #real frequencies
+#frequencies = np.fft.fftfreq(len(t), d=1/sampling_rate)
 
 # Plot the Fourier transform
 plt.figure(figsize=(8, 6))
-plt.plot(frequencies, np.abs(superposition_wave_fft),'k',lw=2, label="Fourier Transform")
-plt.xlim([-3*np.pi,3*np.pi])
+plt.plot(frequencies, superposition_wave_real_fft,'k',lw=2, label="Fourier Transform")
+
+plt.title('Spectrum')
+plt.xlabel('Frequency[Hz]')
+plt.ylabel('Amplitude')
+
+plt.xlim([0.pi,3*np.pi])
 plt.xlabel("Frequency (Hz)")
 plt.ylabel("Amplitude")
 plt.title("Fourier Transform of superposition wave")
