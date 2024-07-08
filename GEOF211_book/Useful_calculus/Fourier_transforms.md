@@ -109,7 +109,7 @@ frequencies = np.fft.fftfreq(len(t), d=1/sampling_rate)
 # Plot the Fourier transform
 plt.figure(figsize=(8, 6))
 plt.plot(frequencies, np.abs(superposition_wave_fft),'k',lw=2, label="Fourier Transform")
-plt.xlim([-3*np.p1,3*np.pi])
+plt.xlim([-3*np.pi,3*np.pi])
 plt.xlabel("Frequency (Hz)")
 plt.ylabel("Amplitude")
 plt.title("Fourier Transform of superposition wave")
