@@ -39,16 +39,21 @@ ax.plot(x, fsq, 'r')
 #ax.set_ylim(-1.2,1.2)
 
 
-3ax.grid(b=True, c='k', lw=1, ls='--', which='major')
+#ax.grid(b=True, c='k', lw=1, ls='--', which='major')
 #ax.grid(b=True, c='0.4', lw=0.5, ls=':', which='minor')
 
 plt.show()
 ------------------
 
 
-[1;36m  Cell [1;32mIn[3], line 22[1;36m[0m
-[1;33m    3ax.grid(b=True, c='k', lw=1, ls='--', which='major')[0m
-[1;37m    ^[0m
-[1;31mSyntaxError[0m[1;31m:[0m invalid decimal literal
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mNameError[0m                                 Traceback (most recent call last)
+Cell [1;32mIn[3], line 9[0m
+[0;32m      6[0m square_wave [38;5;241m=[39m [38;5;241m1[39m [38;5;241m-[39m [38;5;241m2[39m [38;5;241m*[39m (t[38;5;241m.[39mastype([38;5;28mint[39m) [38;5;241m%[39m [38;5;241m2[39m)
+[0;32m      8[0m N [38;5;241m=[39m [38;5;241m20[39m [38;5;66;03m#number of frequencies to include[39;00m
+[1;32m----> 9[0m fsq [38;5;241m=[39m np[38;5;241m.[39mzeros_like([43mx[49m) [38;5;66;03m#fsw short for frequencies[39;00m
+[0;32m     11[0m [38;5;28;01mfor[39;00m i [38;5;129;01min[39;00m [38;5;28mrange[39m(N): [38;5;66;03m#loop through the 20 first sine waves[39;00m
+[0;32m     12[0m     n [38;5;241m=[39m [38;5;241m2[39m[38;5;241m*[39mi [38;5;241m+[39m [38;5;241m1[39m
 
+[1;31mNameError[0m: name 'x' is not defined
 
