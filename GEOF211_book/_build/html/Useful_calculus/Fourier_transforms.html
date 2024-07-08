@@ -495,7 +495,7 @@ y(t)=\frac{A_0}{2}+\sum_n[A_ncos(\omega_n t)+B_nsin(\omega_n t)]
 \]</div>
 <p>The amplitude of each wave in the superposition, can be derived from the following equations:</p>
 <div class="math notranslate nohighlight" id="equation-eq-fourier-series-amplitude">
-<span class="eqno">(24)<a class="headerlink" href="#equation-eq-fourier-series-amplitude" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(26)<a class="headerlink" href="#equation-eq-fourier-series-amplitude" title="Link to this equation">#</a></span>\[\begin{split}
 A_n=\frac{2}{T}\int_{0}^{T}f(t)cos(\omega_n t)dt, n=0,1,2,...\\
 B_n=\frac{2}{T}\int_{0}^{T}f(t)sin(\omega_n t)dt, n=1,2,...
 \end{split}\]</div>
@@ -504,17 +504,18 @@ B_n=\frac{2}{T}\int_{0}^{T}f(t)sin(\omega_n t)dt, n=1,2,...
 <span class="eqno">(25)<a class="headerlink" href="#equation-eq-fourier-series-complex-euler" title="Link to this equation">#</a></span>\[
 U(t)=\sum_{n=0}^\infty c_n e^{i 2\pi\frac{n}{T}t}
 \]</div>
-<p>, where
-$<span class="math notranslate nohighlight">\(
+<p>, where</p>
+<div class="math notranslate nohighlight" id="equation-eq-fourier-series-amplitude">
+<span class="eqno">(26)<a class="headerlink" href="#equation-eq-fourier-series-amplitude" title="Link to this equation">#</a></span>\[
 c_n=\frac{1}{T}\int_{0}^{T}U(t)e^{-i\frac{2\pi}{T}t}dt
-\)</span>$ (eq:Fourier_series_amplitude)</p>
+\]</div>
 </section>
 <section id="the-fourier-transform-pair">
 <h2>The Fourier transform pair<a class="headerlink" href="#the-fourier-transform-pair" title="Link to this heading">#</a></h2>
 <p>When we have created our approximated signal, we can calculate the amount of energy (wave amplitude) related to each frequency. The result is a function that displays the energy as a function of frequency. If we let <span class="math notranslate nohighlight">\(t\rightarrow \infty\)</span> and include enough wave frequencies to allow <span class="math notranslate nohighlight">\(n/T \rightarrow \xi\)</span> we can now write a function of the amount of energy as in terms of each wave. This is how our signal looks in the frequency domain, and this function is called the Fourier transform. There are two versions, one continuous and one discrete:</p>
 <p>For a continuous functions, <span class="math notranslate nohighlight">\(y(t)\)</span> the Fourier transform pair is  defined:</p>
 <div class="math notranslate nohighlight" id="equation-eq-fourier-transform-continuous">
-<span class="eqno">(26)<a class="headerlink" href="#equation-eq-fourier-transform-continuous" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(27)<a class="headerlink" href="#equation-eq-fourier-transform-continuous" title="Link to this equation">#</a></span>\[\begin{split}
 \begin{align}
 Y(f)&amp;=\int_{-\infty}^\infty y(t)e^{-i2\pi ft}dt\\
 y(t)&amp;=\int_{-\infty}^\infty Y(f)e^{i2\pi ft}df\\
@@ -524,7 +525,7 @@ y(t)&amp;=\int_{-\infty}^\infty Y(f)e^{i2\pi ft}df\\
 <p>,where <span class="math notranslate nohighlight">\(\omega=2\pi f\)</span>. The functions are inverse set of functions.</p>
 <p>For discrete data series (in time or space), the Fourier transform is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-fourier-transform">
-<span class="eqno">(27)<a class="headerlink" href="#equation-eq-fourier-transform" title="Link to this equation">#</a></span>\[
+<span class="eqno">(28)<a class="headerlink" href="#equation-eq-fourier-transform" title="Link to this equation">#</a></span>\[
 Y(f)=\Delta t \sum_{-\infty}^\infty y_n e^{-i2\pi ft}
 \]</div>
 <p>Here, the function <span class="math notranslate nohighlight">\(Y(f)\)</span> represent energy as a function of the frequency <span class="math notranslate nohighlight">\(f\)</span>. If the signal consisted of just one pure sine wave, the graph of <span class="math notranslate nohighlight">\(Y(f)\)</span> would contain a single spike at the frequency of this sine wave.</p>
@@ -543,13 +544,14 @@ Y(f)=\Delta t \sum_{-\infty}^\infty y_n e^{-i2\pi ft}
 <span class="n">sampling_rate</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
 <span class="c1"># Compute the Fourier transform</span>
-<span class="n">superposition_wave_rfft</span> <span class="o">=</span> <span class="n">rfft</span><span class="p">(</span><span class="n">superposition_wave</span><span class="p">)</span>
-
-<span class="n">frequencies</span> <span class="o">=</span> <span class="n">rfftfreq</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">sampling_rate</span><span class="p">)</span>
+<span class="n">frequency_eval_max</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1">#max number of components</span>
+<span class="n">superposition_wave_rfft</span> <span class="o">=</span> <span class="n">rfft</span><span class="p">(</span><span class="n">superposition_wave</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">frequency_eval_max</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">superposition_wave_rfft</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># np.size(t)</span>
+<span class="n">frequencies_rel</span> <span class="o">=</span> <span class="n">n</span><span class="o">*</span><span class="n">sampling_rate</span><span class="o">/</span><span class="n">frequency_eval_max</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
 
 <span class="c1"># Plot the Fourier transform</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">frequencies</span><span class="p">,</span> <span class="n">superposition_wave_rfft</span><span class="p">,</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Fourier Transform&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">frequencies_rel</span><span class="p">,</span> <span class="n">superposition_wave_rfft</span><span class="p">,</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Fourier Transform&quot;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Spectrum&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency[Hz]&#39;</span><span class="p">)</span>
@@ -573,7 +575,7 @@ C:\Users\kda005\Anaconda3\envs\GEOF211_compendium\Lib\site-packages\matplotlib\c
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Fourier Transform of superposition wave&#39;)
 </pre></div>
 </div>
-<img alt="../_images/5268e03db8524f9975d2d10823369d60eb509521222c5cdb12522d3fea790d1f.png" src="../_images/5268e03db8524f9975d2d10823369d60eb509521222c5cdb12522d3fea790d1f.png" />
+<img alt="../_images/1de6c0f0f9b277672223f38d956832f863ad219637e6c342046aa1383ae50036.png" src="../_images/1de6c0f0f9b277672223f38d956832f863ad219637e6c342046aa1383ae50036.png" />
 </div>
 </div>
 </section>
