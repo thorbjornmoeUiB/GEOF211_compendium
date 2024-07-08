@@ -22,16 +22,19 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Create time values
-t = np.linspace(0, 8 * np.pi, 1000) %eight cycles
+t = np.linspace(0, 8 * np.pi, 1000) #eight cycles
 
+#define frequencies, phases, and amplitudes of three sine waves
 frequencies=[1,2,4]
 phases=np.pi*[1,1/2,1/4]
 amlitudes=[1,2, 4]
 
+# compute the wave signals
 wave1 = amplitude[0] * np.sin(2 * np.pi * frequencies[0] * t + phases[0])
 wave2 = amplitude[1] * np.sin(2 * np.pi * frequencies[1] * t + phases[1])
 wave3 = amplitude[2] * np.sin(2 * np.pi * frequencies[2] * t + phases[2])
 
+#plot the wave signals
 fig, ax = plt.subplots(2,1,shareX=True)
 ax[0].set_xlim(( 0, 8*np.pi))
 ax[0].set_ylim((-4, 4))
@@ -50,9 +53,14 @@ ax[1].set_xlabel('t')
 ------------------
 
 
-[1;36m  Cell [1;32mIn[1], line 5[1;36m[0m
-[1;33m    t = np.linspace(0, 8 * np.pi, 1000) %eight cycles[0m
-[1;37m                                               ^[0m
-[1;31mSyntaxError[0m[1;31m:[0m invalid syntax
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mTypeError[0m                                 Traceback (most recent call last)
+Cell [1;32mIn[1], line 9[0m
+[0;32m      7[0m [38;5;66;03m#define frequencies, phases, and amplitudes of three sine waves[39;00m
+[0;32m      8[0m frequencies[38;5;241m=[39m[[38;5;241m1[39m,[38;5;241m2[39m,[38;5;241m4[39m]
+[1;32m----> 9[0m phases[38;5;241m=[39m[43mnp[49m[38;5;241;43m.[39;49m[43mpi[49m[38;5;241;43m*[39;49m[43m[[49m[38;5;241;43m1[39;49m[43m,[49m[38;5;241;43m1[39;49m[38;5;241;43m/[39;49m[38;5;241;43m2[39;49m[43m,[49m[38;5;241;43m1[39;49m[38;5;241;43m/[39;49m[38;5;241;43m4[39;49m[43m][49m
+[0;32m     10[0m amlitudes[38;5;241m=[39m[[38;5;241m1[39m,[38;5;241m2[39m, [38;5;241m4[39m]
+[0;32m     12[0m [38;5;66;03m# compute the wave signals[39;00m
 
+[1;31mTypeError[0m: can't multiply sequence by non-int of type 'float'
 
