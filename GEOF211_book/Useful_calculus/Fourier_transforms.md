@@ -26,7 +26,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Create time values
-t = np.arange(0, 2 * np.pi,0.1) #eight cycles, with 0.1 second resolution
+t = np.arange(0, 2 * np.pi,0.01) #eight cycles, with 0.1 second resolution
 
 #define frequencies, phases, and amplitudes of three sine waves
 frequencies=1./np.array([2*np.pi,np.pi,2./np.pi])
