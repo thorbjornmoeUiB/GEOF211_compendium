@@ -444,33 +444,41 @@ u(t-\Delta t)=u(t)-\Delta t\frac{du}{dt} + \frac{\Delta t^2}{2!}\frac{d^2u}{dt^2
 \]</div>
 <p>where the <span class="math notranslate nohighlight">\(a_j\)</span>’s are coefficients to be determined.</p>
 <p>We start by expanding <span class="math notranslate nohighlight">\(u^{j}, \quad j=n-2,\dotsc,n+2\)</span> as Taylor series of <span class="math notranslate nohighlight">\(u^n\)</span>, up to the fifth order term:</p>
-<p>\begin{align}
-u^{n-2} &amp;= u^n - 2\Delta t\frac{du}{dt}+4\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}-8\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+16\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}-32\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6)\</p>
-<p>u^{n-1} &amp;= u^n - \Delta t\frac{du}{dt}+\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}-\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}-\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6)\</p>
-<p>u^{n} &amp;= u^n \</p>
-<p>u^{n+1} &amp;= u^n + \Delta t\frac{du}{dt}+\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}+\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}+\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6)\</p>
-<p>u^{n+2} &amp;= u^n + 2\Delta t\frac{du}{dt}+4\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}+8\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+16\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}+32\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6).
-\end{align}</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\begin{split}
+\begin{align}
+u^{n-2} &amp;= u^n - 2\Delta t\frac{du}{dt}+4\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}-8\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+16\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}-32\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6)\\\end{split}\\\begin{split}u^{n-1} &amp;= u^n - \Delta t\frac{du}{dt}+\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}-\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}-\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6)\\\end{split}\\\begin{split}u^{n} &amp;= u^n \\\end{split}\\\begin{split}u^{n+1} &amp;= u^n + \Delta t\frac{du}{dt}+\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}+\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}+\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6)\\\end{split}\\u^{n+2} &amp;= u^n + 2\Delta t\frac{du}{dt}+4\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}+8\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+16\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}+32\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6).
+\end{align}
+\end{aligned}\end{align} \]</div>
 <p>We now multiply the Taylor series expansions with the corresponding coefficient and group the terms per order of the derivative:</p>
-<p>\begin{align}
-\left.\frac{du}{dt}\right|<em>{t^n} = &amp;(a</em>{-2}+a_{-1}+a_{0}+a_{1}+a_{2})u^{n} + \
-&amp;(-2a_{-2}-a_{-1}+a_{1}+2a_{2})\Delta t\frac{du}{dt} + \
-&amp;(4a_{-2}+a_{-1}+a_{1}+4a_{2})\frac{\Delta t^2}{2}\frac{d^2u}{dt^2} + \
-&amp;(-8a_{-2}-a_{-1}+a_{1}+8a_{2})\frac{\Delta t^3}{6}\frac{d^3u}{dt^3} + \
-&amp;(16a_{-2}+a_{-1}+a_{1}+16a_{2})\frac{\Delta t^4}{24}\frac{d^4u}{dt^4} + \
-&amp;(-32a_{-2}-a_{-1}+a_{1}+32a_{2})\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6).
-\end{align}</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\left.\frac{du}{dt}\right|_{t^n} = &amp;(a_{-2}+a_{-1}+a_{0}+a_{1}+a_{2})u^{n} + \\ 
+   &amp;(-2a_{-2}-a_{-1}+a_{1}+2a_{2})\Delta t\frac{du}{dt} + \\
+   &amp;(4a_{-2}+a_{-1}+a_{1}+4a_{2})\frac{\Delta t^2}{2}\frac{d^2u}{dt^2} + \\
+   &amp;(-8a_{-2}-a_{-1}+a_{1}+8a_{2})\frac{\Delta t^3}{6}\frac{d^3u}{dt^3} + \\
+   &amp;(16a_{-2}+a_{-1}+a_{1}+16a_{2})\frac{\Delta t^4}{24}\frac{d^4u}{dt^4} + \\
+   &amp;(-32a_{-2}-a_{-1}+a_{1}+32a_{2})\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6).
+\end{align}
+\end{split}\]</div>
 <p>In order for <span class="math notranslate nohighlight">\(\frac{du}{dt}\mid_{t^n}\)</span> to converge to <span class="math notranslate nohighlight">\(du/dt\)</span> when <span class="math notranslate nohighlight">\(\Delta t \to 0\)</span>, we must have:</p>
-<p>\begin{align}
-\mathrm{c1:}&amp; \quad a_{-2}+a_{-1}+a_{0}+a_{1}+a_{2} = 0 \
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\mathrm{c1:}&amp; \quad a_{-2}+a_{-1}+a_{0}+a_{1}+a_{2} = 0 \\
 \mathrm{c2:}&amp; \quad (-2a_{-2}-a_{-1}+a_{1}+2a_{2})\Delta t = 1,
-\end{align}</p>
+\end{align}
+\end{split}\]</div>
 <p>which provides two necessary conditions, there remaining three parameters to choose in order to have the highest accuracy. This implies cancelling the next three truncation errors:</p>
-<p>\begin{align}
-\mathrm{c3:}&amp; \quad 4a_{-2}+a_{-1}+a_{1}+4a_{2} = 0 \
-\mathrm{c4:}&amp; \quad -8a_{-2}-a_{-1}+a_{1}+8a_{2} = 0 \
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\mathrm{c3:}&amp; \quad 4a_{-2}+a_{-1}+a_{1}+4a_{2} = 0 \\
+\mathrm{c4:}&amp; \quad -8a_{-2}-a_{-1}+a_{1}+8a_{2} = 0 \\
 \mathrm{c5:}&amp; \quad 16a_{-2}+a_{-1}+a_{1}+16a_{2} = 0.
-\end{align}</p>
+\end{align}
+\end{split}\]</div>
 <p>Conditions c1 to c5 provide five equations for five unknowns whose solution is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-coefficients">
 <span class="eqno">(42)<a class="headerlink" href="#equation-eq-coefficients" title="Link to this equation">#</a></span>\[
