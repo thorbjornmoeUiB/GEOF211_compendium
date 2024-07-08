@@ -17,7 +17,7 @@ When two or more waves meet, for example when two boats pass each other, their w
 
 When looking at the ocean surface, the surface elevation can be regarded as the sum of (superposition) of many waves of different frequencies and phases.
 
-Insert figure of individual waves and the superposition
+In the figure, you can see three individual sine waves with varying frequencies and amplitudes. The first wave (blue) has 2 oscillations per seconds, the second wave (orange) has 5 oscillations per second, and the third wave (green) has 10 oscillations per second. The black, bold line shows the superposition of the three waves. The amplitude at any point in time, is the sum of the amplitudes of the three individal waves.
 
 ```{code-cell} ipython3
 :tags: ["hide-input"]
@@ -26,24 +26,24 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Create time values
-t = np.arange(0, 2 * np.pi,0.01) #eight cycles, with 0.1 second resolution
+Fs=100 # sampling rate -. number of samples per second
+t = np.arange(0,1,1/Fs) #one cycle
 
 #define frequencies, phases, and amplitudes of three sine waves
-frequencies=1./np.array([2*np.pi,np.pi,2./np.pi])
-phases=np.pi*np.array([1.,1./2,1./4])
+frequencies=np.array([2.,5.,10])
 amplitudes=np.array([1.,2.,4.])
 
 # compute the wave signals
-wave1 = amplitudes[0] * np.sin(2 * np.pi * frequencies[0] * t + phases[0])
-wave2 = amplitudes[1] * np.sin(2 * np.pi * frequencies[1] * t + phases[1])
-wave3 = amplitudes[2] * np.sin(2 * np.pi * frequencies[2] * t + phases[2])
+wave1 = amplitudes[0] * np.sin(2 * np.pi * frequencies[0] * t)
+wave2 = amplitudes[1] * np.sin(2 * np.pi * frequencies[1] * t)
+wave3 = amplitudes[2] * np.sin(2 * np.pi * frequencies[2] * t)
 
 # Add the sine waves together
 superposition_wave = wave1 + wave2 + wave3
 
 #plot the wave signals
 fig, ax = plt.subplots(2, 1, figsize=(7, 6), sharex=True)
-ax[0].set_xlim(( 0, 2*np.pi))
+ax[0].set_xlim(( 0, 1))
 ax[0].set_ylim((-7.5, 7.5))
 
 line1, = ax[0].plot(t, wave1,'-', lw = 1, label='wave 1')
@@ -135,23 +135,24 @@ from scipy.fft import rfft, rfftfreq
 
 # Calculate N
 N = len(t)
-sampling_rate = 1 / (t[1] - t[0])
 
 # Compute the Fourier transform
 frequency_eval_max = 100 #max number of components
 superposition_wave_rfft = rfft(superposition_wave, n=frequency_eval_max)
-n = np.shape(superposition_wave_rfft)[0] # np.size(t)
-frequencies_rel = n*sampling_rate/frequency_eval_max * np.linspace(0,1,int(n))
+n = np.shape(superposition_wave_rfft)[0] 
+frequencies_rel=rfftfreq(N, 1 / Fs)
+#frequencies_rel = n*Fs/frequency_eval_max * np.linspace(0,1,int(n))
 
 # Plot the Fourier transform
 plt.figure(figsize=(8, 6))
-plt.plot(frequencies_rel, superposition_wave_rfft,'k',lw=2, label="Fourier Transform")
+#plt.plot(frequencies_rel, np.abs(superposition_wave_rfft),'k',lw=2, label="Fourier Transform")
+plt.stem(frequencies_rel, np.abs(superposition_wave_rfft),'k')
 
 plt.title('Spectrum')
 plt.xlabel('Frequency[Hz]')
 plt.ylabel('Amplitude')
 
-plt.xlim([0,5])
+plt.xlim([0,12])
 plt.xlabel("Frequency (Hz)")
 plt.ylabel("Amplitude")
 plt.title("Fourier Transform of superposition wave")
