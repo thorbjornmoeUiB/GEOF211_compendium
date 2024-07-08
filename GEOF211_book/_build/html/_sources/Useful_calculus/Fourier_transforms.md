@@ -43,18 +43,21 @@ fig, ax = plt.subplots(2, 1, figsize=(8, 6), sharex=True)
 ax[0].set_xlim(( 0, 2*np.pi))
 ax[0].set_ylim((-4, 4))
 
-line1, = ax[0].plot(t, wave1, lw = 2, label='wave 1')
-line2, = ax[0].plot(t, wave2, lw = 2, label='wave 2')
-line3, = ax[0].plot(t, wave3, lw = 2, label='wave 3')
+line1, = ax[0].plot(t, wave1,'-', lw = 1, label='wave 1')
+line2, = ax[0].plot(t, wave2,'--', lw = 1, label='wave 2')
+line3, = ax[0].plot(t, wave3,':' lw = 1, label='wave 3')
 
-line4, = ax[1].plot(t, wave1+wave2+wave3, lw = 2, label='Superposition')
+ax[1].plot(t, wave1,'-',color='lightgrey', lw = 1, label='wave 1')
+ax[1].plot(t, wave2,'--',color='lightgrey', lw = 1, label='wave 2')
+ax[1].plot(t, wave3,':',color='lightgrey',lw = 1, label='wave 3')
+line4, = ax[1].plot(t, wave1+wave2+wave3, lw = 3, label='Superposition of three sine waves')
 
-ax[0].set_ylabel('f')
+ax[0].set_ylabel('Amplitude')
 ax[0].set_title("Initial Condition")
 ax[0].legend()
 ax[1].legend()
-ax[1].set_ylabel('f')
-ax[1].set_xlabel('t')
+ax[1].set_ylabel('Amplitude')
+ax[1].set_xlabel('time, t [s]')
 
 ```
 
