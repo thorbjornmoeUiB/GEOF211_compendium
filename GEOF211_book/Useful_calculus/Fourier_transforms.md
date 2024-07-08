@@ -97,7 +97,9 @@ We can also construct the Fourier series using complex notation for currents, e.
 $$
 U(t)=\sum_{n=0}^\infty c_n e^{i 2\pi\frac{n}{T}t}
 $$ (eq:Fourier_series_complex_euler)
+
 , where
+
 $$
 c_n=\frac{1}{T}\int_{0}^{T}U(t)e^{-i\frac{2\pi}{T}t}dt
 $$ (eq:Fourier_series_amplitude)
@@ -136,13 +138,14 @@ N = len(t)
 sampling_rate = 1 / (t[1] - t[0])
 
 # Compute the Fourier transform
-superposition_wave_rfft = rfft(superposition_wave)
-
-frequencies = rfftfreq(N, 1/sampling_rate)
+frequency_eval_max = 100 #max number of components
+superposition_wave_rfft = rfft(superposition_wave, n=frequency_eval_max)
+n = np.shape(superposition_wave_rfft)[0] # np.size(t)
+frequencies_rel = n*sampling_rate/frequency_eval_max * np.linspace(0,1,int(n))
 
 # Plot the Fourier transform
 plt.figure(figsize=(8, 6))
-plt.plot(frequencies, superposition_wave_rfft,'k',lw=2, label="Fourier Transform")
+plt.plot(frequencies_rel, superposition_wave_rfft,'k',lw=2, label="Fourier Transform")
 
 plt.title('Spectrum')
 plt.xlabel('Frequency[Hz]')
