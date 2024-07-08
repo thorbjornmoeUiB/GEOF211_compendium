@@ -181,7 +181,7 @@ ax.plot(x, fsq, 'r')
 #ax.set_ylim(-1.2,1.2)
 
 
-3ax.grid(b=True, c='k', lw=1, ls='--', which='major')
+#ax.grid(b=True, c='k', lw=1, ls='--', which='major')
 #ax.grid(b=True, c='0.4', lw=0.5, ls=':', which='minor')
 
 plt.show()
