@@ -34,9 +34,9 @@ phases=np.pi*np.array([1.,1./2,1./4])
 amlitudes=np.array([1.,2.,4.])
 
 # compute the wave signals
-wave1 = amplitude[0] * np.sin(2 * np.pi * frequencies[0] * t + phases[0])
-wave2 = amplitude[1] * np.sin(2 * np.pi * frequencies[1] * t + phases[1])
-wave3 = amplitude[2] * np.sin(2 * np.pi * frequencies[2] * t + phases[2])
+wave1 = amplitudes[0] * np.sin(2 * np.pi * frequencies[0] * t + phases[0])
+wave2 = amplitudes[1] * np.sin(2 * np.pi * frequencies[1] * t + phases[1])
+wave3 = amplitudes[2] * np.sin(2 * np.pi * frequencies[2] * t + phases[2])
 
 #plot the wave signals
 fig, ax = plt.subplots(2,1,shareX=True)

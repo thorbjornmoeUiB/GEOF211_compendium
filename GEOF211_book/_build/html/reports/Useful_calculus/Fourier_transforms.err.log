@@ -30,9 +30,9 @@ phases=np.pi*np.array([1.,1./2,1./4])
 amlitudes=np.array([1.,2.,4.])
 
 # compute the wave signals
-wave1 = amplitude[0] * np.sin(2 * np.pi * frequencies[0] * t + phases[0])
-wave2 = amplitude[1] * np.sin(2 * np.pi * frequencies[1] * t + phases[1])
-wave3 = amplitude[2] * np.sin(2 * np.pi * frequencies[2] * t + phases[2])
+wave1 = amplitudes[0] * np.sin(2 * np.pi * frequencies[0] * t + phases[0])
+wave2 = amplitudes[1] * np.sin(2 * np.pi * frequencies[1] * t + phases[1])
+wave3 = amplitudes[2] * np.sin(2 * np.pi * frequencies[2] * t + phases[2])
 
 #plot the wave signals
 fig, ax = plt.subplots(2,1,shareX=True)
@@ -58,9 +58,9 @@ ax[1].set_xlabel('t')
 Cell [1;32mIn[1], line 13[0m
 [0;32m     10[0m amlitudes[38;5;241m=[39mnp[38;5;241m.[39marray([[38;5;241m1.[39m,[38;5;241m2.[39m,[38;5;241m4.[39m])
 [0;32m     12[0m [38;5;66;03m# compute the wave signals[39;00m
-[1;32m---> 13[0m wave1 [38;5;241m=[39m [43mamplitude[49m[[38;5;241m0[39m] [38;5;241m*[39m np[38;5;241m.[39msin([38;5;241m2[39m [38;5;241m*[39m np[38;5;241m.[39mpi [38;5;241m*[39m frequencies[[38;5;241m0[39m] [38;5;241m*[39m t [38;5;241m+[39m phases[[38;5;241m0[39m])
-[0;32m     14[0m wave2 [38;5;241m=[39m amplitude[[38;5;241m1[39m] [38;5;241m*[39m np[38;5;241m.[39msin([38;5;241m2[39m [38;5;241m*[39m np[38;5;241m.[39mpi [38;5;241m*[39m frequencies[[38;5;241m1[39m] [38;5;241m*[39m t [38;5;241m+[39m phases[[38;5;241m1[39m])
-[0;32m     15[0m wave3 [38;5;241m=[39m amplitude[[38;5;241m2[39m] [38;5;241m*[39m np[38;5;241m.[39msin([38;5;241m2[39m [38;5;241m*[39m np[38;5;241m.[39mpi [38;5;241m*[39m frequencies[[38;5;241m2[39m] [38;5;241m*[39m t [38;5;241m+[39m phases[[38;5;241m2[39m])
+[1;32m---> 13[0m wave1 [38;5;241m=[39m [43mamplitudes[49m[[38;5;241m0[39m] [38;5;241m*[39m np[38;5;241m.[39msin([38;5;241m2[39m [38;5;241m*[39m np[38;5;241m.[39mpi [38;5;241m*[39m frequencies[[38;5;241m0[39m] [38;5;241m*[39m t [38;5;241m+[39m phases[[38;5;241m0[39m])
+[0;32m     14[0m wave2 [38;5;241m=[39m amplitudes[[38;5;241m1[39m] [38;5;241m*[39m np[38;5;241m.[39msin([38;5;241m2[39m [38;5;241m*[39m np[38;5;241m.[39mpi [38;5;241m*[39m frequencies[[38;5;241m1[39m] [38;5;241m*[39m t [38;5;241m+[39m phases[[38;5;241m1[39m])
+[0;32m     15[0m wave3 [38;5;241m=[39m amplitudes[[38;5;241m2[39m] [38;5;241m*[39m np[38;5;241m.[39msin([38;5;241m2[39m [38;5;241m*[39m np[38;5;241m.[39mpi [38;5;241m*[39m frequencies[[38;5;241m2[39m] [38;5;241m*[39m t [38;5;241m+[39m phases[[38;5;241m2[39m])
 
-[1;31mNameError[0m: name 'amplitude' is not defined
+[1;31mNameError[0m: name 'amplitudes' is not defined
 

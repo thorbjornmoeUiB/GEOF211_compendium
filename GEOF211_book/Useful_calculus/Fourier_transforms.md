@@ -31,7 +31,7 @@ t = np.linspace(0, 8 * np.pi, 1000) #eight cycles
 #define frequencies, phases, and amplitudes of three sine waves
 frequencies=np.array([1.,2.,4.])
 phases=np.pi*np.array([1.,1./2,1./4])
-amlitudes=np.array([1.,2.,4.])
+amplitudes=np.array([1.,2.,4.])
 
 # compute the wave signals
 wave1 = amplitudes[0] * np.sin(2 * np.pi * frequencies[0] * t + phases[0])
