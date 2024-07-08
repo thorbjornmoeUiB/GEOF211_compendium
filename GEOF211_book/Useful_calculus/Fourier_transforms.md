@@ -173,11 +173,11 @@ fsq = np.zeros_like(t) #fsw short for frequencies
 for i in range(N): #loop through the 20 first sine waves
     n = 2*i + 1
     fsq += np.sin(n * np.pi *t) / n #adds the sine wave for n into the sum
-fsq *= 5 / np.pi
+fsq *= 4 / np.pi
 
 fig, ax = plt.subplots()
 ax.plot(t, square_wave,'k', lw=2)
-ax.plot(t, fsq, 'r')
+ax.plot(t, fsq, 'r',lw=1)
 #ax.set_ylim(-1.2,1.2)
 
 
