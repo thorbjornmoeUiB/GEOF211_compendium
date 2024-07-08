@@ -156,3 +156,34 @@ plt.title("Fourier Transform of superposition wave")
 
 # Gibbs phenomenon
 In practice, we typically cannot include an infinite number of terms in the Fourier series to represent a signal. using a limited number of components works fine for continuous signals, but will produce errors (overshoots and undershoots) near discontinuities and areas wih strong gradients. This is called the Gibbs phenomenon.
+
+```{code-cell} ipython3
+:tags: ["hide-input"]
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+t = np.arange(0,5,0.001)
+
+square_wave = 1 - 2 * (t.astype(int) % 2)
+
+N = 20 #number of frequencies to include
+fsq = np.zeros_like(x) #fsw short for frequencies
+
+for i in range(N): #loop through the 20 first sine waves
+    n = 2*i + 1
+    fsq += np.sin(n * np.pi *x) / n #adds the sine wave for n into the sum
+fsq *= 5 / np.pi
+
+fig, ax = plt.subplots()
+ax.plot(x, square_wave,'k', lw=2)
+ax.plot(x, fsq, 'r')
+#ax.set_ylim(-1.2,1.2)
+
+
+3ax.grid(b=True, c='k', lw=1, ls='--', which='major')
+#ax.grid(b=True, c='0.4', lw=0.5, ls=':', which='minor')
+
+plt.show()
+
+```

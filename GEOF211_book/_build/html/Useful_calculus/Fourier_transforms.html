@@ -544,7 +544,7 @@ Y(f)=\Delta t \sum_{-\infty}^\infty y_n e^{-12\pi ft}
 <span class="c1"># Compute the Fourier transform</span>
 <span class="n">superposition_wave_rfft</span> <span class="o">=</span> <span class="n">rfft</span><span class="p">(</span><span class="n">superposition_wave</span><span class="p">)</span>
 
-<span class="n">frequencies</span> <span class="o">=</span> <span class="n">rfftfreq</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">sampling_rate</span><span class="p">)</span>
+<span class="n">frequencies</span> <span class="o">=</span> <span class="n">rfftfreq</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">sampling_rate</span><span class="p">)</span>
 
 <span class="c1"># Plot the Fourier transform</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
@@ -572,7 +572,7 @@ C:\Users\kda005\Anaconda3\envs\GEOF211_compendium\Lib\site-packages\matplotlib\c
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Fourier Transform of superposition wave&#39;)
 </pre></div>
 </div>
-<img alt="../_images/33d4ed0124e3d8ea4dc382ba1bd00c685b2db4d99b0f7ba3049ceefd56d69b23.png" src="../_images/33d4ed0124e3d8ea4dc382ba1bd00c685b2db4d99b0f7ba3049ceefd56d69b23.png" />
+<img alt="../_images/46ba9b65ed19755343a19c9bc4ffce4f9791b21c24dae14008a63bf0b58360d6.png" src="../_images/46ba9b65ed19755343a19c9bc4ffce4f9791b21c24dae14008a63bf0b58360d6.png" />
 </div>
 </div>
 </section>
