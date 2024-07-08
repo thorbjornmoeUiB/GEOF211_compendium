@@ -36,7 +36,7 @@ fsq *= 4 / np.pi
 fig, ax = plt.subplots()
 ax.plot(t, square_wave,'k', lw=2,label='true signal')
 ax.plot(t, fsq, 'r',lw=1, label='Fourier series, n=10')
-ax.legend(loc="upper right", bbox_to_anchor=(1.1, 1))
+ax.legend(loc="center right", bbox_to_anchor=(1.1, 1))
 ax.set_ylim(-1.25,1.25)
 ax.xlabel("Time, t")
 ax.ylabel(y(t))
@@ -49,7 +49,7 @@ plt.show()
 [1;31m---------------------------------------------------------------------------[0m
 [1;31mAttributeError[0m                            Traceback (most recent call last)
 Cell [1;32mIn[3], line 21[0m
-[0;32m     19[0m ax[38;5;241m.[39mlegend(loc[38;5;241m=[39m[38;5;124m"[39m[38;5;124mupper right[39m[38;5;124m"[39m, bbox_to_anchor[38;5;241m=[39m([38;5;241m1.1[39m, [38;5;241m1[39m))
+[0;32m     19[0m ax[38;5;241m.[39mlegend(loc[38;5;241m=[39m[38;5;124m"[39m[38;5;124mcenter right[39m[38;5;124m"[39m, bbox_to_anchor[38;5;241m=[39m([38;5;241m1.1[39m, [38;5;241m1[39m))
 [0;32m     20[0m ax[38;5;241m.[39mset_ylim([38;5;241m-[39m[38;5;241m1.25[39m,[38;5;241m1.25[39m)
 [1;32m---> 21[0m [43max[49m[38;5;241;43m.[39;49m[43mxlabel[49m([38;5;124m"[39m[38;5;124mTime, t[39m[38;5;124m"[39m)
 [0;32m     22[0m ax[38;5;241m.[39mylabel(y(t))
