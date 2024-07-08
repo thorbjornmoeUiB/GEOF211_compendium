@@ -39,7 +39,7 @@ wave2 = amplitudes[1] * np.sin(2 * np.pi * frequencies[1] * t + phases[1])
 wave3 = amplitudes[2] * np.sin(2 * np.pi * frequencies[2] * t + phases[2])
 
 #plot the wave signals
-fig, ax = plt.subplots(2,1,shareX=True)
+fig, ax = plt.subplots(4, 1, figsize=(8, 6), sharex=True)
 ax[0].set_xlim(( 0, 8*np.pi))
 ax[0].set_ylim((-4, 4))
 
