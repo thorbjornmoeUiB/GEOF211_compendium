@@ -45,7 +45,7 @@ ax[0].set_ylim((-4, 4))
 
 line1, = ax[0].plot(t, wave1,'-', lw = 1, label='wave 1')
 line2, = ax[0].plot(t, wave2,'--', lw = 1, label='wave 2')
-line3, = ax[0].plot(t, wave3,':' lw = 1, label='wave 3')
+line3, = ax[0].plot(t, wave3,':', lw = 1, label='wave 3')
 
 ax[1].plot(t, wave1,'-',color='lightgrey', lw = 1, label='wave 1')
 ax[1].plot(t, wave2,'--',color='lightgrey', lw = 1, label='wave 2')
