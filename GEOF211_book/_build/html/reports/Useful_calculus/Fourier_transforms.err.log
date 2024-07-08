@@ -18,56 +18,27 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import numpy as np
-import matplotlib.pyplot as plt
+from scipy.fft import fft
 
-# Create time values
-t = np.arange(0, 2 * np.pi) #eight cycles, with 1 second resolution
+# Compute the Fourier transform
+superposition_wave_fft = fft(superposition_wave)
 
-#define frequencies, phases, and amplitudes of three sine waves
-frequencies=1./np.array([2*np.pi,np.pi,2./np.pi])
-phases=np.pi*np.array([1.,1./2,1./4])
-amplitudes=np.array([1.,2.,4.])
+# Frequency values for the Fourier transform
+sampling_rate = 1 / (t[1] - t[0]) #1 sample per second
+frequencies = np.fft.fftfreq(len(t), d=1/sampling_rate)
 
-# compute the wave signals
-wave1 = amplitudes[0] * np.sin(2 * np.pi * frequencies[0] * t + phases[0])
-wave2 = amplitudes[1] * np.sin(2 * np.pi * frequencies[1] * t + phases[1])
-wave3 = amplitudes[2] * np.sin(2 * np.pi * frequencies[2] * t + phases[2])
-
-# Add the sine waves together
-superposition_wave = sine_wave1 + sine_wave2 + sine_wave3
-
-#plot the wave signals
-fig, ax = plt.subplots(2, 1, figsize=(7, 6), sharex=True)
-ax[0].set_xlim(( 0, 2*np.pi))
-ax[0].set_ylim((-4, 4))
-
-line1, = ax[0].plot(t, wave1,'-', lw = 1, label='wave 1')
-line2, = ax[0].plot(t, wave2,'--', lw = 1, label='wave 2')
-line3, = ax[0].plot(t, wave3,':', lw = 1, label='wave 3')
-
-ax[1].plot(t, wave1,'-',color='darkgrey', lw = 1, label='wave 1')
-ax[1].plot(t, wave2,'--',color='darkgrey', lw = 1, label='wave 2')
-ax[1].plot(t, wave3,':',color='darkgrey',lw = 1, label='wave 3')
-line4, = ax[1].plot(t, superposition_wave,'k', lw = 3, label='Superposition')
-
-ax[0].set_ylabel('Amplitude')
-ax[0].set_title("Initial Condition")
-ax[0].legend(loc="upper right", bbox_to_anchor=(1.1, 1))
-ax[1].legend(loc="upper right", bbox_to_anchor=(1.1, 1))
-ax[1].set_ylabel('Amplitude')
-ax[1].set_xlabel('time, t [s]')
+# Plot the Fourier transform
+plt.figure(figsize=(8, 6))
+plt.plot(frequencies, np.abs(superposition_wave_fft),'k',lw=2. label="Fourier Transform")
+plt.xlabel("Frequency (Hz)")
+plt.ylabel("Amplitude")
+plt.title("Fourier Transform of superposition wave")
 ------------------
 
 
-[1;31m---------------------------------------------------------------------------[0m
-[1;31mNameError[0m                                 Traceback (most recent call last)
-Cell [1;32mIn[1], line 18[0m
-[0;32m     15[0m wave3 [38;5;241m=[39m amplitudes[[38;5;241m2[39m] [38;5;241m*[39m np[38;5;241m.[39msin([38;5;241m2[39m [38;5;241m*[39m np[38;5;241m.[39mpi [38;5;241m*[39m frequencies[[38;5;241m2[39m] [38;5;241m*[39m t [38;5;241m+[39m phases[[38;5;241m2[39m])
-[0;32m     17[0m [38;5;66;03m# Add the sine waves together[39;00m
-[1;32m---> 18[0m superposition_wave [38;5;241m=[39m [43msine_wave1[49m [38;5;241m+[39m sine_wave2 [38;5;241m+[39m sine_wave3
-[0;32m     20[0m [38;5;66;03m#plot the wave signals[39;00m
-[0;32m     21[0m fig, ax [38;5;241m=[39m plt[38;5;241m.[39msubplots([38;5;241m2[39m, [38;5;241m1[39m, figsize[38;5;241m=[39m([38;5;241m7[39m, [38;5;241m6[39m), sharex[38;5;241m=[39m[38;5;28;01mTrue[39;00m)
+[1;36m  Cell [1;32mIn[2], line 12[1;36m[0m
+[1;33m    plt.plot(frequencies, np.abs(superposition_wave_fft),'k',lw=2. label="Fourier Transform")[0m
+[1;37m                                                                ^[0m
+[1;31mSyntaxError[0m[1;31m:[0m invalid syntax. Perhaps you forgot a comma?
 
-[1;31mNameError[0m: name 'sine_wave1' is not defined
 

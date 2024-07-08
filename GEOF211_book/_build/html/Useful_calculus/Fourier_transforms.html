@@ -442,7 +442,7 @@ document.write(`
 <span class="n">wave3</span> <span class="o">=</span> <span class="n">amplitudes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">frequencies</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">t</span> <span class="o">+</span> <span class="n">phases</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 
 <span class="c1"># Add the sine waves together</span>
-<span class="n">superposition_wave</span> <span class="o">=</span> <span class="n">sine_wave1</span> <span class="o">+</span> <span class="n">sine_wave2</span> <span class="o">+</span> <span class="n">sine_wave3</span>
+<span class="n">superposition_wave</span> <span class="o">=</span> <span class="n">wave1</span> <span class="o">+</span> <span class="n">wave2</span> <span class="o">+</span> <span class="n">wave3</span>
 
 <span class="c1">#plot the wave signals</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -469,18 +469,10 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">18</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="n">wave3</span> <span class="o">=</span> <span class="n">amplitudes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">frequencies</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">t</span> <span class="o">+</span> <span class="n">phases</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="c1"># Add the sine waves together</span>
-<span class="ne">---&gt; </span><span class="mi">18</span> <span class="n">superposition_wave</span> <span class="o">=</span> <span class="n">sine_wave1</span> <span class="o">+</span> <span class="n">sine_wave2</span> <span class="o">+</span> <span class="n">sine_wave3</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="c1">#plot the wave signals</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;sine_wave1&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;time, t [s]&#39;)
 </pre></div>
 </div>
+<img alt="../_images/22a2ec6c1dc2e1d0dedaf6efe255d069fcbecefdf1ff630f8483e270c495cbe6.png" src="../_images/22a2ec6c1dc2e1d0dedaf6efe255d069fcbecefdf1ff630f8483e270c495cbe6.png" />
 </div>
 </div>
 </section>
@@ -532,6 +524,14 @@ f(x)=\sum_{n=-\infty}^\infty c_n e^{i 2\pi\frac{n}{T}t}, t\in[-T/2,T/2]
 </div>
 </div>
 </details>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">12</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">frequencies</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">superposition_wave_fft</span><span class="p">),</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mf">2.</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Fourier Transform&quot;</span><span class="p">)</span>
+                                                                <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax. Perhaps you forgot a comma?
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>
