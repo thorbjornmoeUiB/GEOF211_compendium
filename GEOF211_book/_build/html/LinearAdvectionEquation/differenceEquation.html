@@ -191,6 +191,7 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../GFD/Introduction.html">Geophysical Fluid Dynamics (GFD)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../GFD/NavierStokes.html">Navier-Stokes equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../GFD/Advection.html">Advection equation</a></li>
 </ul>
 </details></li>
@@ -414,7 +415,7 @@ document.write(`
 <p><span class="caption-text">The discrete time-space domain represented as a t-x diagram. The numerical solution at time <span class="math notranslate nohighlight">\(t^n\)</span> and position <span class="math notranslate nohighlight">\(x_m\)</span> is <span class="math notranslate nohighlight">\(u_m^n\)</span> and is represented in the diagram in the position (<span class="math notranslate nohighlight">\(x_m\)</span>,<span class="math notranslate nohighlight">\(t^n\)</span>).</span><a class="headerlink" href="#txdiagram" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Using the 2nd order centered formula <a class="reference internal" href="../FiniteDifferences/fdFormulasFirstDerivative.html#equation-eq-formulacentred">(43)</a> to replace the exact derivatives in <a class="reference internal" href="Introduction.html#equation-eq-advection">()</a>, we get:</p>
+<p>Using the 2nd order centered formula <a class="reference internal" href="../FiniteDifferences/fdFormulasFirstDerivative.html#equation-eq-formulacentred">(44)</a> to replace the exact derivatives in <a class="reference internal" href="Introduction.html#equation-eq-advection">()</a>, we get:</p>
 <div class="math notranslate nohighlight" id="equation-eq-diffequation">
 <span class="eqno">()<a class="headerlink" href="#equation-eq-diffequation" title="Link to this equation">#</a></span>\[
 	\frac{u_{m}^{n+1} - u_{m}^{n-1}}{2\Delta t } + c \frac{u_{m+1}^{n} - u_{m-1}^{n}}{2\Delta x} = 0.

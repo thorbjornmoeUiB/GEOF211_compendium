@@ -190,7 +190,12 @@
 
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">What is advection?</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../GFD/Introduction.html">Geophysical Fluid Dynamics (GFD)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../GFD/NavierStokes.html">Navier-Stokes equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GFD/Advection.html">Advection equation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">The finite difference method (FDM)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="algebraicDerivative.html">Algebraic approximation of the first derivative</a></li>
 <li class="toctree-l2"><a class="reference internal" href="truncationErrors.html">Truncation Error</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Estimates of the truncation error</a></li>
@@ -198,7 +203,6 @@
 <li class="toctree-l2"><a class="reference internal" href="evaluatingTruncationError.html">Evaluating the truncation error</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../Advection/Introduction.html">The finite difference method (FDM)</a></li>
 </ul>
 
     </div>
@@ -409,21 +413,21 @@ document.write(`
 <p>We observe that over time interval <span class="math notranslate nohighlight">\(T\)</span> the signal shows a variation of size <span class="math notranslate nohighlight">\(U\)</span>. These characteristic values may be thought of as the time scale and the magnitude of the variation of <span class="math notranslate nohighlight">\(u\)</span> over <span class="math notranslate nohighlight">\(T\)</span>, respectively.</p>
 <p>Since the derivative of <span class="math notranslate nohighlight">\(u(t)\)</span> is the variation <span class="math notranslate nohighlight">\(\Delta u\)</span> that occurs over time interval <span class="math notranslate nohighlight">\(\Delta t\)</span>, we can say that <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(T\)</span> are characteristic values of <span class="math notranslate nohighlight">\(\Delta u\)</span> and <span class="math notranslate nohighlight">\(\Delta t\)</span> and write</p>
 <div class="math notranslate nohighlight" id="equation-eq-orderdudt">
-<span class="eqno">(37)<a class="headerlink" href="#equation-eq-orderdudt" title="Link to this equation">#</a></span>\[
+<span class="eqno">(38)<a class="headerlink" href="#equation-eq-orderdudt" title="Link to this equation">#</a></span>\[
 \frac{du}{dt} \approx \frac{U}{T}.
 \]</div>
 <p>To obtain an estimate of the second derivative, we may assume that the variations in <span class="math notranslate nohighlight">\(du/dt\)</span> also occur over the same time scale <span class="math notranslate nohighlight">\(T\)</span>, as the signal <span class="math notranslate nohighlight">\(u\)</span>, and write</p>
 <div class="math notranslate nohighlight" id="equation-eq-orderdu2dt2">
-<span class="eqno">(38)<a class="headerlink" href="#equation-eq-orderdu2dt2" title="Link to this equation">#</a></span>\[
+<span class="eqno">(39)<a class="headerlink" href="#equation-eq-orderdu2dt2" title="Link to this equation">#</a></span>\[
 \frac{d^2u}{dt^2} = \frac{d}{dt} \frac{du}{dt} \approx \frac{U/T}{T} = \frac{U}{T^2}.
 \]</div>
 <p>For higher order derivatives, the reasoning is the same.</p>
-<p>To estimate the magnitude of the truncation error, we can write that the size of the terms of <a class="reference internal" href="truncationErrors.html#equation-eq-truncationerror">(35)</a> will be</p>
+<p>To estimate the magnitude of the truncation error, we can write that the size of the terms of <a class="reference internal" href="truncationErrors.html#equation-eq-truncationerror">(36)</a> will be</p>
 <div class="math notranslate nohighlight" id="equation-eq-magtruncationerror">
-<span class="eqno">(39)<a class="headerlink" href="#equation-eq-magtruncationerror" title="Link to this equation">#</a></span>\[
+<span class="eqno">(40)<a class="headerlink" href="#equation-eq-magtruncationerror" title="Link to this equation">#</a></span>\[
 \Delta t \frac{U}{T^2}, \quad \Delta t^2 \frac{U}{T^3}, \quad \Delta t^3 \frac{U}{T^4}, \quad \text{etc.}
 \]</div>
-<p>For small <span class="math notranslate nohighlight">\(\Delta t\)</span>, we can retain the leading order error term in <a class="reference internal" href="#equation-eq-magtruncationerror">(39)</a> and write:</p>
+<p>For small <span class="math notranslate nohighlight">\(\Delta t\)</span>, we can retain the leading order error term in <a class="reference internal" href="#equation-eq-magtruncationerror">(40)</a> and write:</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{du}{dt}=\frac{u^{n+1}-u^n}{\Delta t} + O\left( \frac{\Delta t}{T}\frac{U}{T}\right).

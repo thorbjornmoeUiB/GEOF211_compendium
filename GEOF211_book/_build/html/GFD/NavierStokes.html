@@ -62,6 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'GFD/NavierStokes';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Advection equation" href="Advection.html" />
+    <link rel="prev" title="Geophysical Fluid Dynamics (GFD)" href="Introduction.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -124,8 +126,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -181,7 +181,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Useful_calculus/Introduction.html">Useful calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Taylor_Polynomials.html">Taylor series</a></li>
 
@@ -190,7 +190,8 @@
 
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Introduction.html">Geophysical Fluid Dynamics (GFD)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">Geophysical Fluid Dynamics (GFD)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Navier-Stokes equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Advection.html">Advection equation</a></li>
 </ul>
 </details></li>
@@ -403,7 +404,7 @@ document.write(`
 <span id="gfd-navierstokes"></span><h1>Navier-Stokes equation<a class="headerlink" href="#navier-stokes-equation" title="Link to this heading">#</a></h1>
 <p>The Navier-Stokes equation, also known as the equation of motion, describes how velocity change with time as a result of external forces such as gravity, pressure, friction, and Coriolis. Using the Boussinesq approximation, the equation can be expressed:</p>
 <div class="math notranslate nohighlight" id="equation-eq-navierstokes">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-navierstokes" title="Link to this equation">#</a></span>\[ \begin{align}\begin{aligned}\begin{split}
+<span class="eqno">(29)<a class="headerlink" href="#equation-eq-navierstokes" title="Link to this equation">#</a></span>\[ \begin{align}\begin{aligned}\begin{split}
 \begin{align}
 x:&amp;\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}+w\frac{\partial u}{\partial z}&amp;-fv&amp;=-\frac{1}{\rho_0}\frac{\partial p}{\partial x}+\frac{\partial}{\partial x}(A_H\frac{\partial u}{\partial x})+\frac{\partial}{\partial y}(A_H\frac{\partial u}{\partial y})+\frac{\partial}{\partial z}(A_v\frac{\partial u}{\partial z})\\\end{split}\\\begin{split}y:&amp;\,\,\frac{\partial v}{\partial t}+u\frac{\partial v}{\partial x}+v\frac{\partial v}{\partial y}+w\frac{\partial v}{\partial z}&amp;+fu&amp;=-\frac{1}{\rho_0}\frac{\partial p}{\partial y}+\frac{\partial}{\partial x}(A_H\frac{\partial v}{\partial x})+\frac{\partial}{\partial y}(A_H\frac{\partial v}{\partial y})+\frac{\partial}{\partial z}(A_v\frac{\partial v}{\partial z})\\\end{split}\\\begin{split}z:&amp; &amp;0&amp;=-\frac{\partial p}{\partial z}-\rho g\\\end{split}\\\end{align} 
 \end{aligned}\end{align} \]</div>
@@ -440,6 +441,24 @@ x:&amp;\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}+v\frac{\part
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="Introduction.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Geophysical Fluid Dynamics (GFD)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Advection.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Advection equation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
