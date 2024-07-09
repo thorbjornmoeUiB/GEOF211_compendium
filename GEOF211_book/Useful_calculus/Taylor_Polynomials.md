@@ -4,14 +4,14 @@
 Taylor polynomials or Taylor series are approximations of a function near a point $a$. This holds if  $f$ is a function whose $n+1^{th}$ derivative exists on an interval containing the point $a$. The approximation is better the more terms you include and the closer you are to the point $a$. 
 
 $$
-f(a)+\frac{f'(a)}{1!}(x-a)+\frac{f''(a)}{2!}(x-a)^2+\frac{f'''(a)}{3!}(x-a)^3+...=\sum_{n=0}^{\infty}\frac{f^{(n)}(a)}{n!}(x-a)^n
+f(x)=f(a)+\frac{f'(a)}{1!}(x-a)+\frac{f''(a)}{2!}(x-a)^2+\frac{f'''(a)}{3!}(x-a)^3+...=\sum_{n=0}^{\infty}\frac{f^{(n)}(a)}{n!}(x-a)^n
 $$ (eq:Taylor_series)
 
 # McLaurin series
 The McLaurin series are special cases of the Tayolor series, where the series are calculated for a region close to origo, setting $a=0$:
 
 $$
-f(a)+\frac{f'(0)}{1!}x+\frac{f''(0)}{2!}x^2+\frac{f'''(0)}{3!}x^3+...=\sum_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}x^n
+f(x)=f(a)+\frac{f'(0)}{1!}x+\frac{f''(0)}{2!}x^2+\frac{f'''(0)}{3!}x^3+...=\sum_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}x^n
 $$ (eq:McLaurin_series)
 
 ## Examples of Taylor and McLaurin series

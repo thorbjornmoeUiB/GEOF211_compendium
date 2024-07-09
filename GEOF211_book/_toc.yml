@@ -16,6 +16,8 @@ chapters:
   - file: FiniteDifferences/estimatesTruncationError.md
   - file: FiniteDifferences/fdFormulasFirstDerivative.md
   - file: FiniteDifferences/evaluatingTruncationError.md
+- file: Advection/Introduction.md
+#  - file: Advection/
 #- file: markdown
 #- file: notebooks
 #- file: markdown-notebooks
