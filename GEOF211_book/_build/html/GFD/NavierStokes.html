@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Navier-Stokes equation &#8212; GEOF211 resource pages</title>
+    <title>The Primitive equations &#8212; GEOF211 resource pages</title>
   
   
   
@@ -191,7 +191,7 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">Geophysical Fluid Dynamics (GFD)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Navier-Stokes equation</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">The Primitive equations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Advection.html">Advection equation</a></li>
 </ul>
 </details></li>
@@ -375,7 +375,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -386,11 +388,21 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Navier-Stokes equation</h1>
+    <h1>The Primitive equations</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-navier-stokes-equation">The Navier-stokes equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-continuity-equation">The continuity equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-density-equation-energy-equation">The density equation (energy equation)</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -400,15 +412,36 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="navier-stokes-equation">
-<span id="gfd-navierstokes"></span><h1>Navier-Stokes equation<a class="headerlink" href="#navier-stokes-equation" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="the-primitive-equations">
+<span id="gfd-primitive-equations"></span><h1>The Primitive equations<a class="headerlink" href="#the-primitive-equations" title="Link to this heading">#</a></h1>
+<section id="the-navier-stokes-equation">
+<h2>The Navier-stokes equation<a class="headerlink" href="#the-navier-stokes-equation" title="Link to this heading">#</a></h2>
 <p>The Navier-Stokes equation, also known as the equation of motion, describes how velocity change with time as a result of external forces such as gravity, pressure, friction, and Coriolis. Using the Boussinesq approximation, the equation can be expressed:</p>
 <div class="math notranslate nohighlight" id="equation-eq-navierstokes">
-<span class="eqno">(29)<a class="headerlink" href="#equation-eq-navierstokes" title="Link to this equation">#</a></span>\[ \begin{align}\begin{aligned}\begin{split}
+<span class="eqno">(29)<a class="headerlink" href="#equation-eq-navierstokes" title="Link to this equation">#</a></span>\[\begin{split}
 \begin{align}
-x:&amp;\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}+w\frac{\partial u}{\partial z}&amp;-fv&amp;=-\frac{1}{\rho_0}\frac{\partial p}{\partial x}+\frac{\partial}{\partial x}(A_H\frac{\partial u}{\partial x})+\frac{\partial}{\partial y}(A_H\frac{\partial u}{\partial y})+\frac{\partial}{\partial z}(A_v\frac{\partial u}{\partial z})\\\end{split}\\\begin{split}y:&amp;\,\,\frac{\partial v}{\partial t}+u\frac{\partial v}{\partial x}+v\frac{\partial v}{\partial y}+w\frac{\partial v}{\partial z}&amp;+fu&amp;=-\frac{1}{\rho_0}\frac{\partial p}{\partial y}+\frac{\partial}{\partial x}(A_H\frac{\partial v}{\partial x})+\frac{\partial}{\partial y}(A_H\frac{\partial v}{\partial y})+\frac{\partial}{\partial z}(A_v\frac{\partial v}{\partial z})\\\end{split}\\\begin{split}z:&amp; &amp;0&amp;=-\frac{\partial p}{\partial z}-\rho g\\\end{split}\\\end{align} 
-\end{aligned}\end{align} \]</div>
-<p>,<span class="math notranslate nohighlight">\(\rho_0\)</span> is a refernce density, <span class="math notranslate nohighlight">\(g\)</span> is the gravitational acceleration, <span class="math notranslate nohighlight">\(f=2\Omega sin\phi\)</span> is the Coriolis parameter, and <span class="math notranslate nohighlight">\(A_H\)</span> and <span class="math notranslate nohighlight">\(A_V\)</span> are the horizontal and vertical eddy viscosities</p>
+x:&amp;\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}+w\frac{\partial u}{\partial z}&amp;-fv&amp;=-\frac{1}{\rho_0}\frac{\partial p}{\partial x}+\frac{\partial}{\partial x}(A_H\frac{\partial u}{\partial x})+\frac{\partial}{\partial y}(A_H\frac{\partial u}{\partial y})+\frac{\partial}{\partial z}(A_v\frac{\partial u}{\partial z})\\
+y:&amp;\,\,\frac{\partial v}{\partial t}+u\frac{\partial v}{\partial x}+v\frac{\partial v}{\partial y}+w\frac{\partial v}{\partial z}&amp;+fu&amp;=-\frac{1}{\rho_0}\frac{\partial p}{\partial y}+\frac{\partial}{\partial x}(A_H\frac{\partial v}{\partial x})+\frac{\partial}{\partial y}(A_H\frac{\partial v}{\partial y})+\frac{\partial}{\partial z}(A_v\frac{\partial v}{\partial z})\\
+z:&amp; &amp;0&amp;=-\frac{\partial p}{\partial z}-\rho g\\
+\end{align} 
+\end{split}\]</div>
+<p>,<span class="math notranslate nohighlight">\(\rho_0\)</span> is a refernce density, <span class="math notranslate nohighlight">\(g\)</span> is the gravitational acceleration, <span class="math notranslate nohighlight">\(f=2\Omega sin\phi\)</span> is the Coriolis parameter, and <span class="math notranslate nohighlight">\(A_H\)</span> and <span class="math notranslate nohighlight">\(A_V\)</span> are the horizontal viscosity and vertical eddy diffusivity.</p>
+</section>
+<section id="the-continuity-equation">
+<h2>The continuity equation<a class="headerlink" href="#the-continuity-equation" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight" id="equation-eq-continuity">
+<span class="eqno">(30)<a class="headerlink" href="#equation-eq-continuity" title="Link to this equation">#</a></span>\[
+\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}+\frac{\partial w}{\partial z}=0
+\]</div>
+</section>
+<section id="the-density-equation-energy-equation">
+<h2>The density equation (energy equation)<a class="headerlink" href="#the-density-equation-energy-equation" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight" id="equation-eq-density">
+<span class="eqno">(31)<a class="headerlink" href="#equation-eq-density" title="Link to this equation">#</a></span>\[
+\frac{\partial \rho}{\partial t}+u\frac{\partial \rho}{\partial x}+v\frac{\partial \rho}{\partial y}+w\frac{\partial \rho}{\partial z}=\frac{\partial}{\partial x}(A_H\frac{\partial \rho}{\partial x})+\frac{\partial}{\partial y}(A_H\frac{\partial \rho}{\partial y})\frac{\partial}{\partial z}(A_V\frac{\partial \rho}{\partial z})
+\]</div>
+<p>If the right hand side of the density equation is zero, we have conservation of mass.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -465,6 +498,23 @@ x:&amp;\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}+v\frac{\part
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-navier-stokes-equation">The Navier-stokes equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-continuity-equation">The continuity equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-density-equation-energy-equation">The density equation (energy equation)</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

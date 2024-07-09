@@ -1,4 +1,4 @@
-(Advection:intro)=
+(FiniteDifferences:intro)=
 # The finite difference method (FDM)
 
 The partial differential equations (PDEs) that govern important natural processes and that we need to solve to obtain societal and economic benefits are, in the most cases, impossible to solve analitically. Therefore we must think on solving them numerically.

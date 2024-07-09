@@ -191,7 +191,7 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../GFD/Introduction.html">Geophysical Fluid Dynamics (GFD)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../GFD/NavierStokes.html">Navier-Stokes equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GFD/NavierStokes.html">The Primitive equations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../GFD/Advection.html">Advection equation</a></li>
 </ul>
 </details></li>
@@ -404,17 +404,17 @@ document.write(`
 <span id="finite-differences-algebraic-derivative"></span><h1>Algebraic approximation of the first derivative<a class="headerlink" href="#algebraic-approximation-of-the-first-derivative" title="Link to this heading">#</a></h1>
 <p>Let us consider a function <span class="math notranslate nohighlight">\(u(t)\)</span> that depends continously on <span class="math notranslate nohighlight">\(t\)</span>. The derivative of <span class="math notranslate nohighlight">\(u(t)\)</span> is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-exactderivative">
-<span class="eqno">(30)<a class="headerlink" href="#equation-eq-exactderivative" title="Link to this equation">#</a></span>\[
+<span class="eqno">(32)<a class="headerlink" href="#equation-eq-exactderivative" title="Link to this equation">#</a></span>\[
 \frac{du}{dt} = \lim_{\Delta t \to 0} \frac{u(t+\Delta t)-u(t)}{\Delta t}.
 \]</div>
 <p>We can obtain an algebraic approximation to <span class="math notranslate nohighlight">\(du/dt\)</span> simply by relaxing the requirement that <span class="math notranslate nohighlight">\(\Delta t \to 0\)</span>, retaining a finite <span class="math notranslate nohighlight">\(\Delta t\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-approxderivative">
-<span class="eqno">(31)<a class="headerlink" href="#equation-eq-approxderivative" title="Link to this equation">#</a></span>\[
+<span class="eqno">(33)<a class="headerlink" href="#equation-eq-approxderivative" title="Link to this equation">#</a></span>\[
 \frac{du}{dt} \approx \frac{u(t+\Delta t)-u(t)}{\Delta t}.
 \]</div>
-<p>If instead of a continuous <span class="math notranslate nohighlight">\(t\)</span>, we use discrete values <span class="math notranslate nohighlight">\(t^n=n\Delta t\)</span>, we can write the algebraic approximation <a class="reference internal" href="#equation-eq-approxderivative">(31)</a> as:</p>
+<p>If instead of a continuous <span class="math notranslate nohighlight">\(t\)</span>, we use discrete values <span class="math notranslate nohighlight">\(t^n=n\Delta t\)</span>, we can write the algebraic approximation <a class="reference internal" href="#equation-eq-approxderivative">(33)</a> as:</p>
 <div class="math notranslate nohighlight" id="equation-eq-discretederivative">
-<span class="eqno">(32)<a class="headerlink" href="#equation-eq-discretederivative" title="Link to this equation">#</a></span>\[
+<span class="eqno">(34)<a class="headerlink" href="#equation-eq-discretederivative" title="Link to this equation">#</a></span>\[
 \frac{du}{dt} \approx \frac{u^{n+1}-u^n}{\Delta t},
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(u^{n+1}=u(t^{n+1})=u(t^n+\Delta t)\)</span> and <span class="math notranslate nohighlight">\(u^{n}=u(t^n)\)</span>.</p>
