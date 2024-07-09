@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Truncation Error &#8212; My sample book</title>
+    <title>Truncation Error &#8212; GEOF211 resource pages</title>
   
   
   
@@ -155,8 +155,8 @@
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="GEOF211 resource pages - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="GEOF211 resource pages - Home"/>`);</script>
   
   
 </a></div>
@@ -190,7 +190,7 @@
 
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">The finite difference method (FDM)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">What is advection?</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="algebraicDerivative.html">Algebraic approximation of the first derivative</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Truncation Error</a></li>
 <li class="toctree-l2"><a class="reference internal" href="estimatesTruncationError.html">Estimates of the truncation error</a></li>
@@ -198,6 +198,7 @@
 <li class="toctree-l2"><a class="reference internal" href="evaluatingTruncationError.html">Evaluating the truncation error</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="../Advection/Introduction.html">The finite difference method (FDM)</a></li>
 </ul>
 
     </div>
@@ -252,7 +253,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/kjerstid/GEOF211_compendium/tree/main/GEOF211_book" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -269,7 +270,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FFiniteDifferences/truncationErrors.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/kjerstid/GEOF211_compendium/tree/main/GEOF211_book/issues/new?title=Issue%20on%20page%20%2FFiniteDifferences/truncationErrors.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -397,27 +398,33 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="truncation-error">
 <span id="finite-differences-truncation-error"></span><h1>Truncation Error<a class="headerlink" href="#truncation-error" title="Link to this heading">#</a></h1>
-<p>The accuracy of the algebraic approximation to <span class="math notranslate nohighlight">\(du/dt\)</span> <a class="reference internal" href="algebraicDerivative.html#equation-eq-discretederivative">(31)</a> can be determined with the help of the Taylor series expansion of <span class="math notranslate nohighlight">\(u(t)\)</span>:</p>
+<p>The accuracy of the algebraic approximation to <span class="math notranslate nohighlight">\(du/dt\)</span> <a class="reference internal" href="algebraicDerivative.html#equation-eq-discretederivative">(31)</a> can be determined with the help of the Taylor series expansion of <span class="math notranslate nohighlight">\(u(t)\)</span> around the point <span class="math notranslate nohighlight">\(a=t^n\)</span>, where <span class="math notranslate nohighlight">\(t^n\)</span> is reprecenting a chosen time ste. Note that <span class="math notranslate nohighlight">\(u^{n+1}=u(t^{n+1})=u(t^n+\Delta t)\)</span> and <span class="math notranslate nohighlight">\(u^{n}=u(t^n)\)</span>.</p>
+<div class="math notranslate nohighlight" id="equation-eq-taylorseries-v1">
+<span class="eqno">(32)<a class="headerlink" href="#equation-eq-taylorseries-v1" title="Link to this equation">#</a></span>\[
+u(t)=u^n+\frac{u'(t^n)}{1!}(t-t^n)+\frac{u''(t^n)}{2!}(t-t^n)^2+\sum_{p=3}^{\infty}\frac{u^{(p)}(t^n)}{p!}(t-t^n)^p
+\]</div>
+<p>Note that <span class="math notranslate nohighlight">\(u'(t^n)\)</span> can also be written <span class="math notranslate nohighlight">\(\frac{du}{dt}|_{t^n}\)</span>. You will find that some references omit displaying the <span class="math notranslate nohighlight">\(|_{t^n}\)</span> in the derivative terms. We will include them here for completeness.</p>
+<p>Now, since we are interested in the time step coming after <span class="math notranslate nohighlight">\(t^n\)</span> we write out the equation for <span class="math notranslate nohighlight">\(t=t^{n+1}\)</span>, and note that <span class="math notranslate nohighlight">\((t^{n+1}-t^n)=\Delta t\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-taylorseries">
-<span class="eqno">(32)<a class="headerlink" href="#equation-eq-taylorseries" title="Link to this equation">#</a></span>\[
-u(t+\Delta t)=u(t)+\Delta t\frac{du}{dt} + \displaystyle\sum_{p=2}^{\infty} \frac{\Delta t^p}{p!}\frac{d^pu}{dt^p}
+<span class="eqno">(33)<a class="headerlink" href="#equation-eq-taylorseries" title="Link to this equation">#</a></span>\[
+u^{n+1}=u^n+\Delta t\frac{du}{dt}|_{t^n}+\frac{\Delta t^2}{2!}\frac{d^2u}{dt^2}|_{t^n}+\sum_{p=3}^{\infty}\frac{\Delta t^p}{p!}\frac{d^{(p)}u}{dt^p}|_{t^n}
 \]</div>
-<p>Rearranging for <span class="math notranslate nohighlight">\(du/dt\)</span>, we obtain, using the discretized <span class="math notranslate nohighlight">\(t^n\)</span>:</p>
+<p>Rearranging for <span class="math notranslate nohighlight">\(du/dt\)</span>, we obtain:</p>
 <div class="math notranslate nohighlight" id="equation-eq-fdexpansion">
-<span class="eqno">(33)<a class="headerlink" href="#equation-eq-fdexpansion" title="Link to this equation">#</a></span>\[
-\frac{du}{dt} = \frac{u^{n+1}-u^n}{\Delta t} - \displaystyle\sum_{p=2}^{\infty} \frac{\Delta t^{p-1}}{p!}\frac{d^pu}{dt^p}.
+<span class="eqno">(34)<a class="headerlink" href="#equation-eq-fdexpansion" title="Link to this equation">#</a></span>\[
+\frac{du}{dt}|_{t^n}=\frac{u^{n+1}-u^n}{\Delta t}-\displaystyle\sum_{p=2}^{\infty} \frac{\Delta t^{p-1}}{p!}\frac{d^pu}{dt^p}|_{t^n}
 \]</div>
-<p>The difference between the exact derivative <a class="reference internal" href="algebraicDerivative.html#equation-eq-exactderivative">(29)</a> and our algebraic approximation <a class="reference internal" href="algebraicDerivative.html#equation-eq-discretederivative">(31)</a> is the second term of the right hand side of <a class="reference internal" href="#equation-eq-fdexpansion">(33)</a>. Expanding this term up to <span class="math notranslate nohighlight">\(p=3\)</span>, we see its general form:</p>
+<p>The difference between the exact derivative <a class="reference internal" href="algebraicDerivative.html#equation-eq-exactderivative">(29)</a> and our algebraic approximation <a class="reference internal" href="algebraicDerivative.html#equation-eq-discretederivative">(31)</a> is the second term of the right hand side of <a class="reference internal" href="#equation-eq-fdexpansion">(34)</a>. Expanding this term up to <span class="math notranslate nohighlight">\(p=3\)</span>, we see its general form:</p>
 <div class="math notranslate nohighlight" id="equation-eq-truncationerror">
-<span class="eqno">(34)<a class="headerlink" href="#equation-eq-truncationerror" title="Link to this equation">#</a></span>\[
-\frac{\Delta t}{2!}\frac{d^2u}{dt^2}+\frac{\Delta t^2}{3!}\frac{d^3u}{dt^3}+O(\Delta t^3),
+<span class="eqno">(35)<a class="headerlink" href="#equation-eq-truncationerror" title="Link to this equation">#</a></span>\[
+\frac{\Delta t}{2!}\frac{d^2u}{dt^2}|_{t^n}+\frac{\Delta t^2}{3!}\frac{d^3u}{dt^3}|_{t^n}+O(\Delta t^3),
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(O(\Delta t^3)\)</span> represents terms proportional to <span class="math notranslate nohighlight">\(\Delta t^3\)</span> and to higher powers of <span class="math notranslate nohighlight">\(\Delta t\)</span>.</p>
-<p>Expression <a class="reference internal" href="#equation-eq-truncationerror">(34)</a> is the <strong>truncation error</strong>, which is the error we incurr when we approximate the exact derivative <a class="reference internal" href="algebraicDerivative.html#equation-eq-exactderivative">(29)</a> with the algebraic expression <a class="reference internal" href="algebraicDerivative.html#equation-eq-discretederivative">(31)</a>.</p>
+<p>Expression <a class="reference internal" href="#equation-eq-truncationerror">(35)</a> is the <strong>truncation error</strong>, which is the error we incurr when we approximate the exact derivative <a class="reference internal" href="algebraicDerivative.html#equation-eq-exactderivative">(29)</a> with the algebraic expression <a class="reference internal" href="algebraicDerivative.html#equation-eq-discretederivative">(31)</a>.</p>
 <p>The algebraic approximation <a class="reference internal" href="algebraicDerivative.html#equation-eq-discretederivative">(31)</a> can thus be written as:</p>
 <div class="math notranslate nohighlight" id="equation-eq-discretederiavtiveerror">
-<span class="eqno">(35)<a class="headerlink" href="#equation-eq-discretederiavtiveerror" title="Link to this equation">#</a></span>\[
-\frac{du}{dt} = \frac{u^{n+1}-u^n}{\Delta t} + O(\Delta t),
+<span class="eqno">(36)<a class="headerlink" href="#equation-eq-discretederiavtiveerror" title="Link to this equation">#</a></span>\[
+\frac{du}{dt}|_{t^n} = \frac{u^{n+1}-u^n}{\Delta t} + O(\Delta t),
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(O(\Delta t)\)</span> represents the truncation error of the approximation, whose first term, the <em>leading order</em> term is proportional to <span class="math notranslate nohighlight">\(\Delta t\)</span>. Since the leading order term is proportional to the first power of <span class="math notranslate nohighlight">\(\Delta t\)</span>, we say that this approximation is a <em>first order</em> approximation to the first derivative.</p>
 </section>
@@ -486,7 +493,7 @@ u(t+\Delta t)=u(t)+\Delta t\frac{du}{dt} + \displaystyle\sum_{p=2}^{\infty} \fra
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By Teachers in GEOF211
 </p>
 
   </div>

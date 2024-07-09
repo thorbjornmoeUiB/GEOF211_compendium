@@ -1,0 +1,629 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Analysis of the solution of the difference equation &#8212; GEOF211 resource pages</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'LinearAdvectionEquation/Analysis';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="GEOF211 resource pages - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="GEOF211 resource pages - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Resource pages for GEOF211 - Numerical Modeling
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Useful_calculus/Introduction.html">Useful calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Taylor_Polynomials.html">Taylor series</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Complex_numbers.html">Useful identities for dealing with trigonometry and complex numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Fourier_transforms.html">Fourier transforms</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../GFD/Introduction.html">Geophysical Fluid Dynamics (GFD)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../GFD/Advection.html">The Navier-Stokes equation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../FiniteDifferences/Introduction.html">What is advection?</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/algebraicDerivative.html">Algebraic approximation of the first derivative</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/truncationErrors.html">Truncation Error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/estimatesTruncationError.html">Estimates of the truncation error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/fdFormulasFirstDerivative.html">Finite difference formulas for the 1st derivative</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/evaluatingTruncationError.html">Evaluating the truncation error</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/kjerstid/GEOF211_compendium/tree/main/GEOF211_book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/kjerstid/GEOF211_compendium/tree/main/GEOF211_book/issues/new?title=Issue%20on%20page%20%2FLinearAdvectionEquation/Analysis.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/LinearAdvectionEquation/Analysis.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Analysis of the solution of the difference equation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#amplitude">Amplitude</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-speed">Phase speed</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#group-velocity">Group velocity</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="analysis-of-the-solution-of-the-difference-equation">
+<h1>Analysis of the solution of the difference equation<a class="headerlink" href="#analysis-of-the-solution-of-the-difference-equation" title="Link to this heading">#</a></h1>
+<p>In our study of the finite difference approximations to the derivative, we found that in general, when <span class="math notranslate nohighlight">\(\Delta t\)</span> and <span class="math notranslate nohighlight">\(\Delta x\)</span> approach zero, the errors in the approximations of the derivatives also approach zero. Therefore, since our difference equation is written with the finite difference approximations, we can ask ourselves if we will have the error of the difference equation, i.e. the difference between <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">()</a> and <a class="reference internal" href="analyticSolution.html#equation-eq-anasolution">()</a>, also approach zero when <span class="math notranslate nohighlight">\(\Delta t, \Delta x \to 0\)</span>.</p>
+<p>First, let <span class="math notranslate nohighlight">\(\Delta x \to 0\)</span>. We will have:
+\begin{align*}%\label{eqn:anaSol2}
+\sigma &amp; = c\frac{\Delta t}{\Delta x} \sin (\mu \Delta x) \
+&amp; = c\mu \Delta t \frac{\sin (\mu \Delta x)}{\mu \Delta x} \
+&amp; = c\mu \Delta t,
+\end{align*}
+since <span class="math notranslate nohighlight">\(\lim_{\Delta x\to0}\frac{\sin (\mu \Delta x)}{\mu \Delta x}=1\)</span>. Then, consider that <span class="math notranslate nohighlight">\(\Delta t\)</span> is small, so that <span class="math notranslate nohighlight">\(\alpha=\arcsin c\mu\Delta t \approx c\mu\Delta t\)</span>. Thus in the limit of small <span class="math notranslate nohighlight">\(\Delta t\)</span> and <span class="math notranslate nohighlight">\(\Delta x\)</span>, we will have
+\begin{align*}%\label{eqn:anaSol2}
+A \frac{1+\cos \alpha}{2\cos \alpha}e^{i\mu (m\Delta x - \alpha n/ \mu)}  &amp;= A \frac{1+\cos \alpha}{2\cos \alpha}e^{i\mu (m\Delta x -  n c\mu\Delta t/ \mu)} \ &amp;= A \frac{1+\cos \alpha}{2\cos \alpha}e^{i\mu (m\Delta x -  cn \Delta t)},
+\end{align*}
+and we recover the waveform <a class="reference internal" href="analyticSolution.html#equation-eq-anasolution">()</a>, written in the discrete grid positions <span class="math notranslate nohighlight">\(m\Delta x\)</span> and time steps <span class="math notranslate nohighlight">\(n \Delta t\)</span>. Furthermore, if we allow <span class="math notranslate nohighlight">\(\Delta t \to 0\)</span>, we will have <span class="math notranslate nohighlight">\(\alpha = 0\)</span> and</p>
+<div class="math notranslate nohighlight" id="equation-eq-amplitude">
+<span class="eqno">()<a class="headerlink" href="#equation-eq-amplitude" title="Link to this equation">#</a></span>\[
+	\frac{1+\cos \alpha}{2\cos \alpha} = 1, \frac{1-\cos \alpha}{2\cos \alpha} = 0,
+\]</div>
+<p>which means that in the limit of <span class="math notranslate nohighlight">\(\Delta t, \Delta x \to 0\)</span> we recover the true solution as the second waveform of <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">()</a> vanishes.</p>
+<p>The existence of the two waveforms <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">()</a> as solution of the difference equation <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">()</a> is obviously problematic. The two waveforms correspond to two <strong>modes</strong>:</p>
+<ol class="arabic simple">
+<li><p>The <strong>physical mode</strong> (first waveform of <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">()</a>) that approaches the true solution as <span class="math notranslate nohighlight">\(\Delta t, \Delta x \to 0\)</span>.</p></li>
+<li><p>The <strong>computational mode</strong> (second waveform of <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">()</a>), that is <em>spurious</em> (unphysical) and vanishes when <span class="math notranslate nohighlight">\(\Delta t, \Delta x \to 0\)</span>. This mode is a source of errors (in addition to the truncation errors), and we note further that it changes sign every time step (due to <span class="math notranslate nohighlight">\((-1)^{n+1}\)</span>) and travels in the opposite direction to the physical mode.</p></li>
+</ol>
+<section id="amplitude">
+<h2>Amplitude<a class="headerlink" href="#amplitude" title="Link to this heading">#</a></h2>
+<p>The exact solution of <a class="reference internal" href="Introduction.html#equation-eq-advection">()</a> with the initial condition given by <a class="reference internal" href="analyticSolution.html#equation-eq-initialcond">()</a> is characterized by the amplitude <span class="math notranslate nohighlight">\(A\)</span>, the wavenumber <span class="math notranslate nohighlight">\(k\)</span> and the phase speed <span class="math notranslate nohighlight">\(c\)</span>. We are interested in how well will the numerical solution represent these parameters.</p>
+<p>Starting with the amplitude, we know that for small <span class="math notranslate nohighlight">\(\alpha\)</span> we will have <a class="reference internal" href="#equation-eq-amplitude">()</a>, so the amplitude of the physical model will <span class="math notranslate nohighlight">\(\to A\)</span> and the amplitude of the computational model will
+<span class="math notranslate nohighlight">\(\to 0\)</span>.</p>
+<p>Since small <span class="math notranslate nohighlight">\(\alpha\)</span> implies small <span class="math notranslate nohighlight">\(\sigma\)</span>, for fixed <span class="math notranslate nohighlight">\(c\Delta t/\Delta x\)</span>, it implies small <span class="math notranslate nohighlight">\(k\Delta x = 2\pi\Delta x/L\)</span>, which will occur when <span class="math notranslate nohighlight">\(\Delta x \ll L\)</span>.</p>
+<p>Therefore, for the amplitude of the physical mode to approach the amplitude <span class="math notranslate nohighlight">\(A\)</span> of the true solution, we must choose a <span class="math notranslate nohighlight">\(\Delta x\)</span> much smaller than the wavelength <span class="math notranslate nohighlight">\(L\)</span>, or in other words, we should have as many grid points as possible to resolve one wavelength.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since <span class="math notranslate nohighlight">\(\Delta t\)</span> and <span class="math notranslate nohighlight">\(\Delta x\)</span> are choices of the numerical modeler, we can always choose <span class="math notranslate nohighlight">\(\Delta t\)</span> to maintain <span class="math notranslate nohighlight">\(c\Delta t/\Delta x\)</span> constant when <span class="math notranslate nohighlight">\(\Delta x\)</span> changes. In fact, this “freedom” in the choice of the time step is one of the ways to maintain the stability of the numerical scheme as the grid resolution changes.</p>
+</div>
+</section>
+<section id="phase-speed">
+<h2>Phase speed<a class="headerlink" href="#phase-speed" title="Link to this heading">#</a></h2>
+<p>With respect to the phase speed <span class="math notranslate nohighlight">\(c\)</span>, if we compare the exact solution of <a class="reference internal" href="Introduction.html#equation-eq-advection">()</a> with the solution <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">()</a> of the difference equation, we observe that the counterpart of <span class="math notranslate nohighlight">\(ct\)</span> is <span class="math notranslate nohighlight">\(n\alpha/\mu\)</span>. This quantity is:</p>
+<div class="math notranslate nohighlight">
+\[
+	\frac{n\alpha}{\mu} = \frac{n\alpha\Delta t}{\mu\Delta t} =  \frac{\alpha t}{\mu\Delta t} = c^\prime t,
+\]</div>
+<p>where:</p>
+<div class="math notranslate nohighlight">
+\[
+	c^\prime = \frac{\alpha}{\mu\Delta t} = \frac{\arcsin\left[ \left( c\Delta t/\Delta x \right) \sin \mu\Delta x
+	  \right]}{\mu\Delta t}
+\]</div>
+<p>is the phase speed of the solution <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">()</a> of the difference equation. We shall now see how does <span class="math notranslate nohighlight">\(c^\prime\)</span> compares with the phase speed <span class="math notranslate nohighlight">\(c\)</span> of the true solution.</p>
+<p>First, if <span class="math notranslate nohighlight">\(c\Delta t/\Delta x = 1\)</span>, we’ll have <span class="math notranslate nohighlight">\(c^\prime/c = 1\)</span>, because
+\begin{equation}
+c^\prime = \frac{\arcsin\left(\sin \mu\Delta x
+\right)}{\mu\Delta t} = \frac{\mu\Delta x}{\mu\Delta t} = \frac{\Delta x}{\Delta t} = c.
+\end{equation}
+This means that when <span class="math notranslate nohighlight">\(c\Delta t/\Delta x = 1\)</span> there are no errors in the phase speed of the numerical solution.</p>
+<p>In the general case, we’ll have</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{c'}{c}=1-\frac{1}{6}\left[ \Delta x^2 -c \Delta t\right]\mu^2.
+\]</div>
+<p>So larger <span class="math notranslate nohighlight">\(\Delta t\)</span> will increase <span class="math notranslate nohighlight">\(c'/c\)</span> and larger <span class="math notranslate nohighlight">\(\Delta x\)</span> will make <span class="math notranslate nohighlight">\(c'/c\)</span> decrease, with this later effect dominating. In whichever case, <span class="math notranslate nohighlight">\(c'/c &lt; 1\)</span>, and <span class="math notranslate nohighlight">\(c'&lt;c\)</span> so the speed of the finite difference wave is always less than the speed of the exact wave.</p>
+<p>In addition, as <span class="math notranslate nohighlight">\(\Delta x/L \to 0\)</span>, <span class="math notranslate nohighlight">\(c' \to c\)</span>. This means that waves with large <span class="math notranslate nohighlight">\(L\)</span> have smaller phase speed errors. So, if the initial field has many wavelengths, it will be distorted as the numerical integration proceeds, with the shorter waves being delayed wrt the larger waves. This phenomenon is called <em>computational dispersion</em>.</p>
+</section>
+<section id="group-velocity">
+<h2>Group velocity<a class="headerlink" href="#group-velocity" title="Link to this heading">#</a></h2>
+<p>The group velocity is the velocity at which energy propagates. It is given by</p>
+<div class="math notranslate nohighlight">
+\[
+\nu=\frac{d(\mu c)}{d\mu}=-L^2\frac{d}{dL}\left(\frac{c}{L}\right).
+\]</div>
+<p>In the linear advection equation, <span class="math notranslate nohighlight">\(c\)</span> is constant so</p>
+<div class="math notranslate nohighlight">
+\[
+\nu=-L^2\frac{d}{dL}\left(\frac{c}{L}\right)=-cL^2\frac{d}{dL}\left(\frac{1}{L}\right)=-cL^2\left(-\frac{1}{L^2}\right)=c.
+\]</div>
+<p>and the energy propagates at the same speed as the waveform. For <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">()</a>, we have</p>
+<div class="math notranslate nohighlight">
+\[
+\nu'=\frac{d(\mu c')}{d\mu}=\frac{d}{d\mu}\left\{\frac{\mu \sin^{-1}\left[ c\frac{\Delta t}{\Delta x} \sin \mu\Delta x\right]}{\mu\Delta t} \right\},
+\]</div>
+<p>which gives</p>
+<div class="math notranslate nohighlight">
+\[
+\nu'=c \frac{\cos\mu\Delta x}{\left[1-\left( c\frac{\Delta t}{\Delta x} \sin\mu\Delta x\right)^2\right]^{1/2}}.
+\]</div>
+<p>First, lets look at the case when <span class="math notranslate nohighlight">\(c\Delta t/\Delta x = 1\)</span>. In this case, we have</p>
+<div class="math notranslate nohighlight">
+\[
+\nu'=c \frac{\cos\mu\Delta x}{\left[1-\sin^2\mu\Delta x\right]^{1/2}}=c \frac{\cos\mu\Delta x}{\cos\mu\Delta x}=c,
+\]</div>
+<p>and <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">()</a> has the same group velocity as the exact solution.</p>
+<p>When <span class="math notranslate nohighlight">\(c\Delta t/\Delta x &lt; 1\)</span>, if <span class="math notranslate nohighlight">\(\mu\)</span> is small (small wavenumber, long wavelengths), <span class="math notranslate nohighlight">\(\sin \mu\Delta x \to 0\)</span> and <span class="math notranslate nohighlight">\(\cos \mu\Delta x \to 1\)</span>, which results in <span class="math notranslate nohighlight">\(\nu'=c\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(\mu\)</span> is large however (short wavelengths), we shall have large errors in the group velocity, e.g. for:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(L=4\Delta x\)</span>: <span class="math notranslate nohighlight">\(\mu\Delta x=\pi/2\)</span> and</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\nu'=c \frac{\cos \pi/2}{\left[1-\left( c\frac{\Delta t}{\Delta x} \sin(\pi/2) \right)^2\right]^{1/2}}=0.
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p><span class="math notranslate nohighlight">\(L=2\Delta x\)</span>: <span class="math notranslate nohighlight">\(\mu\Delta x=\pi\)</span> and</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\nu'=c \frac{\cos \pi}{\left[1-\left( c\frac{\Delta t}{\Delta x} \sin\pi\right)^2\right]^{1/2}}=-c.
+\]</div>
+<p>Therefore, the energy of the <span class="math notranslate nohighlight">\(4\Delta x\)</span> wavelength becomes stationary and the energy of the <span class="math notranslate nohighlight">\(2\Delta x\)</span> wavelength travels <em>upstream</em>. Since we should have <span class="math notranslate nohighlight">\(\Delta x \ll \mathbf{L}\)</span> in our model, these wavelengths will most likely be noise in our model.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./LinearAdvectionEquation"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#amplitude">Amplitude</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-speed">Phase speed</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#group-velocity">Group velocity</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Teachers in GEOF211
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

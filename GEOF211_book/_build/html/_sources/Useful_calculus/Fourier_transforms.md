@@ -125,7 +125,7 @@ $$
 Y(f)=\Delta t \sum_{-\infty}^\infty y_n e^{-i2\pi ft}
 $$ (eq:Fourier_transform)
 
-Here, the function $Y(f)$ represent energy as a function of the frequency $f$. If the signal consisted of just one pure sine wave, the graph of $Y(f)$ would contain a single spike at the frequency of this sine wave.
+Here, the function $Y(f)$ represent energy as a function of the frequency $f$. If the signal consisted of just one pure sine wave, the graph of $Y(f)$ would contain a single spike at the frequency of this sine wave. For the superposition of the three waves in the example above, we get one spike for each of the frequencies 2, 5, and 10 cycles per second.
 
 ```{code-cell} ipython3
 :tags: ["hide-input"]

@@ -9,6 +9,11 @@ chapters:
   - file: Useful_calculus/Taylor_Polynomials.md
   - file: Useful_calculus/Complex_numbers.md
   - file: Useful_calculus/Fourier_transforms.md
+- file: GFD/Introduction.md
+  sections:
+  - file: NavierStokes.md
+  - file: GFD/Advection.md
+  - file: GFD/Inertial_oscillations.md
 - file: FiniteDifferences/Introduction.md
   sections:
   - file: FiniteDifferences/algebraicDerivative.md
@@ -16,7 +21,7 @@ chapters:
   - file: FiniteDifferences/estimatesTruncationError.md
   - file: FiniteDifferences/fdFormulasFirstDerivative.md
   - file: FiniteDifferences/evaluatingTruncationError.md
-- file: Advection/Introduction.md
+
 #  - file: Advection/
 #- file: markdown
 #- file: notebooks

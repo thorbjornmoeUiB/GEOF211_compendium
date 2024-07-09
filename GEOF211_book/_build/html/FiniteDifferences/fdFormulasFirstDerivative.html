@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Finite difference formulas for the 1st derivative &#8212; My sample book</title>
+    <title>Finite difference formulas for the 1st derivative &#8212; GEOF211 resource pages</title>
   
   
   
@@ -155,8 +155,8 @@
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="GEOF211 resource pages - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="GEOF211 resource pages - Home"/>`);</script>
   
   
 </a></div>
@@ -190,7 +190,7 @@
 
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">The finite difference method (FDM)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">What is advection?</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="algebraicDerivative.html">Algebraic approximation of the first derivative</a></li>
 <li class="toctree-l2"><a class="reference internal" href="truncationErrors.html">Truncation Error</a></li>
 <li class="toctree-l2"><a class="reference internal" href="estimatesTruncationError.html">Estimates of the truncation error</a></li>
@@ -198,6 +198,7 @@
 <li class="toctree-l2"><a class="reference internal" href="evaluatingTruncationError.html">Evaluating the truncation error</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="../Advection/Introduction.html">The finite difference method (FDM)</a></li>
 </ul>
 
     </div>
@@ -252,7 +253,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/kjerstid/GEOF211_compendium/tree/main/GEOF211_book" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -269,7 +270,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FFiniteDifferences/fdFormulasFirstDerivative.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/kjerstid/GEOF211_compendium/tree/main/GEOF211_book/issues/new?title=Issue%20on%20page%20%2FFiniteDifferences/fdFormulasFirstDerivative.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -410,33 +411,33 @@ document.write(`
 <span id="finite-differences-formulas-1stderivative"></span><h1>Finite difference formulas for the 1st derivative<a class="headerlink" href="#finite-difference-formulas-for-the-1st-derivative" title="Link to this heading">#</a></h1>
 <section id="first-order-formulas">
 <span id="finite-differences-formulas-1stderivative-1storder"></span><h2>First order formulas<a class="headerlink" href="#first-order-formulas" title="Link to this heading">#</a></h2>
-<p>Finite difference formulas are just finite difference approximations, disregarding the truncation error, e.g., from <a class="reference internal" href="truncationErrors.html#equation-eq-fdexpansion">(33)</a>, we have</p>
+<p>Finite difference formulas are just finite difference approximations, disregarding the truncation error, e.g., from <a class="reference internal" href="truncationErrors.html#equation-eq-fdexpansion">(34)</a>, we have</p>
 <div class="math notranslate nohighlight" id="equation-eq-formulaforward">
-<span class="eqno">(39)<a class="headerlink" href="#equation-eq-formulaforward" title="Link to this equation">#</a></span>\[
+<span class="eqno">(40)<a class="headerlink" href="#equation-eq-formulaforward" title="Link to this equation">#</a></span>\[
 \frac{du}{dt}=\frac{u^{n+1}-u^n}{\Delta t}+O(\Delta t).
 \]</div>
-<p>Formula <a class="reference internal" href="#equation-eq-formulaforward">(39)</a> is called a <em>forward</em> difference formula because it uses the <span class="math notranslate nohighlight">\(u^n\)</span> and the <span class="math notranslate nohighlight">\(u^{n+1}\)</span> values, and it is a first order formula because the truncation error is of <span class="math notranslate nohighlight">\(O(\Delta t)\)</span>. The leading term of the truncation error is usually written with the formula to indicate its order of approximation.</p>
+<p>Formula <a class="reference internal" href="#equation-eq-formulaforward">(40)</a> is called a <em>forward</em> difference formula because it uses the <span class="math notranslate nohighlight">\(u^n\)</span> and the <span class="math notranslate nohighlight">\(u^{n+1}\)</span> values, and it is a first order formula because the truncation error is of <span class="math notranslate nohighlight">\(O(\Delta t)\)</span>. The leading term of the truncation error is usually written with the formula to indicate its order of approximation.</p>
 <p>We can use Taylor series expansions to obtain several lower order finite difference formulas. Using a backard Taylor series</p>
 <div class="math notranslate nohighlight" id="equation-eq-backwardexpansion">
-<span class="eqno">(40)<a class="headerlink" href="#equation-eq-backwardexpansion" title="Link to this equation">#</a></span>\[
+<span class="eqno">(41)<a class="headerlink" href="#equation-eq-backwardexpansion" title="Link to this equation">#</a></span>\[
 u(t-\Delta t)=u(t)-\Delta t\frac{du}{dt} + \frac{\Delta t^2}{2!}\frac{d^2u}{dt^2} - \frac{\Delta t^3}{3!}\frac{d^3u}{dt^3}+O(\Delta t^4),
 \]</div>
 <p>and rearranging the terms, we obtain the <em>backward</em> difference formula for the 1st derivative:</p>
 <div class="math notranslate nohighlight" id="equation-eq-formulabackward">
-<span class="eqno">(41)<a class="headerlink" href="#equation-eq-formulabackward" title="Link to this equation">#</a></span>\[
+<span class="eqno">(42)<a class="headerlink" href="#equation-eq-formulabackward" title="Link to this equation">#</a></span>\[
 \frac{du}{dt}=\frac{u^{n}-u^{n-1}}{\Delta t} + O\left( \Delta t\right),
 \]</div>
 <p>which uses the <span class="math notranslate nohighlight">\(u^{n-1}\)</span> and the <span class="math notranslate nohighlight">\(u^{n}\)</span> values and is also a first order approximation.</p>
 <p>By combining the forward and backward Taylor expansions, we obtain</p>
 <div class="math notranslate nohighlight" id="equation-eq-formulacentred">
-<span class="eqno">(42)<a class="headerlink" href="#equation-eq-formulacentred" title="Link to this equation">#</a></span>\[
+<span class="eqno">(43)<a class="headerlink" href="#equation-eq-formulacentred" title="Link to this equation">#</a></span>\[
 \frac{du}{dt}=\frac{u^{n+1}-u^{n-1}}{2\Delta t} + O\left( \Delta t^2\right),
 \]</div>
 <p>which is called the <em>centred</em> difference formula and which is a second order approximation because its truncation error is proportional to <span class="math notranslate nohighlight">\(\Delta t^2\)</span>.</p>
 </section>
 <section id="higher-order-formulas">
 <span id="finite-differences-formulas-1stderivative-higherorder"></span><h2>Higher order formulas<a class="headerlink" href="#higher-order-formulas" title="Link to this heading">#</a></h2>
-<p>The 1st and 2nd order formulas <a class="reference internal" href="#equation-eq-formulaforward">(39)</a>, <a class="reference internal" href="#equation-eq-formulabackward">(41)</a>, <a class="reference internal" href="#equation-eq-formulacentred">(42)</a> were obtained by manipulation of the Taylor series expansions of <span class="math notranslate nohighlight">\(u(t)\)</span> but for higher order approximations, this soon becomes unpractical. However, there is a more expedite method to find higher order formulas.</p>
+<p>The 1st and 2nd order formulas <a class="reference internal" href="#equation-eq-formulaforward">(40)</a>, <a class="reference internal" href="#equation-eq-formulabackward">(42)</a>, <a class="reference internal" href="#equation-eq-formulacentred">(43)</a> were obtained by manipulation of the Taylor series expansions of <span class="math notranslate nohighlight">\(u(t)\)</span> but for higher order approximations, this soon becomes unpractical. However, there is a more expedite method to find higher order formulas.</p>
 <p>As the 2nd order formula needed more information about <span class="math notranslate nohighlight">\(u\)</span> than the 1st order formulas, i.e. it needed more data points, we expect that higher order formulas will require even more data points. Let us consider the values of <span class="math notranslate nohighlight">\(u\)</span> at <span class="math notranslate nohighlight">\(n-2\)</span>, <span class="math notranslate nohighlight">\(n-1\)</span>, <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(n+1\)</span>, <span class="math notranslate nohighlight">\(n+2\)</span>, and form an expression for the time derivative using the function values at these time steps:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -481,12 +482,12 @@ u^{n-2} &amp;= u^n - 2\Delta t\frac{du}{dt}+4\frac{\Delta t^2}{2}\frac{d^2u}{dt^
 \end{split}\]</div>
 <p>Conditions c1 to c5 provide five equations for five unknowns whose solution is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-coefficients">
-<span class="eqno">(43)<a class="headerlink" href="#equation-eq-coefficients" title="Link to this equation">#</a></span>\[
+<span class="eqno">(44)<a class="headerlink" href="#equation-eq-coefficients" title="Link to this equation">#</a></span>\[
 a_{-2}=\frac{1}{12\Delta t}, \quad a_{-1}=-\frac{8}{12\Delta t}, \quad a_{0}=0, \quad a_{1}=\frac{8}{12\Delta t}, \quad a_{2}=-\frac{1}{12\Delta t}.
 \]</div>
 <p>Our higher order approximation for the first derivative is therefore</p>
 <div class="math notranslate nohighlight" id="equation-eq-higherorderdudt">
-<span class="eqno">(44)<a class="headerlink" href="#equation-eq-higherorderdudt" title="Link to this equation">#</a></span>\[
+<span class="eqno">(45)<a class="headerlink" href="#equation-eq-higherorderdudt" title="Link to this equation">#</a></span>\[
 \left.\frac{du}{dt}\right|_{t^n} \approx \frac{u^{n-2}-8u^{n-1}+8u^{n+1}-u^{n+2}}{12\Delta t}. 
 \]</div>
 <p>The leading term of the truncation error is</p>
@@ -494,15 +495,15 @@ a_{-2}=\frac{1}{12\Delta t}, \quad a_{-1}=-\frac{8}{12\Delta t}, \quad a_{0}=0, 
 \[
 (-32a_{-2}-a_{-1}+a_{1}+32a_{2})\frac{\Delta t^5}{120}\frac{d^5u}{dt^5},
 \]</div>
-<p>which, after substituting the values of the coefficients <a class="reference internal" href="#equation-eq-coefficients">(43)</a>, is</p>
+<p>which, after substituting the values of the coefficients <a class="reference internal" href="#equation-eq-coefficients">(44)</a>, is</p>
 <div class="math notranslate nohighlight">
 \[
 -\frac{\Delta t^4}{30}\frac{d^5u}{dt^5}.
 \]</div>
-<p>Our approximation <a class="reference internal" href="#equation-eq-higherorderdudt">(44)</a> is, therefore, a 4th order approximation to the first derivative.</p>
+<p>Our approximation <a class="reference internal" href="#equation-eq-higherorderdudt">(45)</a> is, therefore, a 4th order approximation to the first derivative.</p>
 <p>The method can be generalized to obtain the <span class="math notranslate nohighlight">\(p^{th}\)</span> order approximation of the derivative using the functions values <span class="math notranslate nohighlight">\(u^{n-m},\dotsc,u^{n+m}\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-generalapproximationdudt">
-<span class="eqno">(45)<a class="headerlink" href="#equation-eq-generalapproximationdudt" title="Link to this equation">#</a></span>\[
+<span class="eqno">(46)<a class="headerlink" href="#equation-eq-generalapproximationdudt" title="Link to this equation">#</a></span>\[
 \left.\frac{du}{dt}\right|_{t^n} \approx a_{-m}u^{n-m}+\dotsb+a_{0}u^{n}+\dotsb+a_{m}u^{n+m}, 
 \]</div>
 <p>To build the system of equations whose solution provides the unknown coefficients <span class="math notranslate nohighlight">\(a_{n-m},\dotsc,a_{n+m}\)</span>, we use the Taylor series expansion for each term <span class="math notranslate nohighlight">\(u^{n+q}, \quad q=-m,\dotsc,m\)</span>:</p>
@@ -510,7 +511,7 @@ a_{-2}=\frac{1}{12\Delta t}, \quad a_{-1}=-\frac{8}{12\Delta t}, \quad a_{0}=0, 
 \[
 u^{n+q} = u^n + q\Delta t\frac{du}{dt}+q^2\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}+\dotsb+q^p\frac{\Delta t^p}{p!}\frac{d^pu}{dt^p}+O(\Delta t^{p+1})
 \]</div>
-<p>in <a class="reference internal" href="#equation-eq-generalapproximationdudt">(45)</a> and group the terms according to the order of the derivative in which they appear. Then, we require that:</p>
+<p>in <a class="reference internal" href="#equation-eq-generalapproximationdudt">(46)</a> and group the terms according to the order of the derivative in which they appear. Then, we require that:</p>
 <ol class="arabic simple">
 <li><p>The sum of coefficients <span class="math notranslate nohighlight">\(a_q\)</span> multiplying a derivative of order <span class="math notranslate nohighlight">\(k&lt;p\)</span> be zero;</p></li>
 <li><p>The sum of coefficients <span class="math notranslate nohighlight">\(a_q\)</span> multiplying the derivative of order <span class="math notranslate nohighlight">\(p\)</span> be one.</p></li>
@@ -600,7 +601,7 @@ u^{n+q} = u^n + q\Delta t\frac{du}{dt}+q^2\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}+
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By Teachers in GEOF211
 </p>
 
   </div>
