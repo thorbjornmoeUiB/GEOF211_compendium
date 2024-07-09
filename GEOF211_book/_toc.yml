@@ -26,4 +26,4 @@ chapters:
 #- file: markdown
 #- file: notebooks
 #- file: markdown-notebooks
-- file: GEOF211.bib
+#- file: GEOF211.bib
