@@ -1,3 +1,3 @@
-(GFD:NavierStokes)=
-# The Navier-Stokes equation
+(GFD:Advection)=
+# Advection equation
 

@@ -11,9 +11,9 @@ chapters:
   - file: Useful_calculus/Fourier_transforms.md
 - file: GFD/Introduction.md
   sections:
-  - file: NavierStokes.md
+  - file: GFD/NavierStokes.md
   - file: GFD/Advection.md
-  - file: GFD/Inertial_oscillations.md
+#  - file: GFD/Inertial_oscillations.md
 - file: FiniteDifferences/Introduction.md
   sections:
   - file: FiniteDifferences/algebraicDerivative.md

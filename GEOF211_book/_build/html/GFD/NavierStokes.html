@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>The Navier-Stokes equation &#8212; GEOF211 resource pages</title>
+    <title>Navier-Stokes equation &#8212; GEOF211 resource pages</title>
   
   
   
@@ -57,6 +57,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'GFD/NavierStokes';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -189,10 +191,10 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="Introduction.html">Geophysical Fluid Dynamics (GFD)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="Advection.html">The Navier-Stokes equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Advection.html">Advection equation</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../FiniteDifferences/Introduction.html">What is advection?</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../FiniteDifferences/Introduction.html">The finite difference method (FDM)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/algebraicDerivative.html">Algebraic approximation of the first derivative</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/truncationErrors.html">Truncation Error</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/estimatesTruncationError.html">Estimates of the truncation error</a></li>
@@ -383,7 +385,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>The Navier-Stokes equation</h1>
+    <h1>Navier-Stokes equation</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -397,8 +399,15 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="the-navier-stokes-equation">
-<span id="gfd-navierstokes"></span><h1>The Navier-Stokes equation<a class="headerlink" href="#the-navier-stokes-equation" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="navier-stokes-equation">
+<span id="gfd-navierstokes"></span><h1>Navier-Stokes equation<a class="headerlink" href="#navier-stokes-equation" title="Link to this heading">#</a></h1>
+<p>The Navier-Stokes equation, also known as the equation of motion, describes how velocity change with time as a result of external forces such as gravity, pressure, friction, and Coriolis. Using the Boussinesq approximation, the equation can be expressed:</p>
+<div class="math notranslate nohighlight" id="equation-eq-navierstokes">
+<span class="eqno">()<a class="headerlink" href="#equation-eq-navierstokes" title="Link to this equation">#</a></span>\[ \begin{align}\begin{aligned}\begin{split}
+\begin{align}
+x:&amp;\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}+w\frac{\partial u}{\partial z}&amp;-fv&amp;=-\frac{1}{\rho_0}\frac{\partial p}{\partial x}+\frac{\partial}{\partial x}(A_H\frac{\partial u}{\partial x})+\frac{\partial}{\partial y}(A_H\frac{\partial u}{\partial y})+\frac{\partial}{\partial z}(A_v\frac{\partial u}{\partial z})\\\end{split}\\\begin{split}y:&amp;\,\,\frac{\partial v}{\partial t}+u\frac{\partial v}{\partial x}+v\frac{\partial v}{\partial y}+w\frac{\partial v}{\partial z}&amp;+fu&amp;=-\frac{1}{\rho_0}\frac{\partial p}{\partial y}+\frac{\partial}{\partial x}(A_H\frac{\partial v}{\partial x})+\frac{\partial}{\partial y}(A_H\frac{\partial v}{\partial y})+\frac{\partial}{\partial z}(A_v\frac{\partial v}{\partial z})\\\end{split}\\\begin{split}z:&amp; &amp;0&amp;=-\frac{\partial p}{\partial z}-\rho g\\\end{split}\\\end{align} 
+\end{aligned}\end{align} \]</div>
+<p>,<span class="math notranslate nohighlight">\(\rho_0\)</span> is a refernce density, <span class="math notranslate nohighlight">\(g\)</span> is the gravitational acceleration, <span class="math notranslate nohighlight">\(f=2\Omega sin\phi\)</span> is the Coriolis parameter, and <span class="math notranslate nohighlight">\(A_H\)</span> and <span class="math notranslate nohighlight">\(A_V\)</span> are the horizontal and vertical eddy viscosities</p>
 </section>
 
     <script type="text/x-thebe-config">
