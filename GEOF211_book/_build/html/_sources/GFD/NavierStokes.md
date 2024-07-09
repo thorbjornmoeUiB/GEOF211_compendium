@@ -21,11 +21,16 @@ $$ (eq:Continuity)
 
 ### The density equation (energy equation)
 $$
-\frac{\partial \rho}{\partial t}+u\frac{\partial \rho}{\partial x}+v\frac{\partial \rho}{\partial y}+w\frac{\partial \rho}{\partial z}=\frac{\partial}{\partial x}(A_H\frac{\partial \rho}{\partial x})+\frac{\partial}{\partial y}(A_H\frac{\partial \rho}{\partial y})\frac{\partial}{\partial z}(A_V\frac{\partial \rho}{\partial z})
+\frac{\partial \rho}{\partial t}+u\frac{\partial \rho}{\partial x}+v\frac{\partial \rho}{\partial y}+w\frac{\partial \rho}{\partial z}=\frac{\partial}{\partial x}(A_H\frac{\partial \rho}{\partial x})+\frac{\partial}{\partial y}(A_H\frac{\partial \rho}{\partial y})+\frac{\partial}{\partial z}(A_V\frac{\partial \rho}{\partial z})
 $$ (eq:Density)
 If the right hand side of the density equation is zero, we have conservation of mass.
 
+You can read more about these equations in {cite:ts}`Cushman-RoisinBeckers2011`, chapter 4.4
 
+### References:
+
+```{bibliography}
+```
 
 
 
