@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Truncation Error &#8212; GEOF211 resource pages</title>
+    <title>3.2. Truncation Error &#8212; GEOF211 resource pages</title>
   
   
   
@@ -62,8 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'FiniteDifferences/truncationErrors';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Estimates of the truncation error" href="estimatesTruncationError.html" />
-    <link rel="prev" title="Algebraic approximation of the first derivative" href="algebraicDerivative.html" />
+    <link rel="next" title="3.3. Estimates of the truncation error" href="estimatesTruncationError.html" />
+    <link rel="prev" title="3.1. Algebraic approximation of the first derivative" href="algebraicDerivative.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -182,25 +182,25 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Useful_calculus/Introduction.html">Useful calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Taylor_Polynomials.html">Taylor series</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Useful_calculus/Introduction.html">1. Useful calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Taylor_Polynomials.html">1.1. Taylor series</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Complex_numbers.html">Useful identities for dealing with trigonometry and complex numbers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Fourier_transforms.html">Fourier transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Complex_numbers.html">1.3. Useful identities for dealing with trigonometry and complex numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Fourier_transforms.html">1.4. Fourier transforms</a></li>
 
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../GFD/Introduction.html">Geophysical Fluid Dynamics (GFD)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../GFD/NavierStokes.html">The Primitive equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GFD/Advection.html">Advection equation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../GFD/Introduction.html">2. Geophysical Fluid Dynamics (GFD)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../GFD/PrimitiveEquations.html">2.1. The Primitive equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GFD/Advection.html">2.2. Advection equation</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">The finite difference method (FDM)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="algebraicDerivative.html">Algebraic approximation of the first derivative</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Truncation Error</a></li>
-<li class="toctree-l2"><a class="reference internal" href="estimatesTruncationError.html">Estimates of the truncation error</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fdFormulasFirstDerivative.html">Finite difference formulas for the 1st derivative</a></li>
-<li class="toctree-l2"><a class="reference internal" href="evaluatingTruncationError.html">Evaluating the truncation error</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">3. The finite difference method (FDM)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="algebraicDerivative.html">3.1. Algebraic approximation of the first derivative</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.2. Truncation Error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="estimatesTruncationError.html">3.3. Estimates of the truncation error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fdFormulasFirstDerivative.html">3.4. Finite difference formulas for the 1st derivative</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evaluatingTruncationError.html">3.5. Evaluating the truncation error</a></li>
 </ul>
 </details></li>
 </ul>
@@ -401,33 +401,33 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="truncation-error">
-<span id="finite-differences-truncation-error"></span><h1>Truncation Error<a class="headerlink" href="#truncation-error" title="Link to this heading">#</a></h1>
-<p>The accuracy of the algebraic approximation to <span class="math notranslate nohighlight">\(du/dt\)</span> <a class="reference internal" href="algebraicDerivative.html#equation-eq-discretederivative">(35)</a> can be determined with the help of the Taylor series expansion of <span class="math notranslate nohighlight">\(u(t)\)</span> around the point <span class="math notranslate nohighlight">\(a=t^n\)</span>, where <span class="math notranslate nohighlight">\(t^n\)</span> is reprecenting a chosen time ste. Note that <span class="math notranslate nohighlight">\(u^{n+1}=u(t^{n+1})=u(t^n+\Delta t)\)</span> and <span class="math notranslate nohighlight">\(u^{n}=u(t^n)\)</span>.</p>
+<span id="finite-differences-truncation-error"></span><h1><span class="section-number">3.2. </span>Truncation Error<a class="headerlink" href="#truncation-error" title="Link to this heading">#</a></h1>
+<p>The accuracy of the algebraic approximation to <span class="math notranslate nohighlight">\(du/dt\)</span> <a class="reference internal" href="algebraicDerivative.html#equation-eq-discretederivative">(3.3)</a> can be determined with the help of the Taylor series expansion of <span class="math notranslate nohighlight">\(u(t)\)</span> around the point <span class="math notranslate nohighlight">\(a=t^n\)</span>, where <span class="math notranslate nohighlight">\(t^n\)</span> is reprecenting a chosen time ste. Note that <span class="math notranslate nohighlight">\(u^{n+1}=u(t^{n+1})=u(t^n+\Delta t)\)</span> and <span class="math notranslate nohighlight">\(u^{n}=u(t^n)\)</span>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-taylorseries-v1">
-<span class="eqno">(36)<a class="headerlink" href="#equation-eq-taylorseries-v1" title="Link to this equation">#</a></span>\[
+<span class="eqno">(3.4)<a class="headerlink" href="#equation-eq-taylorseries-v1" title="Link to this equation">#</a></span>\[
 u(t)=u^n+\frac{u'(t^n)}{1!}(t-t^n)+\frac{u''(t^n)}{2!}(t-t^n)^2+\sum_{p=3}^{\infty}\frac{u^{(p)}(t^n)}{p!}(t-t^n)^p
 \]</div>
 <p>Note that <span class="math notranslate nohighlight">\(u'(t^n)\)</span> can also be written <span class="math notranslate nohighlight">\(\frac{du}{dt}|_{t^n}\)</span>. You will find that some references omit displaying the <span class="math notranslate nohighlight">\(|_{t^n}\)</span> in the derivative terms. We will include them here for completeness.</p>
 <p>Now, since we are interested in the time step coming after <span class="math notranslate nohighlight">\(t^n\)</span> we write out the equation for <span class="math notranslate nohighlight">\(t=t^{n+1}\)</span>, and note that <span class="math notranslate nohighlight">\((t^{n+1}-t^n)=\Delta t\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-taylorseries">
-<span class="eqno">(37)<a class="headerlink" href="#equation-eq-taylorseries" title="Link to this equation">#</a></span>\[
+<span class="eqno">(3.5)<a class="headerlink" href="#equation-eq-taylorseries" title="Link to this equation">#</a></span>\[
 u^{n+1}=u^n+\Delta t\frac{du}{dt}|_{t^n}+\frac{\Delta t^2}{2!}\frac{d^2u}{dt^2}|_{t^n}+\sum_{p=3}^{\infty}\frac{\Delta t^p}{p!}\frac{d^{(p)}u}{dt^p}|_{t^n}
 \]</div>
 <p>Rearranging for <span class="math notranslate nohighlight">\(du/dt\)</span>, we obtain:</p>
 <div class="math notranslate nohighlight" id="equation-eq-fdexpansion">
-<span class="eqno">(38)<a class="headerlink" href="#equation-eq-fdexpansion" title="Link to this equation">#</a></span>\[
+<span class="eqno">(3.6)<a class="headerlink" href="#equation-eq-fdexpansion" title="Link to this equation">#</a></span>\[
 \frac{du}{dt}|_{t^n}=\frac{u^{n+1}-u^n}{\Delta t}-\displaystyle\sum_{p=2}^{\infty} \frac{\Delta t^{p-1}}{p!}\frac{d^pu}{dt^p}|_{t^n}
 \]</div>
-<p>The difference between the exact derivative <a class="reference internal" href="algebraicDerivative.html#equation-eq-exactderivative">(33)</a> and our algebraic approximation <a class="reference internal" href="algebraicDerivative.html#equation-eq-discretederivative">(35)</a> is the second term of the right hand side of <a class="reference internal" href="#equation-eq-fdexpansion">(38)</a>. Expanding this term up to <span class="math notranslate nohighlight">\(p=3\)</span>, we see its general form:</p>
+<p>The difference between the exact derivative <a class="reference internal" href="algebraicDerivative.html#equation-eq-exactderivative">(3.1)</a> and our algebraic approximation <a class="reference internal" href="algebraicDerivative.html#equation-eq-discretederivative">(3.3)</a> is the second term of the right hand side of <a class="reference internal" href="#equation-eq-fdexpansion">(3.6)</a>. Expanding this term up to <span class="math notranslate nohighlight">\(p=3\)</span>, we see its general form:</p>
 <div class="math notranslate nohighlight" id="equation-eq-truncationerror">
-<span class="eqno">(39)<a class="headerlink" href="#equation-eq-truncationerror" title="Link to this equation">#</a></span>\[
+<span class="eqno">(3.7)<a class="headerlink" href="#equation-eq-truncationerror" title="Link to this equation">#</a></span>\[
 \frac{\Delta t}{2!}\frac{d^2u}{dt^2}|_{t^n}+\frac{\Delta t^2}{3!}\frac{d^3u}{dt^3}|_{t^n}+O(\Delta t^3),
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(O(\Delta t^3)\)</span> represents terms proportional to <span class="math notranslate nohighlight">\(\Delta t^3\)</span> and to higher powers of <span class="math notranslate nohighlight">\(\Delta t\)</span>.</p>
-<p>Expression <a class="reference internal" href="#equation-eq-truncationerror">(39)</a> is the <strong>truncation error</strong>, which is the error we incurr when we approximate the exact derivative <a class="reference internal" href="algebraicDerivative.html#equation-eq-exactderivative">(33)</a> with the algebraic expression <a class="reference internal" href="algebraicDerivative.html#equation-eq-discretederivative">(35)</a>.</p>
-<p>The algebraic approximation <a class="reference internal" href="algebraicDerivative.html#equation-eq-discretederivative">(35)</a> can thus be written as:</p>
+<p>Expression <a class="reference internal" href="#equation-eq-truncationerror">(3.7)</a> is the <strong>truncation error</strong>, which is the error we incurr when we approximate the exact derivative <a class="reference internal" href="algebraicDerivative.html#equation-eq-exactderivative">(3.1)</a> with the algebraic expression <a class="reference internal" href="algebraicDerivative.html#equation-eq-discretederivative">(3.3)</a>.</p>
+<p>The algebraic approximation <a class="reference internal" href="algebraicDerivative.html#equation-eq-discretederivative">(3.3)</a> can thus be written as:</p>
 <div class="math notranslate nohighlight" id="equation-eq-discretederiavtiveerror">
-<span class="eqno">(40)<a class="headerlink" href="#equation-eq-discretederiavtiveerror" title="Link to this equation">#</a></span>\[
+<span class="eqno">(3.8)<a class="headerlink" href="#equation-eq-discretederiavtiveerror" title="Link to this equation">#</a></span>\[
 \frac{du}{dt}|_{t^n} = \frac{u^{n+1}-u^n}{\Delta t} + O(\Delta t),
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(O(\Delta t)\)</span> represents the truncation error of the approximation, whose first term, the <em>leading order</em> term is proportional to <span class="math notranslate nohighlight">\(\Delta t\)</span>. Since the leading order term is proportional to the first power of <span class="math notranslate nohighlight">\(\Delta t\)</span>, we say that this approximation is a <em>first order</em> approximation to the first derivative.</p>
@@ -469,7 +469,7 @@ u^{n+1}=u^n+\Delta t\frac{du}{dt}|_{t^n}+\frac{\Delta t^2}{2!}\frac{d^2u}{dt^2}|
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Algebraic approximation of the first derivative</p>
+        <p class="prev-next-title"><span class="section-number">3.1. </span>Algebraic approximation of the first derivative</p>
       </div>
     </a>
     <a class="right-next"
@@ -477,7 +477,7 @@ u^{n+1}=u^n+\Delta t\frac{du}{dt}|_{t^n}+\frac{\Delta t^2}{2!}\frac{d^2u}{dt^2}|
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Estimates of the truncation error</p>
+        <p class="prev-next-title"><span class="section-number">3.3. </span>Estimates of the truncation error</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

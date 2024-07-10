@@ -193,3 +193,10 @@ plt.ylabel("y(t)")
 plt.show()
 
 ```
+
+You can read more about Fourier series and transforms in {cite:ts}`EmeryThompson`.
+
+### References:
+
+```{bibliography}
+```
