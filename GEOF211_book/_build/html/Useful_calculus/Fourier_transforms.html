@@ -249,6 +249,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -301,6 +332,23 @@
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Useful_calculus/Fourier_transforms.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
       
       
       
@@ -424,7 +472,7 @@ document.write(`
 <p>When two or more waves meet, for example when two boats pass each other, their wake waves will overlap in space. The surface displacement (amplitude) will, at any point, be the sum of the surface displacement for the individual waves.</p>
 <p>When looking at the ocean surface, the surface elevation can be regarded as the sum of (superposition) of many waves of different frequencies and phases.</p>
 <p>In the figure, you can see three individual sine waves with varying frequencies and amplitudes. The first wave (blue) has 2 oscillations per seconds, the second wave (orange) has 5 oscillations per second, and the third wave (green) has 10 oscillations per second. The black, bold line shows the superposition of the three waves. The amplitude at any point in time, is the sum of the amplitudes of the three individal waves.</p>
-<div class="cell tag_hide-input docutils container">
+<div class="cell tag_hide-input tag_thebe-init docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
 <span class="collapsed">Show code cell source</span>
@@ -630,7 +678,7 @@ Y(f)=\Delta t \sum_{-\infty}^\infty y_n e^{-i2\pi ft}
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
+            repo: "kjerstid/GEOF211_compendium",
             ref: "master",
         },
         codeMirrorConfig: {

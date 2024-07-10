@@ -20,7 +20,7 @@ When looking at the ocean surface, the surface elevation can be regarded as the 
 In the figure, you can see three individual sine waves with varying frequencies and amplitudes. The first wave (blue) has 2 oscillations per seconds, the second wave (orange) has 5 oscillations per second, and the third wave (green) has 10 oscillations per second. The black, bold line shows the superposition of the three waves. The amplitude at any point in time, is the sum of the amplitudes of the three individal waves.
 
 ```{code-cell} ipython3
-:tags: ["hide-input"]
+:tags: ["hide-input","thebe-init"]
 
 import numpy as np
 import matplotlib.pyplot as plt

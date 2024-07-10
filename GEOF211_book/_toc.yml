@@ -3,6 +3,8 @@
 
 format: jb-book
 root: intro
+options:
+  numbered: true
 chapters: 
 - file: Useful_calculus/Introduction.md
   sections:
@@ -11,7 +13,7 @@ chapters:
   - file: Useful_calculus/Fourier_transforms.md
 - file: GFD/Introduction.md
   sections:
-  - file: GFD/NavierStokes.md
+  - file: GFD/PrimitiveEquations.md
   - file: GFD/Advection.md
 #  - file: GFD/Inertial_oscillations.md
 - file: FiniteDifferences/Introduction.md
