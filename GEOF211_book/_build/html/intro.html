@@ -376,7 +376,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -392,6 +394,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References:</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -407,6 +417,10 @@ document.write(`
 <p>In this course you learn to use numerical methods to solve simple problems in fluid dynamics. We study exact and numerical solutions of partial differential equations linked to advection, diffusion, oscillation and wave processes, and discuss the strengths and weaknesses of different numerical schemes.</p>
 <p>You will learn to use methods to solve initial value problems and solve diagnostic boundary value problems.</p>
 <p>The compendium is a collection of notes by Kjersti Daae, João Bettencourt, and Thorbjørn Østenby Moe</p>
+<p>You can cite this work by writing, e.g., <span id="id1">Daae, Bettencourt, and Moe [<a class="reference internal" href="markdown.html#id9" title="Kjersti Daae, João Bettencourt, and Thorbjørn Østenbye Moe. Resource pages for GEOF211 - numerical modeling. file:///C:/Users/kda005/OneDrive, January 2025.">DBM25</a>]</span>, chapter 1.2  in your text, and add the following to the reference list at the end of the assignment:</p>
+<section id="references">
+<h2>References:<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<p>Kjersti Daae, João Bettencourt, and Thorbjorn Ostenbye Moe. Resource pages for GEOF211 - numerical modeling. \textit{webpage address}, January 2025.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Useful_calculus/Introduction.html">1. Useful calculus</a><ul>
@@ -432,6 +446,7 @@ document.write(`
 </li>
 </ul>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -479,6 +494,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References:</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

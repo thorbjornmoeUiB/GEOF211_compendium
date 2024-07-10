@@ -8,5 +8,12 @@ You will learn to use methods to solve initial value problems and solve diagnost
 
 The compendium is a collection of notes by Kjersti Daae, João Bettencourt, and Thorbjørn Østenby Moe
 
+You can cite this work by writing, e.g., {cite:ts}`GEOF211compendium`, chapter 1.2  in your text, and add the following to the reference list at the end of the assignment:
+
+
+### References:
+
+Kjersti Daae, João Bettencourt, and Thorbjorn Ostenbye Moe. Resource pages for GEOF211 - numerical modeling. \textit{webpage address}, January 2025.
+
 ```{tableofcontents}
 ```
