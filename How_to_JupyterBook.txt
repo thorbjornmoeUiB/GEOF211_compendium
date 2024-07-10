@@ -1,0 +1,21 @@
+- Create the repository in Github
+
+- Open Windows power shell, choose Git bash from the drop-down menu 
+- cd into the folder conaining the repository and write code.. to open visual studio code with connections to github.
+
+- Add and commit changes to your repository to git via terminal or built-in menus in visual studio code.
+
+#To update the book:
+- Open an anaconda terminal, activate the correct environment and cd into the book directory
+>conda activate GEOF211_compendium
+>cd "C:\Users\kda005\OneDrive - University of Bergen\KDA\Courses\GEOF211\GEOF211_compendium\"
+
+- write the following in the anaconda terminal:
+>jb build GEOF211_book/
+
+- To build the pages on github, you must make sure that ghp-import is installed in the environment. You can install this from:
+pip install ghp-import
+
+- cd into GEOF211_book and write the following:
+>cd GEOF211_book
+>ghp-import -n -p -f _build/html
