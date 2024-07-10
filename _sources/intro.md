@@ -13,7 +13,7 @@ You can cite this work by writing, e.g., {cite:ts}`GEOF211compendium`, chapter 1
 
 ### References:
 
-Kjersti Daae, João Bettencourt, and Thorbjorn Ostenbye Moe. Resource pages for GEOF211 - numerical modeling. \textit{webpage address}, January 2025.
+Kjersti Daae, João Bettencourt, and Thorbjorn Ostenbye Moe. Resource pages for GEOF211 - numerical modeling. _webpage address_, January 2025.
 
 ```{tableofcontents}
 ```
