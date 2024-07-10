@@ -1,0 +1,648 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3.4. Finite difference formulas for the 1st derivative &#8212; GEOF211 resource pages</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'FiniteDifferences/fdFormulasFirstDerivative';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3.5. Evaluating the truncation error" href="evaluatingTruncationError.html" />
+    <link rel="prev" title="3.3. Estimates of the truncation error" href="estimatesTruncationError.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="GEOF211 resource pages - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="GEOF211 resource pages - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Resource pages for GEOF211 - Numerical Modeling
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Useful_calculus/Introduction.html">1. Useful calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Taylor_Polynomials.html">1.1. Taylor series</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Complex_numbers.html">1.3. Useful identities for dealing with trigonometry and complex numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Fourier_transforms.html">1.4. Fourier transforms</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../GFD/Introduction.html">2. Geophysical Fluid Dynamics (GFD)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../GFD/PrimitiveEquations.html">2.1. The Primitive equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GFD/Advection.html">2.2. Advection equation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">3. The finite difference method (FDM)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="algebraicDerivative.html">3.1. Algebraic approximation of the first derivative</a></li>
+<li class="toctree-l2"><a class="reference internal" href="truncationErrors.html">3.2. Truncation Error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="estimatesTruncationError.html">3.3. Estimates of the truncation error</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.4. Finite difference formulas for the 1st derivative</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evaluatingTruncationError.html">3.5. Evaluating the truncation error</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/kjerstid/GEOF211_compendium/tree/main/GEOF211_book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/kjerstid/GEOF211_compendium/tree/main/GEOF211_book/issues/new?title=Issue%20on%20page%20%2FFiniteDifferences/fdFormulasFirstDerivative.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/FiniteDifferences/fdFormulasFirstDerivative.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Finite difference formulas for the 1st derivative</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-formulas">3.4.1. First order formulas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higher-order-formulas">3.4.2. Higher order formulas</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="finite-difference-formulas-for-the-1st-derivative">
+<span id="finite-differences-formulas-1stderivative"></span><h1><span class="section-number">3.4. </span>Finite difference formulas for the 1st derivative<a class="headerlink" href="#finite-difference-formulas-for-the-1st-derivative" title="Link to this heading">#</a></h1>
+<section id="first-order-formulas">
+<span id="finite-differences-formulas-1stderivative-1storder"></span><h2><span class="section-number">3.4.1. </span>First order formulas<a class="headerlink" href="#first-order-formulas" title="Link to this heading">#</a></h2>
+<p>Finite difference formulas are just finite difference approximations, disregarding the truncation error, e.g., from <a class="reference internal" href="truncationErrors.html#equation-eq-fdexpansion">(3.6)</a>, we have</p>
+<div class="math notranslate nohighlight" id="equation-eq-formulaforward">
+<span class="eqno">(3.12)<a class="headerlink" href="#equation-eq-formulaforward" title="Link to this equation">#</a></span>\[
+\frac{du}{dt}=\frac{u^{n+1}-u^n}{\Delta t}+O(\Delta t).
+\]</div>
+<p>Formula <a class="reference internal" href="#equation-eq-formulaforward">(3.12)</a> is called a <em>forward</em> difference formula because it uses the <span class="math notranslate nohighlight">\(u^n\)</span> and the <span class="math notranslate nohighlight">\(u^{n+1}\)</span> values, and it is a first order formula because the truncation error is of <span class="math notranslate nohighlight">\(O(\Delta t)\)</span>. The leading term of the truncation error is usually written with the formula to indicate its order of approximation.</p>
+<p>We can use Taylor series expansions to obtain several lower order finite difference formulas. Using a backard Taylor series</p>
+<div class="math notranslate nohighlight" id="equation-eq-backwardexpansion">
+<span class="eqno">(3.13)<a class="headerlink" href="#equation-eq-backwardexpansion" title="Link to this equation">#</a></span>\[
+u(t-\Delta t)=u(t)-\Delta t\frac{du}{dt} + \frac{\Delta t^2}{2!}\frac{d^2u}{dt^2} - \frac{\Delta t^3}{3!}\frac{d^3u}{dt^3}+O(\Delta t^4),
+\]</div>
+<p>and rearranging the terms, we obtain the <em>backward</em> difference formula for the 1st derivative:</p>
+<div class="math notranslate nohighlight" id="equation-eq-formulabackward">
+<span class="eqno">(3.14)<a class="headerlink" href="#equation-eq-formulabackward" title="Link to this equation">#</a></span>\[
+\frac{du}{dt}=\frac{u^{n}-u^{n-1}}{\Delta t} + O\left( \Delta t\right),
+\]</div>
+<p>which uses the <span class="math notranslate nohighlight">\(u^{n-1}\)</span> and the <span class="math notranslate nohighlight">\(u^{n}\)</span> values and is also a first order approximation.</p>
+<p>By combining the forward and backward Taylor expansions, we obtain</p>
+<div class="math notranslate nohighlight" id="equation-eq-formulacentred">
+<span class="eqno">(3.15)<a class="headerlink" href="#equation-eq-formulacentred" title="Link to this equation">#</a></span>\[
+\frac{du}{dt}=\frac{u^{n+1}-u^{n-1}}{2\Delta t} + O\left( \Delta t^2\right),
+\]</div>
+<p>which is called the <em>centred</em> difference formula and which is a second order approximation because its truncation error is proportional to <span class="math notranslate nohighlight">\(\Delta t^2\)</span>.</p>
+</section>
+<section id="higher-order-formulas">
+<span id="finite-differences-formulas-1stderivative-higherorder"></span><h2><span class="section-number">3.4.2. </span>Higher order formulas<a class="headerlink" href="#higher-order-formulas" title="Link to this heading">#</a></h2>
+<p>The 1st and 2nd order formulas <a class="reference internal" href="#equation-eq-formulaforward">(3.12)</a>, <a class="reference internal" href="#equation-eq-formulabackward">(3.14)</a>, <a class="reference internal" href="#equation-eq-formulacentred">(3.15)</a> were obtained by manipulation of the Taylor series expansions of <span class="math notranslate nohighlight">\(u(t)\)</span> but for higher order approximations, this soon becomes unpractical. However, there is a more expedite method to find higher order formulas.</p>
+<p>As the 2nd order formula needed more information about <span class="math notranslate nohighlight">\(u\)</span> than the 1st order formulas, i.e. it needed more data points, we expect that higher order formulas will require even more data points. Let us consider the values of <span class="math notranslate nohighlight">\(u\)</span> at <span class="math notranslate nohighlight">\(n-2\)</span>, <span class="math notranslate nohighlight">\(n-1\)</span>, <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(n+1\)</span>, <span class="math notranslate nohighlight">\(n+2\)</span>, and form an expression for the time derivative using the function values at these time steps:</p>
+<div class="math notranslate nohighlight">
+\[
+\left.\frac{du}{dt}\right|_{t^n} \approx a_{-2}u^{n-2}+a_{-1}u^{n-1}+a_{0}u^{n}+a_{1}u^{n+1}+a_{2}u^{n+2}, 
+\]</div>
+<p>where the <span class="math notranslate nohighlight">\(a_j\)</span>’s are coefficients to be determined.</p>
+<p>We start by expanding <span class="math notranslate nohighlight">\(u^{j}, \quad j=n-2,\dotsc,n+2\)</span> as Taylor series of <span class="math notranslate nohighlight">\(u^n\)</span>, up to the fifth order term:</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\begin{split}
+\begin{align}
+u^{n-2} &amp;= u^n - 2\Delta t\frac{du}{dt}+4\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}-8\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+16\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}-32\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6)\\\end{split}\\\begin{split}u^{n-1} &amp;= u^n - \Delta t\frac{du}{dt}+\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}-\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}-\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6)\\\end{split}\\\begin{split}u^{n} &amp;= u^n \\\end{split}\\\begin{split}u^{n+1} &amp;= u^n + \Delta t\frac{du}{dt}+\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}+\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}+\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6)\\\end{split}\\u^{n+2} &amp;= u^n + 2\Delta t\frac{du}{dt}+4\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}+8\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+16\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}+32\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6).
+\end{align}
+\end{aligned}\end{align} \]</div>
+<p>We now multiply the Taylor series expansions with the corresponding coefficient and group the terms per order of the derivative:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\left.\frac{du}{dt}\right|_{t^n} = &amp;(a_{-2}+a_{-1}+a_{0}+a_{1}+a_{2})u^{n} + \\ 
+   &amp;(-2a_{-2}-a_{-1}+a_{1}+2a_{2})\Delta t\frac{du}{dt} + \\
+   &amp;(4a_{-2}+a_{-1}+a_{1}+4a_{2})\frac{\Delta t^2}{2}\frac{d^2u}{dt^2} + \\
+   &amp;(-8a_{-2}-a_{-1}+a_{1}+8a_{2})\frac{\Delta t^3}{6}\frac{d^3u}{dt^3} + \\
+   &amp;(16a_{-2}+a_{-1}+a_{1}+16a_{2})\frac{\Delta t^4}{24}\frac{d^4u}{dt^4} + \\
+   &amp;(-32a_{-2}-a_{-1}+a_{1}+32a_{2})\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6).
+\end{align}
+\end{split}\]</div>
+<p>In order for <span class="math notranslate nohighlight">\(\frac{du}{dt}\mid_{t^n}\)</span> to converge to <span class="math notranslate nohighlight">\(du/dt\)</span> when <span class="math notranslate nohighlight">\(\Delta t \to 0\)</span>, we must have:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\mathrm{c1:}&amp; \quad a_{-2}+a_{-1}+a_{0}+a_{1}+a_{2} = 0 \\
+\mathrm{c2:}&amp; \quad (-2a_{-2}-a_{-1}+a_{1}+2a_{2})\Delta t = 1,
+\end{align}
+\end{split}\]</div>
+<p>which provides two necessary conditions, there remaining three parameters to choose in order to have the highest accuracy. This implies cancelling the next three truncation errors:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\mathrm{c3:}&amp; \quad 4a_{-2}+a_{-1}+a_{1}+4a_{2} = 0 \\
+\mathrm{c4:}&amp; \quad -8a_{-2}-a_{-1}+a_{1}+8a_{2} = 0 \\
+\mathrm{c5:}&amp; \quad 16a_{-2}+a_{-1}+a_{1}+16a_{2} = 0.
+\end{align}
+\end{split}\]</div>
+<p>Conditions c1 to c5 provide five equations for five unknowns whose solution is:</p>
+<div class="math notranslate nohighlight" id="equation-eq-coefficients">
+<span class="eqno">(3.16)<a class="headerlink" href="#equation-eq-coefficients" title="Link to this equation">#</a></span>\[
+a_{-2}=\frac{1}{12\Delta t}, \quad a_{-1}=-\frac{8}{12\Delta t}, \quad a_{0}=0, \quad a_{1}=\frac{8}{12\Delta t}, \quad a_{2}=-\frac{1}{12\Delta t}.
+\]</div>
+<p>Our higher order approximation for the first derivative is therefore</p>
+<div class="math notranslate nohighlight" id="equation-eq-higherorderdudt">
+<span class="eqno">(3.17)<a class="headerlink" href="#equation-eq-higherorderdudt" title="Link to this equation">#</a></span>\[
+\left.\frac{du}{dt}\right|_{t^n} \approx \frac{u^{n-2}-8u^{n-1}+8u^{n+1}-u^{n+2}}{12\Delta t}. 
+\]</div>
+<p>The leading term of the truncation error is</p>
+<div class="math notranslate nohighlight">
+\[
+(-32a_{-2}-a_{-1}+a_{1}+32a_{2})\frac{\Delta t^5}{120}\frac{d^5u}{dt^5},
+\]</div>
+<p>which, after substituting the values of the coefficients <a class="reference internal" href="#equation-eq-coefficients">(3.16)</a>, is</p>
+<div class="math notranslate nohighlight">
+\[
+-\frac{\Delta t^4}{30}\frac{d^5u}{dt^5}.
+\]</div>
+<p>Our approximation <a class="reference internal" href="#equation-eq-higherorderdudt">(3.17)</a> is, therefore, a 4th order approximation to the first derivative.</p>
+<p>The method can be generalized to obtain the <span class="math notranslate nohighlight">\(p^{th}\)</span> order approximation of the derivative using the functions values <span class="math notranslate nohighlight">\(u^{n-m},\dotsc,u^{n+m}\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-generalapproximationdudt">
+<span class="eqno">(3.18)<a class="headerlink" href="#equation-eq-generalapproximationdudt" title="Link to this equation">#</a></span>\[
+\left.\frac{du}{dt}\right|_{t^n} \approx a_{-m}u^{n-m}+\dotsb+a_{0}u^{n}+\dotsb+a_{m}u^{n+m}, 
+\]</div>
+<p>To build the system of equations whose solution provides the unknown coefficients <span class="math notranslate nohighlight">\(a_{n-m},\dotsc,a_{n+m}\)</span>, we use the Taylor series expansion for each term <span class="math notranslate nohighlight">\(u^{n+q}, \quad q=-m,\dotsc,m\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+u^{n+q} = u^n + q\Delta t\frac{du}{dt}+q^2\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}+\dotsb+q^p\frac{\Delta t^p}{p!}\frac{d^pu}{dt^p}+O(\Delta t^{p+1})
+\]</div>
+<p>in <a class="reference internal" href="#equation-eq-generalapproximationdudt">(3.18)</a> and group the terms according to the order of the derivative in which they appear. Then, we require that:</p>
+<ol class="arabic simple">
+<li><p>The sum of coefficients <span class="math notranslate nohighlight">\(a_q\)</span> multiplying a derivative of order <span class="math notranslate nohighlight">\(k&lt;p\)</span> be zero;</p></li>
+<li><p>The sum of coefficients <span class="math notranslate nohighlight">\(a_q\)</span> multiplying the derivative of order <span class="math notranslate nohighlight">\(p\)</span> be one.</p></li>
+</ol>
+<p>We thus obtain a system of <span class="math notranslate nohighlight">\(p+1\)</span> equations for the <span class="math notranslate nohighlight">\(2m+1\)</span> coefficients <span class="math notranslate nohighlight">\(a_q\)</span>. Requirements 1 and 2 can only be satisfied if there are <span class="math notranslate nohighlight">\(2m+1&gt;p+1\)</span> points, i.e., we must have <span class="math notranslate nohighlight">\(2m&gt;p\)</span>.</p>
+<p>If there are more points than needed, we used them to cancel the next few terms in the truncation error. We can use <span class="math notranslate nohighlight">\(2m+1\)</span> points to cancel up to order <span class="math notranslate nohighlight">\(2m-p+1\)</span>.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "kjerstid/GEOF211_compendium",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./FiniteDifferences"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="estimatesTruncationError.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">3.3. </span>Estimates of the truncation error</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="evaluatingTruncationError.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3.5. </span>Evaluating the truncation error</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-formulas">3.4.1. First order formulas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higher-order-formulas">3.4.2. Higher order formulas</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Teachers in GEOF211
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
