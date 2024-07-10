@@ -8,5 +8,4 @@ dependencies:
   - pip:
     - nbgitpuller
     - sphinx-gallery
-    - pandas
     - matplotlib
