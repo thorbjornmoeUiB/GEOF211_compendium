@@ -1,4 +1,4 @@
-name: GEOF211_compendium-environment
+name: environment
 channels:
   - conda-forge
 dependencies:
