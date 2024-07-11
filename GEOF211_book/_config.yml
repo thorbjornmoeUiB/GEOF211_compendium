@@ -22,7 +22,7 @@ bibtex_bibfiles:
 # Information about where the book exists on the web
 repository:
   url: https://kjerstid.github.io/GEOF211_compendium/intro.html  # Online location of your book
-  path_to_book: docs  # Optional path to your book, relative to the repository root
+  path_to_book: GEOF211_book  # Optional path to your book, relative to the repository root
   branch: master  # Which branch of the repository should be used when creating links (optional)
 
 #Add launch button for binder to use interactive coding
