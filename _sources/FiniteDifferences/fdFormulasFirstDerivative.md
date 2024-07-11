@@ -12,7 +12,7 @@ $$ (eq:formulaForward)
 
 Formula {eq}`eq:formulaForward` is called a *forward* difference formula because it uses the $u^n$ and the $u^{n+1}$ values, and it is a first order formula because the truncation error is of $O(\Delta t)$. The leading term of the truncation error is usually written with the formula to indicate its order of approximation.
 
-We can use Taylor series expansions to obtain several lower order finite difference formulas. Using a backard Taylor series
+We can use Taylor series expansions to obtain several lower order finite difference formulas. Using a backward Taylor series
 
 $$
 u(t-\Delta t)=u(t)-\Delta t\frac{du}{dt} + \frac{\Delta t^2}{2!}\frac{d^2u}{dt^2} - \frac{\Delta t^3}{3!}\frac{d^3u}{dt^3}+O(\Delta t^4),
@@ -52,13 +52,9 @@ We start by expanding $u^{j}, \quad j=n-2,\dotsc,n+2$ as Taylor series of $u^n$,
 $$
 \begin{align}
 u^{n-2} &= u^n - 2\Delta t\frac{du}{dt}+4\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}-8\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+16\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}-32\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6)\\
-
 u^{n-1} &= u^n - \Delta t\frac{du}{dt}+\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}-\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}-\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6)\\
-
 u^{n} &= u^n \\
-
 u^{n+1} &= u^n + \Delta t\frac{du}{dt}+\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}+\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}+\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6)\\
-
 u^{n+2} &= u^n + 2\Delta t\frac{du}{dt}+4\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}+8\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+16\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}+32\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6).
 \end{align}
 $$
