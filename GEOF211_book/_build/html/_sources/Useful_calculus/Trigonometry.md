@@ -1,6 +1,40 @@
-(Useful_calculus:Complex_numbers)=
-# Complex numbers
+(Useful_calculus:Trigonometry)=
+# Trigonometry
 
+#### Pythagorean indentity:
+
+$$
+\sin^2 x+\cos^2 x=1
+$$ (eq:Trig_pythagoras)
+
+#### Sine and cosine additive identities
+$$
+\sin(x+y)=\sin x\cos y+\cos x\sin y
+$$ (eq:Trig_sine_add)
+
+$$
+\cos(x+y)=\cos x\cos y-\sin x\sin y
+$$ (eq:Trig_cos_add)
+
+#### Double angle formulas:
+$$
+\sin(2x)=2\sin x\cos x
+$$ (eq:Trig_sine_double)
+
+$$
+\cos(2x)=\cos^2 x-\sin^2 x=2cos^2 x-1=1-2\sin^2x
+$$ (eq:Trig_cosine_double)
+
+#### Half angle formulas:
+$$
+\sin(\frac{x}{2})=\pm \sqrt{\frac{1-\cos x}{2}}
+$$ (eq:Trig_sine_half)
+
+$$
+\cos(\frac{x}{2})=\pm \sqrt{\frac{1+\cos x}{2}}
+$$ (eq:Trig_cosine_half)
+
+## Complex numbers
 The imaginary unit, $i$ is defined as:
 $$
 i=\sqrt{-1}
@@ -31,6 +65,7 @@ The modulus of the sum of two complex numbers, also called "The triangle inequal
 $$
 |z+w|<|z|+|w|
 $$ (eq:Complex_triangle_identity)
+
 
 ## The Euler formula and modifications
 
@@ -69,4 +104,4 @@ $$
 (\cos x+i\sin x)^n=\cos nx+i\sin nx
 $$ (eq:Euler_sine_add)
 
-You can read more about complex numbers in {cite:ts}`Adams2018calculus`, Appendix 1.
+You can read more about trigonometry in {cite:ts}`Adams2018calculus`, chapter P.6.
