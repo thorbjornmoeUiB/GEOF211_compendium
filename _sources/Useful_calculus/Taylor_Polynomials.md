@@ -30,3 +30,5 @@ sin(x)& = sin(0)+cos(0)(x-0)-\frac{sin(0)(x-0)^2}{2!}-\frac{cos(0)(x-0)^3}{3!}+.
 \end{align}
 $$ (eq:McLaurin_sine)
 
+You can read more about Taylor polynomials in {cite:ts}`Adams2018calculus` chapter 4.8 and 9.6.
+
