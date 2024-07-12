@@ -9,7 +9,9 @@ chapters:
 - file: Useful_calculus/Introduction.md
   sections:
   - file: Useful_calculus/Taylor_Polynomials.md
+  - file: Useful_calculus/Trigonometry.md
   - file: Useful_calculus/Complex_numbers.md
+  - file: Useful_calculus/Euler_formula.md
   - file: Useful_calculus/Fourier_transforms.md
 - file: GFD/Introduction.md
   sections:

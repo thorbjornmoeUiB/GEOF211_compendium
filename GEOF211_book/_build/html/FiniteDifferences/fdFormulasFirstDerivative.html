@@ -421,7 +421,7 @@ document.write(`
 \frac{du}{dt}=\frac{u^{n+1}-u^n}{\Delta t}+O(\Delta t).
 \]</div>
 <p>Formula <a class="reference internal" href="#equation-eq-formulaforward">(3.12)</a> is called a <em>forward</em> difference formula because it uses the <span class="math notranslate nohighlight">\(u^n\)</span> and the <span class="math notranslate nohighlight">\(u^{n+1}\)</span> values, and it is a first order formula because the truncation error is of <span class="math notranslate nohighlight">\(O(\Delta t)\)</span>. The leading term of the truncation error is usually written with the formula to indicate its order of approximation.</p>
-<p>We can use Taylor series expansions to obtain several lower order finite difference formulas. Using a backard Taylor series</p>
+<p>We can use Taylor series expansions to obtain several lower order finite difference formulas. Using a backward Taylor series</p>
 <div class="math notranslate nohighlight" id="equation-eq-backwardexpansion">
 <span class="eqno">(3.13)<a class="headerlink" href="#equation-eq-backwardexpansion" title="Link to this equation">#</a></span>\[
 u(t-\Delta t)=u(t)-\Delta t\frac{du}{dt} + \frac{\Delta t^2}{2!}\frac{d^2u}{dt^2} - \frac{\Delta t^3}{3!}\frac{d^3u}{dt^3}+O(\Delta t^4),
@@ -450,11 +450,15 @@ u(t-\Delta t)=u(t)-\Delta t\frac{du}{dt} + \frac{\Delta t^2}{2!}\frac{d^2u}{dt^2
 <p>where the <span class="math notranslate nohighlight">\(a_j\)</span>’s are coefficients to be determined.</p>
 <p>We start by expanding <span class="math notranslate nohighlight">\(u^{j}, \quad j=n-2,\dotsc,n+2\)</span> as Taylor series of <span class="math notranslate nohighlight">\(u^n\)</span>, up to the fifth order term:</p>
 <div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}\begin{split}
+\[\begin{split}
 \begin{align}
-u^{n-2} &amp;= u^n - 2\Delta t\frac{du}{dt}+4\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}-8\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+16\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}-32\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6)\\\end{split}\\\begin{split}u^{n-1} &amp;= u^n - \Delta t\frac{du}{dt}+\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}-\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}-\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6)\\\end{split}\\\begin{split}u^{n} &amp;= u^n \\\end{split}\\\begin{split}u^{n+1} &amp;= u^n + \Delta t\frac{du}{dt}+\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}+\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}+\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6)\\\end{split}\\u^{n+2} &amp;= u^n + 2\Delta t\frac{du}{dt}+4\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}+8\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+16\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}+32\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6).
+u^{n-2} &amp;= u^n - 2\Delta t\frac{du}{dt}+4\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}-8\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+16\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}-32\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6)\\
+u^{n-1} &amp;= u^n - \Delta t\frac{du}{dt}+\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}-\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}-\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6)\\
+u^{n} &amp;= u^n \\
+u^{n+1} &amp;= u^n + \Delta t\frac{du}{dt}+\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}+\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}+\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6)\\
+u^{n+2} &amp;= u^n + 2\Delta t\frac{du}{dt}+4\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}+8\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+16\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}+32\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6).
 \end{align}
-\end{aligned}\end{align} \]</div>
+\end{split}\]</div>
 <p>We now multiply the Taylor series expansions with the corresponding coefficient and group the terms per order of the derivative:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
