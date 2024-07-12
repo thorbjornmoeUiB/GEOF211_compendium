@@ -176,7 +176,7 @@ square_wave = 1 - 2 * (t.astype(int) % 2)
 N = 10 #number of frequencies to include
 superpos = np.zeros_like(t) #short for superposition
 
-for i in range(N): #loop through the 20 first sine waves
+for i in range(N): #loop through the 10 first sine waves
     n = 2*i + 1 #only odd numbers 
     superpos += np.sin(n * np.pi *t) / n #adds the sine wave for n into the superposition so far
 superpos *= 4 / np.pi

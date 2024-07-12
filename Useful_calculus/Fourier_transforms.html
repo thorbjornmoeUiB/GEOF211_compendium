@@ -541,29 +541,29 @@ document.write(`
 <p>The time domain represents how the signal (for example air temperature) is changing with time, <span class="math notranslate nohighlight">\(t\)</span>. The time is running along the horizontal axis and the temperature is in the vertical axis. Mathematically, we would say that the temperature is a function of time, <span class="math notranslate nohighlight">\(y(t)\)</span>. Similarly, the space domain represents how the signal (for example air temperature) is changing with space or distance, <span class="math notranslate nohighlight">\(x\)</span>. Then, the resulting function would be <span class="math notranslate nohighlight">\(y(x)\)</span>.</p>
 <p>To get a meaningful interpretation of the frequency domain, we must first approximate our signal by the sum of the mean value of our signal, <span class="math notranslate nohighlight">\(\bar{y(t)}\)</span>, and a superposition of many waves with different frequencies, amplitudes, and phases, <span class="math notranslate nohighlight">\(T\)</span>. The more frequencies, <span class="math notranslate nohighlight">\(\omega_n\)</span> with unit [radians per time], we include in the superposition, the better the approximation is. The approximation is typoically valid within a certain time period, <span class="math notranslate nohighlight">\(T\)</span>. The frequencies are related to the time period, through <span class="math notranslate nohighlight">\(\omega_n=2\pi/T\)</span>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-fourier-series">
-<span class="eqno">(1.29)<a class="headerlink" href="#equation-eq-fourier-series" title="Link to this equation">#</a></span>\[
+<span class="eqno">(1.22)<a class="headerlink" href="#equation-eq-fourier-series" title="Link to this equation">#</a></span>\[
 y(t)=\bar{y(t)}+\sum_n[A_ncos(\omega_n t)+B_nsin(\omega_n t)]
 \]</div>
 <p>The number of frequencies we can reolve in a time series, depend on the time interval and the sampling frequency. To resolve a wave signal, we need at least 2 datapoints per wavelength. The highest resolveable frequency, will therefore be <span class="math notranslate nohighlight">\(f_N=(N/2)/N\Delta t=1/2\Delta t\)</span>. This is called the Nyquist frequency.</p>
 <p>Another way of representing the function <span class="math notranslate nohighlight">\(y(t)\)</span> as a Fourier series, is to note that <span class="math notranslate nohighlight">\(\bar{y(t)}\)</span> can be written as <span class="math notranslate nohighlight">\(A_n/2\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-fourier-series">
-<span class="eqno">(1.29)<a class="headerlink" href="#equation-eq-fourier-series" title="Link to this equation">#</a></span>\[
+<span class="eqno">(1.22)<a class="headerlink" href="#equation-eq-fourier-series" title="Link to this equation">#</a></span>\[
 y(t)=\frac{A_0}{2}+\sum_n[A_ncos(\omega_n t)+B_nsin(\omega_n t)]
 \]</div>
 <p>The amplitude of each wave in the superposition, can be derived from the following equations:</p>
 <div class="math notranslate nohighlight" id="equation-eq-fourier-series-amplitude">
-<span class="eqno">(1.32)<a class="headerlink" href="#equation-eq-fourier-series-amplitude" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(1.25)<a class="headerlink" href="#equation-eq-fourier-series-amplitude" title="Link to this equation">#</a></span>\[\begin{split}
 A_n=\frac{2}{T}\int_{0}^{T}f(t)cos(\omega_n t)dt, n=0,1,2,...\\
 B_n=\frac{2}{T}\int_{0}^{T}f(t)sin(\omega_n t)dt, n=1,2,...
 \end{split}\]</div>
 <p>We can also construct the Fourier series using complex notation for currents, e.g., by stating that <span class="math notranslate nohighlight">\(U(t)=u(t)+iv(t)\)</span>, when <span class="math notranslate nohighlight">\(u(t)\)</span> and <span class="math notranslate nohighlight">\(v(t)\)</span> are velocities in east and north direction, respectively:</p>
 <div class="math notranslate nohighlight" id="equation-eq-fourier-series-complex-euler">
-<span class="eqno">(1.31)<a class="headerlink" href="#equation-eq-fourier-series-complex-euler" title="Link to this equation">#</a></span>\[
+<span class="eqno">(1.24)<a class="headerlink" href="#equation-eq-fourier-series-complex-euler" title="Link to this equation">#</a></span>\[
 U(t)=\sum_{n=0}^\infty c_n e^{i 2\pi\frac{n}{T}t}
 \]</div>
 <p>, where</p>
 <div class="math notranslate nohighlight" id="equation-eq-fourier-series-amplitude">
-<span class="eqno">(1.32)<a class="headerlink" href="#equation-eq-fourier-series-amplitude" title="Link to this equation">#</a></span>\[
+<span class="eqno">(1.25)<a class="headerlink" href="#equation-eq-fourier-series-amplitude" title="Link to this equation">#</a></span>\[
 c_n=\frac{1}{T}\int_{0}^{T}U(t)e^{-i\frac{2\pi}{T}t}dt
 \]</div>
 </section>
@@ -572,7 +572,7 @@ c_n=\frac{1}{T}\int_{0}^{T}U(t)e^{-i\frac{2\pi}{T}t}dt
 <p>When we have created our approximated signal, we can calculate the amount of energy (wave amplitude) related to each frequency. The result is a function that displays the energy as a function of frequency. If we let <span class="math notranslate nohighlight">\(t\rightarrow \infty\)</span> and include enough wave frequencies to allow <span class="math notranslate nohighlight">\(n/T \rightarrow \xi\)</span> we can now write a function of the amount of energy as in terms of each wave. This is how our signal looks in the frequency domain, and this function is called the Fourier transform. There are two versions, one continuous and one discrete:</p>
 <p>For a continuous functions, <span class="math notranslate nohighlight">\(y(t)\)</span> the Fourier transform pair is  defined:</p>
 <div class="math notranslate nohighlight" id="equation-eq-fourier-transform-continuous">
-<span class="eqno">(1.33)<a class="headerlink" href="#equation-eq-fourier-transform-continuous" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(1.26)<a class="headerlink" href="#equation-eq-fourier-transform-continuous" title="Link to this equation">#</a></span>\[\begin{split}
 \begin{align}
 Y(f)&amp;=\int_{-\infty}^\infty y(t)e^{-i2\pi ft}dt\\
 y(t)&amp;=\int_{-\infty}^\infty Y(f)e^{i2\pi ft}df\\
@@ -582,7 +582,7 @@ y(t)&amp;=\int_{-\infty}^\infty Y(f)e^{i2\pi ft}df\\
 <p>,where <span class="math notranslate nohighlight">\(\omega=2\pi f\)</span>. The functions are inverse set of functions.</p>
 <p>For discrete data series (in time or space), the Fourier transform is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-fourier-transform">
-<span class="eqno">(1.34)<a class="headerlink" href="#equation-eq-fourier-transform" title="Link to this equation">#</a></span>\[
+<span class="eqno">(1.27)<a class="headerlink" href="#equation-eq-fourier-transform" title="Link to this equation">#</a></span>\[
 Y(f)=\Delta t \sum_{-\infty}^\infty y_n e^{-i2\pi ft}
 \]</div>
 <p>Here, the function <span class="math notranslate nohighlight">\(Y(f)\)</span> represent energy as a function of the frequency <span class="math notranslate nohighlight">\(f\)</span>. If the signal consisted of just one pure sine wave, the graph of <span class="math notranslate nohighlight">\(Y(f)\)</span> would contain a single spike at the frequency of this sine wave. For the superposition of the three waves in the example above, we get one spike for each of the frequencies 2, 5, and 10 cycles per second.</p>
@@ -653,7 +653,7 @@ Y(f)=\Delta t \sum_{-\infty}^\infty y_n e^{-i2\pi ft}
 <span class="n">N</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1">#number of frequencies to include</span>
 <span class="n">superpos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="c1">#short for superposition</span>
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span> <span class="c1">#loop through the 20 first sine waves</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span> <span class="c1">#loop through the 10 first sine waves</span>
     <span class="n">n</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1">#only odd numbers </span>
     <span class="n">superpos</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span> <span class="c1">#adds the sine wave for n into the superposition so far</span>
 <span class="n">superpos</span> <span class="o">*=</span> <span class="mi">4</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
@@ -676,7 +676,7 @@ Y(f)=\Delta t \sum_{-\infty}^\infty y_n e^{-i2\pi ft}
 <img alt="../_images/1777e04dc3cd7f752de42f0f6705a2aa75017a970bcf927002d5b1996f2fa5de.png" src="../_images/1777e04dc3cd7f752de42f0f6705a2aa75017a970bcf927002d5b1996f2fa5de.png" />
 </div>
 </div>
-<p>You can read more about Fourier series and transforms in <span id="id1">Emery and Thompson [<a class="reference internal" href="../markdown.html#id11" title="Emery, WIlliam J. and Richard E. Thompson. Data Analysis Methods in Physical Oceanography. Elsevier B. V., 3rd ed edition, 1997. ISBN 0-444-50757 4.">ET97</a>]</span>.</p>
+<p>You can read more about Fourier series and transforms in <span id="id1">Emery and Thompson [<a class="reference internal" href="#id11" title="Emery, WIlliam J. and Richard E. Thompson. Data Analysis Methods in Physical Oceanography. Elsevier B. V., 3rd ed edition, 1997. ISBN 0-444-50757 4.">ET97</a>]</span>.</p>
 <section id="references">
 <h2><span class="section-number">1.6.1. </span>References:<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
 <div class="docutils container" id="id2">

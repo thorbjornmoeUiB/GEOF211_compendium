@@ -376,9 +376,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -394,23 +392,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-euler-formula-and-modifications">1.4.1. The Euler formula and modifications</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eulers-identity">1.4.1.1. Eulers identity</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eulers-formula">1.4.1.2. Eulers formula</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cosine-exponential-form">1.4.1.3. Cosine exponential form</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sine-exponential-form">1.4.1.4. Sine exponential form</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tangent-exponential-form">1.4.1.5. Tangent exponential form</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-exponential">1.4.1.6. Complex exponential</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#de-moivre-s-theorem">1.4.1.7. de Moivre’s theorem</a></li>
-</ul>
-</li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -447,59 +428,7 @@ $<span class="math notranslate nohighlight">\(
 $<span class="math notranslate nohighlight">\(
 |z+w|&lt;|z|+|w|
 \)</span>$ (eq:Complex_triangle_identity)</p>
-<section id="the-euler-formula-and-modifications">
-<h2><span class="section-number">1.4.1. </span>The Euler formula and modifications<a class="headerlink" href="#the-euler-formula-and-modifications" title="Link to this heading">#</a></h2>
-<section id="eulers-identity">
-<h3><span class="section-number">1.4.1.1. </span>Eulers identity<a class="headerlink" href="#eulers-identity" title="Link to this heading">#</a></h3>
-<div class="math notranslate nohighlight" id="equation-eq-euler-identity">
-<span class="eqno">(1.21)<a class="headerlink" href="#equation-eq-euler-identity" title="Link to this equation">#</a></span>\[
-e^{i\pi}+1=0
-\]</div>
-</section>
-<section id="eulers-formula">
-<h3><span class="section-number">1.4.1.2. </span>Eulers formula<a class="headerlink" href="#eulers-formula" title="Link to this heading">#</a></h3>
-<div class="math notranslate nohighlight" id="equation-eq-euler">
-<span class="eqno">(1.22)<a class="headerlink" href="#equation-eq-euler" title="Link to this equation">#</a></span>\[
-e^{ix}=\cos x+i\sin x
-\]</div>
-</section>
-<section id="cosine-exponential-form">
-<h3><span class="section-number">1.4.1.3. </span>Cosine exponential form<a class="headerlink" href="#cosine-exponential-form" title="Link to this heading">#</a></h3>
-<div class="math notranslate nohighlight" id="equation-eq-euler-cos">
-<span class="eqno">(1.23)<a class="headerlink" href="#equation-eq-euler-cos" title="Link to this equation">#</a></span>\[
-\frac{e^{ix}+e^{-ix}}{2}=\cos x
-\]</div>
-</section>
-<section id="sine-exponential-form">
-<h3><span class="section-number">1.4.1.4. </span>Sine exponential form<a class="headerlink" href="#sine-exponential-form" title="Link to this heading">#</a></h3>
-<div class="math notranslate nohighlight" id="equation-eq-euler-sin">
-<span class="eqno">(1.24)<a class="headerlink" href="#equation-eq-euler-sin" title="Link to this equation">#</a></span>\[
-\frac{e^{ix}-e^{-ix}}{2i}=\sin x
-\]</div>
-</section>
-<section id="tangent-exponential-form">
-<h3><span class="section-number">1.4.1.5. </span>Tangent exponential form<a class="headerlink" href="#tangent-exponential-form" title="Link to this heading">#</a></h3>
-<div class="math notranslate nohighlight" id="equation-eq-euler-tan">
-<span class="eqno">(1.25)<a class="headerlink" href="#equation-eq-euler-tan" title="Link to this equation">#</a></span>\[
-\frac{e^{ix}-e^{-ix}}{i(e^{ix}+e^{-1x})}=\tan x
-\]</div>
-</section>
-<section id="complex-exponential">
-<h3><span class="section-number">1.4.1.6. </span>Complex exponential<a class="headerlink" href="#complex-exponential" title="Link to this heading">#</a></h3>
-<div class="math notranslate nohighlight" id="equation-eq-euler-complex-exp">
-<span class="eqno">(1.26)<a class="headerlink" href="#equation-eq-euler-complex-exp" title="Link to this equation">#</a></span>\[
-e^{x+iy}=e^x(\cos y+i\sin y)
-\]</div>
-</section>
-<section id="de-moivre-s-theorem">
-<h3><span class="section-number">1.4.1.7. </span>de Moivre’s theorem<a class="headerlink" href="#de-moivre-s-theorem" title="Link to this heading">#</a></h3>
-<div class="math notranslate nohighlight" id="equation-eq-euler-sine-add">
-<span class="eqno">(1.27)<a class="headerlink" href="#equation-eq-euler-sine-add" title="Link to this equation">#</a></span>\[
-(\cos x+i\sin x)^n=\cos nx+i\sin nx
-\]</div>
-<p>You can read more about complex numbers in <span id="id1">Adams and Essex [<a class="reference internal" href="../markdown.html#id3" title="Robert A Adams and Christopher Essex. Calculus: a complete course. Pearson, 2018.">AE18</a>]</span>, Appendix 1.</p>
-</section>
-</section>
+<p>You can read more about complex numbers in <span id="id1">Adams and Essex [<a class="reference internal" href="Fourier_transforms.html#id3" title="Robert A Adams and Christopher Essex. Calculus: a complete course. Pearson, 2018.">AE18</a>]</span>, Appendix 1.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -556,30 +485,6 @@ e^{x+iy}=e^x(\cos y+i\sin y)
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-euler-formula-and-modifications">1.4.1. The Euler formula and modifications</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eulers-identity">1.4.1.1. Eulers identity</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eulers-formula">1.4.1.2. Eulers formula</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cosine-exponential-form">1.4.1.3. Cosine exponential form</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sine-exponential-form">1.4.1.4. Sine exponential form</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tangent-exponential-form">1.4.1.5. Tangent exponential form</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-exponential">1.4.1.6. Complex exponential</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#de-moivre-s-theorem">1.4.1.7. de Moivre’s theorem</a></li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
