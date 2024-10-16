@@ -194,6 +194,104 @@ plt.show()
 
 ```
 
+# Here is my script Kjersti! 
+
+I will write a description, but you are welcome to change it or move it to another place in the book (or make any changes to make it fit into the book)!
+
+The figure below shows three major parts of the Fourier series:
+1) The Fourier components corresponding to how much an individual wave of a given wave number contributes to the signal
+2) The individual waves, being the multiple of the individual waves and the Fourier component
+3) The superposition of these waves, being simply the sum of each individual wave up to a number N, in this case, taken to be 20 (i.e., 20 Fourier components and 20 individual waves).
+The example used is of a step function, often used to illustrate Gibbs phenomenon (see above).
+
+The first panel shows the magnitude of each Fourier component (A$_n$ and B$_n$) up to the wavenumber 20 (or 19, counting from 0). Each of the 20 wavenumbers corresponds to waves with different wavelengths (n = 1 corresponds to one waveperiod within the domain, n=2 corresponds to two waveperiods within the domain, and so forth). In the next six panels, the waves corresponding to a wavenumber are shown (n=1 to n=6, red). The same waves are multiplied by the corresponding Fourier component (Teal). We note that all the A$_n$-components are zero, so these are not shown. Moreover, every other B$_n$-component is zero (seen in the top panel), resulting in no contribution to the superposition. The lowermost panel shows the superposition of the first 20 wavenumbers, which is reduced to include only every other B$_n$ component. 
+```{code-cell} ipython3
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.signal import square
+from scipy.integrate import quad
+from math import * 
+
+# initialize arrays
+x=np.arange(-np.pi,np.pi,0.001) 
+y=square(x) 
+
+# number of fourier components to include
+n=20
+xarr = np.linspace(0,n-1,n) # array for plotting
+
+An=np.zeros([n]) #// defining array
+Bn=np.zeros([n])
+
+# Calculate Fourier components
+fc=lambda x:square(x)*cos(i*x)  
+fs=lambda x:square(x)*sin(i*x)
+for i in range(n):
+    An[i]=quad(fc,-np.pi,np.pi)[0]*(1.0/np.pi)
+    Bn[i] = quad(fs,-np.pi,np.pi)[0]*(1.0/np.pi)
+
+# Make plot
+fig = plt.figure(figsize=[7,12])
+grid = plt.GridSpec(10,1,height_ratios=[2,0.4,1.5,1,1,1,1,1,0.2,2],hspace=0.5)
+
+
+# Plot the fourier components
+ax = fig.add_subplot(grid[0,0])
+ax.set_title('Fourier coefficients (A$_{n}$ and B$_{n}$) for different wavenumbers (n)')
+ax.plot(xarr,An,'k',alpha=0.3)
+ax.plot(xarr,Bn,'Teal',alpha=0.3)
+ax.plot(xarr,An,'o',color='k',markersize=7,label=r'$A_n$')              # Note that all An's are zero, we will therefore neglect them in the next few panels
+ax.plot(xarr,Bn,'o',color='Teal',markersize=7,label=r'$B_n$')
+ax.legend()
+ax.grid()
+ax.set(xlim=[0,19],xticks=xarr,ylabel='"Amplifier"',xlabel='n',yticks=[0,0.5,1,np.round(Bn[1],2)])
+
+# Calculate the individual waves (one wave corresponds to one fourier component (=n))
+BN = np.zeros([n,x.shape[0]]) 
+PN = np.zeros([n,x.shape[0]])
+for i in range(1,n):
+    BN[i,:] = Bn[i]*np.sin(i*x)     # The wave multiplied by the amplitude of the Fourier component
+    PN[i,:] = np.sin(i*x)           # The wave with amplitude: -1 < A < 1
+
+# Plotting the first few waves 
+for i in [1,2,3,4,5,6]:#[1,3,5,7,9,11]:
+    ax = fig.add_subplot(grid[i+1,0])
+    ax.plot(x,BN[i,:],'Teal',label=r'$B_n \cdot sin(\frac{2 \pi k x}{L})$')
+    ax.plot(x,PN[i,:],'r--',label=r'$sin(\frac{2 \pi k x}{L})$')
+    if i != 1:
+        ax.set_title('n='+str(i)+', B$_n$ = '+str(np.round(Bn[i],2)),y=1)
+    else:
+        ax.set_title('Individual waves \nn='+str(i)+', B$_n$ = '+str(np.round(Bn[i],2)),y=1)
+        ax.legend(loc= 'lower right',ncols=2)
+    if i == 3:
+        ax.set_ylabel('Amplitude [m]',y=0)
+    ax.set(ylim=[-2,2],xlim=[-np.pi,np.pi],yticks=[-2,-1,0,1,2],xticks=[-3,-2,-1,0,1,2,3],xticklabels=[])
+    ax.grid()
+    
+ax.xaxis.set_ticklabels([-3,-2,-1,0,1,2,3])
+ax.set_xlabel('Time [s]')
+
+# Calculate the sum of the fourier components (i.e., the superposition of the individual waves)
+sum=0
+for i in range(n):
+    if i==0.0:
+        sum=sum+An[i]/2
+    else:
+        sum=sum+(An[i]*np.cos(i*x)+Bn[i]*np.sin(i*x)) # Don't actually need the "An[i]*np.cos(i*x)" part because we know it to be zero for all n.
+
+# plot the actual signal (black), the individual waves/Fourier components (red), and the superposition of the waves (Teal)
+ax = fig.add_subplot(grid[9,0])
+ax.set_title('Approximation of signal (superposition of waves, 0<n<20)')
+for i in range(n):
+    ax.plot(x,(An[i]*np.cos(i*x)+Bn[i]*np.sin(i*x)),color='red',alpha=0.15)
+ax.plot(x,sum,color='Teal',label='Approximation')
+ax.plot(x,y,'k--',label='Signal')
+ax.grid()
+ax.set(xlabel='Time [s]',ylabel='Amplitude [m]',xlim=[-np.pi,np.pi])
+ax.legend()
+
+```
+
 You can read more about Fourier series and transforms in {cite:ts}`EmeryThompson`.
 
 ### References:
